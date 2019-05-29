@@ -7,6 +7,7 @@ import java.io.InputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.io.ObjectInputStream;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Login implements Serializable {
@@ -16,8 +17,8 @@ public class Login implements Serializable {
 	public Login(String nome, String senha) throws FileNotFoundException, IOException {
 		setNome(nome);
 		setSenha(senha);
-		gravarLogin();
 	}
+	
 	public String getNome() {
 		return nome;
 	}
@@ -31,20 +32,53 @@ public class Login implements Serializable {
 		this.senha = senha;
 	}
 	
-	public void gravarLogin() throws FileNotFoundException, IOException {
+	public boolean ehLogin(Login login) {
+		
+		if ((this.getNome().compareTo(login.getNome()) == 0) &&
+				(this.getSenha().compareTo(login.getSenha()) == 0))
+		{
+			return true;
+		}
+		
+		return false;
+	}
+	
+	public static void gravarLogin(Login login) throws FileNotFoundException, IOException {
 		File arquivo = new File("login.txt");
 		ObjectOutputStream obj = new ObjectOutputStream(new FileOutputStream(arquivo));
-		obj.writeObject(this);
+		obj.writeObject(login);
 		obj.close();
 	}
 	
-	public Login lerLogin() throws FileNotFoundException, IOException, ClassNotFoundException {
-		File arquivo = new File("login.txt");
-		ObjectInputStream obj = new ObjectInputStream(new FileInputStream(arquivo));
-		Login log = (Login)obj.readObject();
-		obj.close();
+	public static Login lerLogin() throws ClassNotFoundException, IOException {
+		FileInputStream  arquivo = new FileInputStream ("login.txt");
+		ObjectInputStream obj = new ObjectInputStream(arquivo);
+		Login log = (Login) obj.readObject();
 		
 		return log;
+		
+		/*
+		boolean cont = true;
+ 		ArrayList<Login> objectsList = new ArrayList<Login>();boolean cont = true;
+		try{
+			ObjectInputStream obj = new ObjectInputStream(arquivo);
+		   while(cont){
+		      log = (Login)obj.readObject();
+		      if(log != null)
+		         objectsList.add(log);
+		      else
+		         cont = false;
+		   }
+		   
+		   obj.close();
+		}catch(Exception e){
+		   //System.out.println(e.printStackTrace());
+		}
+		
+		for (Login l: objectsList) {
+			System.out.println(l.getNome());
+			System.out.println(l.getSenha());
+		} */
 	}
 	
 	public void alterarSenha() {
@@ -53,12 +87,12 @@ public class Login implements Serializable {
 		String senha = teclado.nextLine();
 		String novaSenha;
 		
-		if (this.senha == senha) {
+		if (this.senha.compareTo(senha) == 0) {
 			while (true) {
 				System.out.print("Digite a nova senha: ");
 				novaSenha = teclado.nextLine();
 				System.out.print("Comfirme a nova senha: ");
-				if (novaSenha == teclado.nextLine()) {
+				if (novaSenha.compareTo(teclado.nextLine()) == 0) {
 					setSenha(novaSenha);
 					break;
 				}
@@ -66,8 +100,6 @@ public class Login implements Serializable {
 					System.out.println("Senha inválida");
 				}
 			}
-			
-			
 		}
 		else {
 			System.out.println("Senha inválida");
