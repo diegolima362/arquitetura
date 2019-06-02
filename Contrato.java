@@ -63,5 +63,11 @@ public class Contrato {
 		this.funcionarios = funcionarios;
 	}
 	
+	public int getVisitasTecnicasCobradas() {
+		return visitasTecnicasCobradas;
+	}
+	public void setVisitasTecnicasCobradas(int visitasTecnicasCobradas) {
+		this.visitasTecnicasCobradas = visitasTecnicasCobradas;
+	}
 	
 }

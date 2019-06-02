@@ -43,7 +43,7 @@ public class Login implements Serializable {
 		return false;
 	}
 	
-	public static void gravarLogin(Login login) throws FileNotFoundException, IOException {
+	public static void escreverLogin(Login login) throws FileNotFoundException, IOException {
 		File arquivo = new File("login.txt");
 		ObjectOutputStream obj = new ObjectOutputStream(new FileOutputStream(arquivo));
 		obj.writeObject(login);
@@ -59,7 +59,7 @@ public class Login implements Serializable {
 		
 		/*
 		boolean cont = true;
- 		ArrayList<Login> objectsList = new ArrayList<Login>();boolean cont = true;
+ 		ArrayList<Login> objectsList = new ArrayList<Login>();
 		try{
 			ObjectInputStream obj = new ObjectInputStream(arquivo);
 		   while(cont){

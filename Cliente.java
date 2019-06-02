@@ -1,4 +1,11 @@
-
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.util.ArrayList;
 
 public class Cliente {
 	private int codigo;
@@ -31,5 +38,39 @@ public class Cliente {
 		this.telefone = telefone;
 	}
 	
+	public static void escreverCliente(Cliente cliente) throws FileNotFoundException, IOException {
+		File arquivo = new File("clientes.txt");
+		ObjectOutputStream obj = new ObjectOutputStream(new FileOutputStream(arquivo));
+		obj.writeObject(cliente);
+		obj.close();
+	}
 	
+	public static ArrayList<Cliente> lerClientes() {
+		FileInputStream arquivo = null;
+		try {
+			arquivo = new FileInputStream ("clientes.txt");
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+		
+		ArrayList<Cliente> clientes = new ArrayList<Cliente>();
+		Cliente cliente = null;
+		boolean cont = true;
+		
+		try {
+			ObjectInputStream obj = new ObjectInputStream(arquivo);
+			while(cont){
+				cliente = (Cliente)obj.readObject();
+				if(cliente != null)
+					clientes.add(cliente);
+				else
+					cont = false;
+		   }
+		   obj.close();
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		return clientes;
+	}
 }
