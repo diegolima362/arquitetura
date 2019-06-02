@@ -40,7 +40,7 @@ public class Cliente {
 	
 	public static void escreverCliente(Cliente cliente) throws FileNotFoundException, IOException {
 		File arquivo = new File("clientes.txt");
-		ObjectOutputStream obj = new ObjectOutputStream(new FileOutputStream(arquivo));
+		ObjectOutputStream obj = new ObjectOutputStream(new FileOutputStream(arquivo, true));
 		obj.writeObject(cliente);
 		obj.close();
 	}

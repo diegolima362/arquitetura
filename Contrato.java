@@ -1,5 +1,12 @@
 
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -68,6 +75,42 @@ public class Contrato {
 	}
 	public void setVisitasTecnicasCobradas(int visitasTecnicasCobradas) {
 		this.visitasTecnicasCobradas = visitasTecnicasCobradas;
+	}
+	
+	public static void escreverContrato(Contrato contrato) throws FileNotFoundException, IOException {
+		File arquivo = new File("contratos.txt");
+		ObjectOutputStream obj = new ObjectOutputStream(new FileOutputStream(arquivo, true));
+		obj.writeObject(contrato);
+		obj.close();
+	}
+	
+	public static ArrayList<Contrato> lerContratos() {
+		FileInputStream arquivo = null;
+		try {
+			arquivo = new FileInputStream ("contratos.txt");
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+		
+		ArrayList<Contrato> contratos = new ArrayList<Contrato>();
+		Contrato contrato = null;
+		boolean cont = true;
+		
+		try {
+			ObjectInputStream obj = new ObjectInputStream(arquivo);
+			while(cont){
+				contrato = (Contrato)obj.readObject();
+				if(contrato != null)
+					contratos.add(contrato);
+				else
+					cont = false;
+		   }
+		   obj.close();
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		return contratos;
 	}
 	
 }

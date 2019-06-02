@@ -1,5 +1,13 @@
 
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.util.ArrayList;
 import java.util.Date;
 
 public class LevantamentoVisita {
@@ -47,5 +55,39 @@ public class LevantamentoVisita {
 		this.valorCobrado = valorCobrado;
 	}
 	
+	public static void escreverLevantamentoVisita(LevantamentoVisita levantamentoVisita) throws FileNotFoundException, IOException {
+		File arquivo = new File("levantamentoVisitas.txt");
+		ObjectOutputStream obj = new ObjectOutputStream(new FileOutputStream(arquivo, true));
+		obj.writeObject(levantamentoVisita);
+		obj.close();
+	}
 	
+	public static ArrayList<LevantamentoVisita> lerLevantamentoVisitas() {
+		FileInputStream arquivo = null;
+		try {
+			arquivo = new FileInputStream ("levantamentoVisita.txt");
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+		
+		ArrayList<LevantamentoVisita> levantamentoVisitas = new ArrayList<LevantamentoVisita>();
+		LevantamentoVisita levantamentoVisita = null;
+		boolean cont = true;
+		
+		try {
+			ObjectInputStream obj = new ObjectInputStream(arquivo);
+			while(cont){
+				levantamentoVisita = (LevantamentoVisita)obj.readObject();
+				if(levantamentoVisita != null)
+					levantamentoVisitas.add(levantamentoVisita);
+				else
+					cont = false;
+		   }
+		   obj.close();
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		return levantamentoVisitas;
+	}
 }

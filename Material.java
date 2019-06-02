@@ -1,5 +1,12 @@
 
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 public class Material {
@@ -40,5 +47,40 @@ public class Material {
 		this.catalogo = catalogo;
 	}
 	
+	public static void escreverMaterial(Material material) throws FileNotFoundException, IOException {
+		File arquivo = new File("materiais.txt");
+		ObjectOutputStream obj = new ObjectOutputStream(new FileOutputStream(arquivo, true));
+		obj.writeObject(material);
+		obj.close();
+	}
+	
+	public static ArrayList<Material> lerMateriais() {
+		FileInputStream arquivo = null;
+		try {
+			arquivo = new FileInputStream ("materiais.txt");
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+		
+		ArrayList<Material> materiais = new ArrayList<Material>();
+		Material material = null;
+		boolean cont = true;
+		
+		try {
+			ObjectInputStream obj = new ObjectInputStream(arquivo);
+			while(cont){
+				material = (Material)obj.readObject();
+				if(material != null)
+					materiais.add(material);
+				else
+					cont = false;
+		   }
+		   obj.close();
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		return materiais;
+	}
 	
 }

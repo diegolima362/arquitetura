@@ -1,5 +1,12 @@
 
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 public class Orcamento {
@@ -40,5 +47,40 @@ public class Orcamento {
 		this.detalhamentoCusto = detalhamentoCusto;
 	}
 	
+	public static void escreverOrcamento(Orcamento orcamento) throws FileNotFoundException, IOException {
+		File arquivo = new File("orcamentos.txt");
+		ObjectOutputStream obj = new ObjectOutputStream(new FileOutputStream(arquivo, true));
+		obj.writeObject(orcamento);
+		obj.close();
+	}
+	
+	public static ArrayList<Orcamento> lerOrcamentos() {
+		FileInputStream arquivo = null;
+		try {
+			arquivo = new FileInputStream ("orcamentos.txt");
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+		
+		ArrayList<Orcamento> orcamentos = new ArrayList<Orcamento>();
+		Orcamento orcamento = null;
+		boolean cont = true;
+		
+		try {
+			ObjectInputStream obj = new ObjectInputStream(arquivo);
+			while(cont){
+				orcamento = (Orcamento)obj.readObject();
+				if(orcamento != null)
+					orcamentos.add(orcamento);
+				else
+					cont = false;
+		   }
+		   obj.close();
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		return orcamentos;
+	}
 	
 }

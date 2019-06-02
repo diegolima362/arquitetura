@@ -1,4 +1,11 @@
-
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.util.ArrayList;
 
 public class Funcionario {
 	private int codigo;
@@ -50,6 +57,42 @@ public class Funcionario {
 	}
 	public void setProjetoAlocado(int projetoAlocado) {
 		this.projetoAlocado = projetoAlocado;
+	}
+	
+	public static void escreverFuncionario(Funcionario funcionario) throws FileNotFoundException, IOException {
+		File arquivo = new File("funcionarios.txt");
+		ObjectOutputStream obj = new ObjectOutputStream(new FileOutputStream(arquivo, true));
+		obj.writeObject(funcionario);
+		obj.close();
+	}
+	
+	public static ArrayList<Funcionario> lerFuncionarios() {
+		FileInputStream arquivo = null;
+		try {
+			arquivo = new FileInputStream ("funcionarios.txt");
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+		
+		ArrayList<Funcionario> funcionarios = new ArrayList<Funcionario>();
+		Funcionario funcionario = null;
+		boolean cont = true;
+		
+		try {
+			ObjectInputStream obj = new ObjectInputStream(arquivo);
+			while(cont){
+				funcionario = (Funcionario)obj.readObject();
+				if(funcionario != null)
+					funcionarios.add(funcionario);
+				else
+					cont = false;
+		   }
+		   obj.close();
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		return funcionarios;
 	}
 	
 }

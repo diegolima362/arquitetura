@@ -1,5 +1,13 @@
 
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.util.ArrayList;
 import java.util.Date;
 
 public class Projeto {
@@ -44,8 +52,45 @@ public class Projeto {
 		return valorTotal;
 	}
 	public void setValorTotal(double valorTotal) {
-		this.valorTotal = valorTotal;
+		if (valorTotal >= 0) {
+			this.valorTotal = valorTotal;
+		}
 	}
 	
+	public static void escreverProjeto(Projeto projeto) throws FileNotFoundException, IOException {
+		File arquivo = new File("projetos.txt");
+		ObjectOutputStream obj = new ObjectOutputStream(new FileOutputStream(arquivo, true));
+		obj.writeObject(projeto);
+		obj.close();
+	}
+	
+	public static ArrayList<Projeto> lerProjetos() {
+		FileInputStream arquivo = null;
+		try {
+			arquivo = new FileInputStream ("projetos.txt");
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+		
+		ArrayList<Projeto> projetos = new ArrayList<Projeto>();
+		Projeto projeto = null;
+		boolean cont = true;
+		
+		try {
+			ObjectInputStream obj = new ObjectInputStream(arquivo);
+			while(cont){
+				projeto = (Projeto)obj.readObject();
+				if(projeto != null)
+					projetos.add(projeto);
+				else
+					cont = false;
+		   }
+		   obj.close();
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		return projetos;
+	}
 	
 }
