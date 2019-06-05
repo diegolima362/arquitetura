@@ -44,14 +44,14 @@ public class Login implements Serializable {
 	}
 	
 	public static void escreverLogin(Login login) throws FileNotFoundException, IOException {
-		File arquivo = new File("login.txt");
+		File arquivo = new File("./bin/login.txt");
 		ObjectOutputStream obj = new ObjectOutputStream(new FileOutputStream(arquivo));
 		obj.writeObject(login);
 		obj.close();
 	}
 	
 	public static Login lerLogin() throws ClassNotFoundException, IOException {
-		FileInputStream  arquivo = new FileInputStream ("login.txt");
+		FileInputStream  arquivo = new FileInputStream ("./bin/login.txt");
 		ObjectInputStream obj = new ObjectInputStream(arquivo);
 		Login log = (Login) obj.readObject();
 		

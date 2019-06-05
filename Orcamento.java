@@ -48,7 +48,7 @@ public class Orcamento {
 	}
 	
 	public static void escreverOrcamento(Orcamento orcamento) throws FileNotFoundException, IOException {
-		File arquivo = new File("orcamentos.txt");
+		File arquivo = new File("./bin/orcamentos.txt");
 		ObjectOutputStream obj = new ObjectOutputStream(new FileOutputStream(arquivo, true));
 		obj.writeObject(orcamento);
 		obj.close();
@@ -57,7 +57,7 @@ public class Orcamento {
 	public static ArrayList<Orcamento> lerOrcamentos() {
 		FileInputStream arquivo = null;
 		try {
-			arquivo = new FileInputStream ("orcamentos.txt");
+			arquivo = new FileInputStream ("./bin/orcamentos.txt");
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}

@@ -48,7 +48,7 @@ public class Material {
 	}
 	
 	public static void escreverMaterial(Material material) throws FileNotFoundException, IOException {
-		File arquivo = new File("materiais.txt");
+		File arquivo = new File("./bin/materiais.txt");
 		ObjectOutputStream obj = new ObjectOutputStream(new FileOutputStream(arquivo, true));
 		obj.writeObject(material);
 		obj.close();
@@ -57,7 +57,7 @@ public class Material {
 	public static ArrayList<Material> lerMateriais() {
 		FileInputStream arquivo = null;
 		try {
-			arquivo = new FileInputStream ("materiais.txt");
+			arquivo = new FileInputStream ("./bin/materiais.txt");
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}

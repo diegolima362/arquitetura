@@ -35,11 +35,13 @@ public class Cliente {
 		return telefone;
 	}
 	public void setTelefone(int telefone) {
-		this.telefone = telefone;
+		if (telefone > 0) {
+			this.telefone = telefone;
+		}
 	}
 	
 	public static void escreverCliente(Cliente cliente) throws FileNotFoundException, IOException {
-		File arquivo = new File("clientes.txt");
+		File arquivo = new File("./bin/clientes.txt");
 		ObjectOutputStream obj = new ObjectOutputStream(new FileOutputStream(arquivo, true));
 		obj.writeObject(cliente);
 		obj.close();
@@ -48,7 +50,7 @@ public class Cliente {
 	public static ArrayList<Cliente> lerClientes() {
 		FileInputStream arquivo = null;
 		try {
-			arquivo = new FileInputStream ("clientes.txt");
+			arquivo = new FileInputStream ("./bin/clientes.txt");
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}

@@ -39,7 +39,7 @@ public class PrestadorServico {
 	}
 	
 	public static void escreverPrestadorServico(PrestadorServico prestadorServico) throws FileNotFoundException, IOException {
-		File arquivo = new File("prestadorServicos.txt");
+		File arquivo = new File("./bin/prestadorServicos.txt");
 		ObjectOutputStream obj = new ObjectOutputStream(new FileOutputStream(arquivo, true));
 		obj.writeObject(prestadorServico);
 		obj.close();
@@ -48,7 +48,7 @@ public class PrestadorServico {
 	public static ArrayList<PrestadorServico> lerPrestadorServicos() {
 		FileInputStream arquivo = null;
 		try {
-			arquivo = new FileInputStream ("prestadorServicos.txt");
+			arquivo = new FileInputStream ("./bin/prestadorServicos.txt");
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}

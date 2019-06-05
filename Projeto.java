@@ -58,7 +58,7 @@ public class Projeto {
 	}
 	
 	public static void escreverProjeto(Projeto projeto) throws FileNotFoundException, IOException {
-		File arquivo = new File("projetos.txt");
+		File arquivo = new File("./bin/projetos.txt");
 		ObjectOutputStream obj = new ObjectOutputStream(new FileOutputStream(arquivo, true));
 		obj.writeObject(projeto);
 		obj.close();
@@ -67,7 +67,7 @@ public class Projeto {
 	public static ArrayList<Projeto> lerProjetos() {
 		FileInputStream arquivo = null;
 		try {
-			arquivo = new FileInputStream ("projetos.txt");
+			arquivo = new FileInputStream ("./bin/projetos.txt");
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}

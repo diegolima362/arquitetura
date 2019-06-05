@@ -78,7 +78,7 @@ public class Contrato {
 	}
 	
 	public static void escreverContrato(Contrato contrato) throws FileNotFoundException, IOException {
-		File arquivo = new File("contratos.txt");
+		File arquivo = new File("./bin/contratos.txt");
 		ObjectOutputStream obj = new ObjectOutputStream(new FileOutputStream(arquivo, true));
 		obj.writeObject(contrato);
 		obj.close();
@@ -87,7 +87,7 @@ public class Contrato {
 	public static ArrayList<Contrato> lerContratos() {
 		FileInputStream arquivo = null;
 		try {
-			arquivo = new FileInputStream ("contratos.txt");
+			arquivo = new FileInputStream ("./bin/contratos.txt");
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}

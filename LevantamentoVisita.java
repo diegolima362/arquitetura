@@ -56,7 +56,7 @@ public class LevantamentoVisita {
 	}
 	
 	public static void escreverLevantamentoVisita(LevantamentoVisita levantamentoVisita) throws FileNotFoundException, IOException {
-		File arquivo = new File("levantamentoVisitas.txt");
+		File arquivo = new File("./bin/levantamentoVisitas.txt");
 		ObjectOutputStream obj = new ObjectOutputStream(new FileOutputStream(arquivo, true));
 		obj.writeObject(levantamentoVisita);
 		obj.close();
@@ -65,7 +65,7 @@ public class LevantamentoVisita {
 	public static ArrayList<LevantamentoVisita> lerLevantamentoVisitas() {
 		FileInputStream arquivo = null;
 		try {
-			arquivo = new FileInputStream ("levantamentoVisita.txt");
+			arquivo = new FileInputStream ("./bin/levantamentoVisita.txt");
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}

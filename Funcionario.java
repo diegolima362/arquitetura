@@ -60,7 +60,7 @@ public class Funcionario {
 	}
 	
 	public static void escreverFuncionario(Funcionario funcionario) throws FileNotFoundException, IOException {
-		File arquivo = new File("funcionarios.txt");
+		File arquivo = new File("./bin/funcionarios.txt");
 		ObjectOutputStream obj = new ObjectOutputStream(new FileOutputStream(arquivo, true));
 		obj.writeObject(funcionario);
 		obj.close();
@@ -69,7 +69,7 @@ public class Funcionario {
 	public static ArrayList<Funcionario> lerFuncionarios() {
 		FileInputStream arquivo = null;
 		try {
-			arquivo = new FileInputStream ("funcionarios.txt");
+			arquivo = new FileInputStream ("./bin/funcionarios.txt");
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
