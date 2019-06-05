@@ -10,12 +10,12 @@ public class TesteLogin {
 		
 		System.out.printf("Alterando a senha\n");
 		login.alterarSenha();
-		Login.gravarLogin(login);
+		Login.escreverLogin(login);
 		
 		Login login2 = Login.lerLogin();
 		
-		System.out.printf("O nome é: %s\n", login2.getNome());
-		System.out.printf("A senha é: %s\n", login2.getSenha());
+		System.out.printf("O nome Ã©: %s\n", login2.getNome());
+		System.out.printf("A senha Ã©: %s\n", login2.getSenha());
 		teclado.close();
 	}
 }
