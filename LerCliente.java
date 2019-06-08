@@ -21,22 +21,24 @@ public class LerCliente {
 		}
 	}
     private static void lerArquivoL() {
-    	try {
-    		while (true) {
-    			Cliente cliente = (Cliente) input.readObject();
-    			System.out.printf("Nome: %s\n", cliente.getNome());
-    			System.out.printf("Código: %d\n", cliente.getCodigo());
-    			System.out.printf("Telefone: %d\n", cliente.getTelefone());
-    		}
-    	}
-    	catch (EOFException endOfFileException) {
-    		endOfFileException.printStackTrace();
-    	}
-    	catch (ClassNotFoundException classNotFoundException) {
-    		classNotFoundException.printStackTrace();
-    	}
-    	catch (IOException ioException) {
-    		ioException.printStackTrace();
+    	while (true) {
+	    	try {
+			
+				Cliente cliente = (Cliente) input.readObject();
+				System.out.printf("Nome: %s\n", cliente.getNome());
+				System.out.printf("Código: %d\n", cliente.getCodigo());
+				System.out.printf("Telefone: %d\n", cliente.getTelefone());
+	    	}
+	    	catch (EOFException endOfFileException) {
+	    		endOfFileException.printStackTrace();
+	    	}
+	    	catch (ClassNotFoundException classNotFoundException) {
+	    		classNotFoundException.printStackTrace();
+	    	}
+	    	catch (IOException ioException) {
+	    		ioException.printStackTrace();
+	    		break;
+	    	}
     	}
 	}
 	private static void fecharArquivoL() {

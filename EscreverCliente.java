@@ -24,6 +24,7 @@ public class EscreverCliente {
 	}
     private static void adicionarE(Cliente cliente) {
 		try {
+			output.reset();
 			output.writeObject(cliente);
 		}
 		catch (NoSuchElementException elementException) {
