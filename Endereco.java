@@ -1,12 +1,25 @@
+import java.io.Serializable;
 
-
-public class Endereco {
-	private int numero;
+public class Endereco implements Serializable {
+	private static final long serialVersionUID = 1L;
 	private String pais;
 	private String estado;
 	private String cidade;
 	private String bairro;
 	private String rua;
+	private int numero;
+	
+	public Endereco(){}
+	public Endereco (String pais, String estado, String cidade, 
+			String bairro, String rua, int numero) {
+		
+		this.pais = pais;
+		this.estado = estado;
+		this.cidade = cidade;
+		this.bairro = bairro;
+		this.rua = rua;
+		this.numero = numero;
+	}
 	
 	public int getNumero() {
 		return numero;
