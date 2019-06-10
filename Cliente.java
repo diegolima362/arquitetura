@@ -1,11 +1,17 @@
 import java.io.EOFException;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.EOFException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
+import java.util.ArrayList;
 import java.util.NoSuchElementException;
 
 public class Cliente implements Serializable {
@@ -52,6 +58,50 @@ public class Cliente implements Serializable {
         }
     }
     
+    public static void escrever(Cliente cliente, ArrayList<Cliente> clientes) {
+            FileOutputStream fos;
+            ObjectOutputStream oos;
+			try {
+				fos = new FileOutputStream("./bin/clientes.obj");
+				oos = new ObjectOutputStream(fos);
+				clientes.add(cliente);
+				oos.writeObject(clientes);
+				fos.close();
+				oos.close();
+			} catch (FileNotFoundException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+           
+            
+    }
+    
+    @SuppressWarnings("unchecked")
+	public static ArrayList<Cliente> ler() {
+    	ArrayList<Cliente> c = new ArrayList<>();
+    	FileInputStream fis;
+    	ObjectInputStream ois;
+    	
+		try {
+			fis = new FileInputStream("./bin/clientes.obj");
+			ois = new ObjectInputStream(fis);
+			c = (ArrayList<Cliente>)ois.readObject();
+			fis.close();
+			ois.close();
+		} catch (EOFException e) {
+			e.printStackTrace();
+    	} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		return c;
+    }
+    
+    /*
 	public static void escrever(Cliente cliente) {
     	abrirArquivoE();
     	adicionarE(cliente);
@@ -86,10 +136,11 @@ public class Cliente implements Serializable {
 			ioException.printStackTrace();
 		}
 	}
-	public static void ler() {
+	public static ArrayList<Cliente> ler() {
 		abrirArquivoL();
-		lerArquivoL();
+		ArrayList<Cliente> clientes = lerArquivoL();
 		fecharArquivoL();
+		return clientes;
 	}
     private static void abrirArquivoL() {
 		try {
@@ -99,13 +150,11 @@ public class Cliente implements Serializable {
 			ioException.printStackTrace();
 		}
 	}
-    private static void lerArquivoL() {
+    private static ArrayList<Cliente> lerArquivoL() {
+    	ArrayList<Cliente> tmp = new ArrayList<>();
     	while (true) {
 	    	try {
-				Cliente cliente = (Cliente) input.readObject();
-				System.out.printf("Nome: %s\n", cliente.getNome());
-				System.out.printf("Código: %d\n", cliente.getCodigo());
-				System.out.printf("Telefone: %d\n", cliente.getTelefone());
+				tmp  = (ArrayList<Cliente>)input.readObject();
 	    	}
 	    	catch (EOFException endOfFileException) {
 	    		endOfFileException.printStackTrace();
@@ -118,6 +167,8 @@ public class Cliente implements Serializable {
 	    		break;
 	    	}
     	}
+    	
+    	return tmp;
 	}
 	private static void fecharArquivoL() {
 		try {
@@ -126,5 +177,5 @@ public class Cliente implements Serializable {
 		} catch (IOException ioException) {
 			ioException.printStackTrace();
 		}
-	}
-}
+	}*/
+} 
