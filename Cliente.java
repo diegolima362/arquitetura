@@ -9,10 +9,10 @@ import java.nio.file.StandardOpenOption;
 import java.util.NoSuchElementException;
 
 public class Cliente implements Serializable {
-	private static final long serialVersionUID = 1L;
-	private static ObjectOutputStream output;
-	private static ObjectInputStream input;
-	private int codigo;
+    private static final long serialVersionUID = 1L;
+    private static ObjectOutputStream output;
+    private static ObjectInputStream input;
+    private int codigo;
     private String nome;
     //private Endereco endereco;
     private int telefone;
@@ -93,7 +93,7 @@ public class Cliente implements Serializable {
 	}
     private static void abrirArquivoL() {
 		try {
-			input = new ObjectInputStream(Files.newInputStream(Paths.get("./bin/clientes.obj")));
+			input = new ObjectInputStream(Files.newInputStream(Paths.get("./bin/clientes.obj"), StandardOpenOption.READ));
 		}
 		catch (IOException ioException) {
 			ioException.printStackTrace();
@@ -102,7 +102,6 @@ public class Cliente implements Serializable {
     private static void lerArquivoL() {
     	while (true) {
 	    	try {
-			
 				Cliente cliente = (Cliente) input.readObject();
 				System.out.printf("Nome: %s\n", cliente.getNome());
 				System.out.printf("Código: %d\n", cliente.getCodigo());
