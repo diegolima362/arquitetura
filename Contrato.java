@@ -1,16 +1,18 @@
 
 
-import java.io.File;
+import java.io.EOFException;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class Contrato {
+public class Contrato implements Serializable {
+	private static final long serialVersionUID = 1L;
 	private int codigo;
 	private Projeto projeto;
 	private Orcamento orcamento;
@@ -21,6 +23,20 @@ public class Contrato {
 	private ArrayList<Funcionario> funcionarios;
 	private int visitasTecnicasCobradas;
 	
+	public Contrato() {}
+	public Contrato(Projeto projeto, Orcamento orcamento, int codigo, Date dataInicio, Date dataTermino,
+					double custoMaterial, double valorTotal, ArrayList<Funcionario> funcionarios, int visitasTecnicasCobradas) {
+		this.projeto = projeto;
+		this.orcamento = orcamento;
+		this.codigo = codigo;
+		this.dataInicio = dataInicio;
+		this.dataTermino = dataTermino;
+		this.custoMaterial = custoMaterial;
+		this.valorTotal = valorTotal;
+		this.funcionarios = funcionarios;
+		this.visitasTecnicasCobradas = visitasTecnicasCobradas;
+		
+	}
 	public int getCodigo() {
 		return codigo;
 	}
@@ -77,40 +93,44 @@ public class Contrato {
 		this.visitasTecnicasCobradas = visitasTecnicasCobradas;
 	}
 	
-	public static void escreverContrato(Contrato contrato) throws FileNotFoundException, IOException {
-		File arquivo = new File("./bin/contratos.txt");
-		ObjectOutputStream obj = new ObjectOutputStream(new FileOutputStream(arquivo, true));
-		obj.writeObject(contrato);
-		obj.close();
-	}
-	
-	public static ArrayList<Contrato> lerContratos() {
-		FileInputStream arquivo = null;
+    public static void escrever(Contrato contrato, ArrayList<Contrato> contratos) {
+        FileOutputStream fos;
+        ObjectOutputStream oos;
 		try {
-			arquivo = new FileInputStream ("./bin/contratos.txt");
+			fos = new FileOutputStream("./bin/contratos.obj");
+			oos = new ObjectOutputStream(fos);
+			contratos.add(contrato);
+			oos.writeObject(contratos);
+			fos.close();
+			oos.close();
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
-		}
-		
-		ArrayList<Contrato> contratos = new ArrayList<Contrato>();
-		Contrato contrato = null;
-		boolean cont = true;
-		
+		} catch (IOException e) {
+			e.printStackTrace();
+		}     
+    }
+    
+    @SuppressWarnings("unchecked")
+	public static ArrayList<Contrato> ler() {
+    	ArrayList<Contrato> contratos = new ArrayList<>();
+    	FileInputStream fis;
+    	ObjectInputStream ois;
+    	
 		try {
-			ObjectInputStream obj = new ObjectInputStream(arquivo);
-			while(cont){
-				contrato = (Contrato)obj.readObject();
-				if(contrato != null)
-					contratos.add(contrato);
-				else
-					cont = false;
-		   }
-		   obj.close();
-		} catch(Exception e) {
+			fis = new FileInputStream("./bin/contratos.obj");
+			ois = new ObjectInputStream(fis);
+			contratos = (ArrayList<Contrato>)ois.readObject();
+			fis.close();
+			ois.close();
+		} catch (EOFException e) {
+			e.printStackTrace();
+    	} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			
+		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}
-		
 		return contratos;
-	}
-	
+    }
 }

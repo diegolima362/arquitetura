@@ -1,22 +1,22 @@
-import java.io.File;
+import java.io.EOFException;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.io.ObjectInputStream;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class Login implements Serializable {
+	private static final long serialVersionUID = 1L;
 	private String nome;
 	private String senha;
 	
-	public Login(String nome, String senha) throws FileNotFoundException, IOException {
-		setNome(nome);
-		setSenha(senha);
+	public Login() {}
+	public Login(String nome, String senha) {
+		this.nome = nome;
+		this.senha = senha;
 	}
 	
 	public String getNome() {
@@ -32,79 +32,44 @@ public class Login implements Serializable {
 		this.senha = senha;
 	}
 	
-	public boolean ehLogin(Login login) {
-		
-		if ((this.getNome().compareTo(login.getNome()) == 0) &&
-				(this.getSenha().compareTo(login.getSenha()) == 0))
-		{
-			return true;
+    public static void escrever(Login login, ArrayList<Login> logins) {
+        FileOutputStream fos;
+        ObjectOutputStream oos;
+		try {
+			fos = new FileOutputStream("./bin/logins.obj");
+			oos = new ObjectOutputStream(fos);
+			logins.add(login);
+			oos.writeObject(logins);
+			fos.close();
+			oos.close();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}     
+    }
+    
+    @SuppressWarnings("unchecked")
+	public static ArrayList<Login> ler() {
+    	ArrayList<Login> logins = new ArrayList<>();
+    	FileInputStream fis;
+    	ObjectInputStream ois;
+    	
+		try {
+			fis = new FileInputStream("./bin/logins.obj");
+			ois = new ObjectInputStream(fis);
+			logins = (ArrayList<Login>)ois.readObject();
+			fis.close();
+			ois.close();
+		} catch (EOFException e) {
+			e.printStackTrace();
+    	} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
 		}
-		
-		return false;
-	}
-	
-	public static void escreverLogin(Login login) throws FileNotFoundException, IOException {
-		File arquivo = new File("./bin/login.txt");
-		ObjectOutputStream obj = new ObjectOutputStream(new FileOutputStream(arquivo));
-		obj.writeObject(login);
-		obj.close();
-	}
-	
-	public static Login lerLogin() throws ClassNotFoundException, IOException {
-		FileInputStream  arquivo = new FileInputStream ("./bin/login.txt");
-		ObjectInputStream obj = new ObjectInputStream(arquivo);
-		Login log = (Login) obj.readObject();
-		
-		return log;
-		
-		/*
-		boolean cont = true;
- 		ArrayList<Login> objectsList = new ArrayList<Login>();
-		try{
-			ObjectInputStream obj = new ObjectInputStream(arquivo);
-		   while(cont){
-		      log = (Login)obj.readObject();
-		      if(log != null)
-		         objectsList.add(log);
-		      else
-		         cont = false;
-		   }
-		   
-		   obj.close();
-		}catch(Exception e){
-		   //System.out.println(e.printStackTrace());
-		}
-		
-		for (Login l: objectsList) {
-			System.out.println(l.getNome());
-			System.out.println(l.getSenha());
-		} */
-	}
-	
-	public void alterarSenha() {
-		Scanner teclado = new Scanner(System.in);
-		System.out.print("Digite a senha atual: ");
-		String senha = teclado.nextLine();
-		String novaSenha;
-		
-		if (this.senha.compareTo(senha) == 0) {
-			while (true) {
-				System.out.print("Digite a nova senha: ");
-				novaSenha = teclado.nextLine();
-				System.out.print("Comfirme a nova senha: ");
-				if (novaSenha.compareTo(teclado.nextLine()) == 0) {
-					setSenha(novaSenha);
-					break;
-				}
-				else {
-					System.out.println("Senha inválida");
-				}
-			}
-		}
-		else {
-			System.out.println("Senha inválida");
-		}
-		
-		teclado.close();
-	}
+		return logins;
+    }
 }

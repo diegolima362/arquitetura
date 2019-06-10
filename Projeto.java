@@ -1,5 +1,6 @@
 
 
+import java.io.EOFException;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -7,10 +8,12 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class Projeto {
+public class Projeto implements Serializable {
+	private static final long serialVersionUID = 1L;
 	private int codigo;
 	private String nome;
 	private String descricao;
@@ -18,6 +21,15 @@ public class Projeto {
 	private Date dataInicio;
 	private double valorTotal;
 	
+	public Projeto() {}
+	public Projeto(String nome, Cliente cliente, int codigo, String descricao, Date dataInicio,
+					double valorTotal) {
+		this.nome = nome;
+		this.cliente = cliente;
+		this.codigo = codigo;
+		this.descricao = descricao;
+		this.dataInicio = dataInicio;
+	}
 	public int getCodigo() {
 		return codigo;
 	}
@@ -56,41 +68,45 @@ public class Projeto {
 			this.valorTotal = valorTotal;
 		}
 	}
-	
-	public static void escreverProjeto(Projeto projeto) throws FileNotFoundException, IOException {
-		File arquivo = new File("./bin/projetos.txt");
-		ObjectOutputStream obj = new ObjectOutputStream(new FileOutputStream(arquivo, true));
-		obj.writeObject(projeto);
-		obj.close();
-	}
-	
-	public static ArrayList<Projeto> lerProjetos() {
-		FileInputStream arquivo = null;
+    
+    public static void escrever(Projeto projeto, ArrayList<Projeto> projetos) {
+        FileOutputStream fos;
+        ObjectOutputStream oos;
 		try {
-			arquivo = new FileInputStream ("./bin/projetos.txt");
+			fos = new FileOutputStream("./bin/projetos.obj");
+			oos = new ObjectOutputStream(fos);
+			projetos.add(projeto);
+			oos.writeObject(projetos);
+			fos.close();
+			oos.close();
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
-		}
-		
-		ArrayList<Projeto> projetos = new ArrayList<Projeto>();
-		Projeto projeto = null;
-		boolean cont = true;
-		
+		} catch (IOException e) {
+			e.printStackTrace();
+		}     
+    }
+    
+    @SuppressWarnings("unchecked")
+	public static ArrayList<Projeto> ler() {
+    	ArrayList<Projeto> projetos = new ArrayList<>();
+    	FileInputStream fis;
+    	ObjectInputStream ois;
+    	
 		try {
-			ObjectInputStream obj = new ObjectInputStream(arquivo);
-			while(cont){
-				projeto = (Projeto)obj.readObject();
-				if(projeto != null)
-					projetos.add(projeto);
-				else
-					cont = false;
-		   }
-		   obj.close();
-		} catch(Exception e) {
+			fis = new FileInputStream("./bin/projetos.obj");
+			ois = new ObjectInputStream(fis);
+			projetos = (ArrayList<Projeto>)ois.readObject();
+			fis.close();
+			ois.close();
+		} catch (EOFException e) {
+			e.printStackTrace();
+    	} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			
+		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}
-		
 		return projetos;
-	}
-	
+    }
 }

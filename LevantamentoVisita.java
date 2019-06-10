@@ -1,16 +1,18 @@
 
 
-import java.io.File;
+import java.io.EOFException;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class LevantamentoVisita {
+public class LevantamentoVisita implements Serializable{
+	private static final long serialVersionUID = 1L;
 	private int codigo;
 	private Cliente cliente;
 	private Projeto projeto;
@@ -18,6 +20,16 @@ public class LevantamentoVisita {
 	private double cotas;
 	private double valorCobrado;
 	
+	public LevantamentoVisita() {}
+	public LevantamentoVisita (Cliente cliente, Projeto projeto, int codigo, Date data,
+								double cotas, double valorCobrado) {
+		this.cliente = cliente;
+		this.projeto = projeto;
+		this.codigo = codigo;
+		this.data = data;
+		this.cotas = cotas;
+		this.valorCobrado = valorCobrado;
+	}
 	public int getCodigo() {
 		return codigo;
 	}
@@ -54,40 +66,45 @@ public class LevantamentoVisita {
 	public void setValorCobrado(double valorCobrado) {
 		this.valorCobrado = valorCobrado;
 	}
-	
-	public static void escreverLevantamentoVisita(LevantamentoVisita levantamentoVisita) throws FileNotFoundException, IOException {
-		File arquivo = new File("./bin/levantamentoVisitas.txt");
-		ObjectOutputStream obj = new ObjectOutputStream(new FileOutputStream(arquivo, true));
-		obj.writeObject(levantamentoVisita);
-		obj.close();
-	}
-	
-	public static ArrayList<LevantamentoVisita> lerLevantamentoVisitas() {
-		FileInputStream arquivo = null;
+    
+    public static void escrever(LevantamentoVisita levantamentoVisita, ArrayList<LevantamentoVisita> levantamentoVisitas) {
+        FileOutputStream fos;
+        ObjectOutputStream oos;
 		try {
-			arquivo = new FileInputStream ("./bin/levantamentoVisita.txt");
+			fos = new FileOutputStream("./bin/levantamentoVisitas.obj");
+			oos = new ObjectOutputStream(fos);
+			levantamentoVisitas.add(levantamentoVisita);
+			oos.writeObject(levantamentoVisitas);
+			fos.close();
+			oos.close();
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
-		}
-		
-		ArrayList<LevantamentoVisita> levantamentoVisitas = new ArrayList<LevantamentoVisita>();
-		LevantamentoVisita levantamentoVisita = null;
-		boolean cont = true;
-		
+		} catch (IOException e) {
+			e.printStackTrace();
+		}     
+    }
+    
+    @SuppressWarnings("unchecked")
+	public static ArrayList<LevantamentoVisita> ler() {
+    	ArrayList<LevantamentoVisita> levantamentoVisitas = new ArrayList<>();
+    	FileInputStream fis;
+    	ObjectInputStream ois;
+    	
 		try {
-			ObjectInputStream obj = new ObjectInputStream(arquivo);
-			while(cont){
-				levantamentoVisita = (LevantamentoVisita)obj.readObject();
-				if(levantamentoVisita != null)
-					levantamentoVisitas.add(levantamentoVisita);
-				else
-					cont = false;
-		   }
-		   obj.close();
-		} catch(Exception e) {
+			fis = new FileInputStream("./bin/levantamentoVisitas.obj");
+			ois = new ObjectInputStream(fis);
+			levantamentoVisitas = (ArrayList<LevantamentoVisita>)ois.readObject();
+			fis.close();
+			ois.close();
+		} catch (EOFException e) {
+			e.printStackTrace();
+    	} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			
+		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}
-		
 		return levantamentoVisitas;
-	}
+    }
 }
