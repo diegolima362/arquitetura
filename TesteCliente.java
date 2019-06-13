@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public class TesteCliente {
-    public static void main(String[] args) {
+  /*  public static void main(String[] args) {
     	ArrayList<Cliente> clientes = new ArrayList<>();
         Cliente.escrever(new Cliente("Gabriel", 123, new Endereco(), 12345678), Cliente.ler());
         Cliente.escrever(new Cliente("Maria", 124, new Endereco(), 1234567889), Cliente.ler());
@@ -12,5 +12,5 @@ public class TesteCliente {
         for (Cliente cliente : clientes) {
         	System.out.printf("Nome: %s\n", cliente.getNome());
         }
-    }
+    }*/
 }

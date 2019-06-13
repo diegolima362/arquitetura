@@ -1,7 +1,6 @@
 
 
 import java.io.EOFException;
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -9,6 +8,9 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -57,8 +59,13 @@ public class Projeto implements Serializable {
 	public Date getDataInicio() {
 		return dataInicio;
 	}
-	public void setDataInicio(Date dataInicio) {
-		this.dataInicio = dataInicio;
+	public void setDataInicio(String dataInicio) {
+            DateFormat df = new SimpleDateFormat("MM/dd/yyyy"); 
+            try {
+				this.dataInicio = df.parse(dataInicio);
+			} catch (ParseException e) {
+				e.printStackTrace();
+			}
 	}
 	public double getValorTotal() {
 		return valorTotal;
