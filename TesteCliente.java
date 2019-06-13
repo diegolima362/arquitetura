@@ -1,3 +1,5 @@
+import office.Endereco;
+import office.Cliente;
 import java.util.ArrayList;
 
 public class TesteCliente {

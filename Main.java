@@ -1,14 +1,11 @@
 
+import telaprincipal.TelaPrincipal;
+import login.TelaLogin;
 import javax.swing.UIManager;
 
 public class Main {
 
     public static void main(String args[]) {
-
-
-        /*
-            Definir Tema GTK+ para ambientes Linux
-         */
         try {
 
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -31,14 +28,12 @@ public class Main {
             java.util.logging.Logger.getLogger(TelaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
 
-        java.awt.EventQueue.invokeLater(new Runnable() {
+        TelaPrincipal telaPrincipal = new TelaPrincipal();
 
-            public void run() {
-                TelaLogin login = new TelaLogin();
-                login.setVisible(true);
+        java.awt.EventQueue.invokeLater(() -> {
 
-            }
-        }
-        );
+            telaPrincipal.programa();
+        });
     }
+
 }

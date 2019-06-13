@@ -1,7 +1,8 @@
+package office;
+
 
 
 import java.io.EOFException;
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -10,25 +11,22 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Date;
 
-public class Projeto implements Serializable {
+public class Material implements Serializable{
 	private static final long serialVersionUID = 1L;
 	private int codigo;
 	private String nome;
+	private String fabricante;
 	private String descricao;
-	private Cliente cliente;
-	private Date dataInicio;
-	private double valorTotal;
+	private ArrayList<Material> catalogo;
 	
-	public Projeto() {}
-	public Projeto(String nome, Cliente cliente, int codigo, String descricao, Date dataInicio,
-					double valorTotal) {
+	public Material() {}
+	public Material(String nome, String fabricante, String descricao, int codigo, 
+			ArrayList<Material> catalogo) {
 		this.nome = nome;
-		this.cliente = cliente;
-		this.codigo = codigo;
+		this.fabricante = fabricante;
 		this.descricao = descricao;
-		this.dataInicio = dataInicio;
+		this.catalogo = catalogo;
 	}
 	public int getCodigo() {
 		return codigo;
@@ -42,41 +40,33 @@ public class Projeto implements Serializable {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
+	public String getFabricante() {
+		return fabricante;
+	}
+	public void setFabricante(String fabricante) {
+		this.fabricante = fabricante;
+	}
 	public String getDescricao() {
 		return descricao;
 	}
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
-	public Cliente getCliente() {
-		return cliente;
+	public ArrayList<Material> getCatalogo() {
+		return catalogo;
 	}
-	public void setCliente(Cliente cliente) {
-		this.cliente = cliente;
-	}
-	public Date getDataInicio() {
-		return dataInicio;
-	}
-	public void setDataInicio(Date dataInicio) {
-		this.dataInicio = dataInicio;
-	}
-	public double getValorTotal() {
-		return valorTotal;
-	}
-	public void setValorTotal(double valorTotal) {
-		if (valorTotal >= 0) {
-			this.valorTotal = valorTotal;
-		}
+	public void setCatalogo(ArrayList<Material> catalogo) {
+		this.catalogo = catalogo;
 	}
     
-    public static void escrever(Projeto projeto, ArrayList<Projeto> projetos) {
+    public static void escrever(Material material, ArrayList<Material> materiais) {
         FileOutputStream fos;
         ObjectOutputStream oos;
 		try {
-			fos = new FileOutputStream("./bin/projetos.obj");
+			fos = new FileOutputStream("./bin/materiais.obj");
 			oos = new ObjectOutputStream(fos);
-			projetos.add(projeto);
-			oos.writeObject(projetos);
+			materiais.add(material);
+			oos.writeObject(materiais);
 			fos.close();
 			oos.close();
 		} catch (FileNotFoundException e) {
@@ -87,15 +77,15 @@ public class Projeto implements Serializable {
     }
     
     @SuppressWarnings("unchecked")
-	public static ArrayList<Projeto> ler() {
-    	ArrayList<Projeto> projetos = new ArrayList<>();
+	public static ArrayList<Material> ler() {
+    	ArrayList<Material> materiais = new ArrayList<>();
     	FileInputStream fis;
     	ObjectInputStream ois;
     	
 		try {
-			fis = new FileInputStream("./bin/projetos.obj");
+			fis = new FileInputStream("./bin/materiais.obj");
 			ois = new ObjectInputStream(fis);
-			projetos = (ArrayList<Projeto>)ois.readObject();
+			materiais = (ArrayList<Material>)ois.readObject();
 			fis.close();
 			ois.close();
 		} catch (EOFException e) {
@@ -107,6 +97,6 @@ public class Projeto implements Serializable {
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}
-		return projetos;
+		return materiais;
     }
 }

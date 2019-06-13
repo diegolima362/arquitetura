@@ -1,3 +1,5 @@
+package office;
+
 import java.io.Serializable;
 
 public class Endereco implements Serializable {

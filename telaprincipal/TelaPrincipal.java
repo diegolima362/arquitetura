@@ -1,4 +1,6 @@
+package telaprincipal;
 
+import login.TelaLogin;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -15,8 +17,16 @@ public class TelaPrincipal extends javax.swing.JFrame {
      * Creates new form Main
      */
     public TelaPrincipal() {
-        
         initComponents();
+
+    }
+    private TelaLogin login;
+
+    public void programa() {
+        login = new TelaLogin();
+        setVisible(false);
+        login.setVisible(true);
+        login.setTela(this);
     }
 
     /**
