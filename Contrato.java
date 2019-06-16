@@ -97,7 +97,7 @@ public class Contrato implements Serializable {
         FileOutputStream fos;
         ObjectOutputStream oos;
 		try {
-			fos = new FileOutputStream("./bin/contratos.obj");
+			fos = new FileOutputStream("\\bin\\contratos.obj");
 			oos = new ObjectOutputStream(fos);
 			contratos.add(contrato);
 			oos.writeObject(contratos);
@@ -117,7 +117,7 @@ public class Contrato implements Serializable {
     	ObjectInputStream ois;
     	
 		try {
-			fis = new FileInputStream("./bin/contratos.obj");
+			fis = new FileInputStream("\\bin\\contratos.obj");
 			ois = new ObjectInputStream(fis);
 			contratos = (ArrayList<Contrato>)ois.readObject();
 			fis.close();

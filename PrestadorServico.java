@@ -51,7 +51,7 @@ public class PrestadorServico implements Serializable{
 		FileOutputStream fos;
         ObjectOutputStream oos;
 		try {
-			fos = new FileOutputStream("./bin/prestadorServicos.obj");
+			fos = new FileOutputStream("\\bin\\prestadorServicos.obj");
 			oos = new ObjectOutputStream(fos);
 			oos.writeObject(prestadorServicos);
 			fos.close();
@@ -66,7 +66,7 @@ public class PrestadorServico implements Serializable{
         FileOutputStream fos;
         ObjectOutputStream oos;
 		try {
-			fos = new FileOutputStream("./bin/prestadorServicos.obj");
+			fos = new FileOutputStream("\\bin\\prestadorServicos.obj");
 			oos = new ObjectOutputStream(fos);
 			prestadorServicos.add(prestadorServico);
 			oos.writeObject(prestadorServicos);
@@ -86,7 +86,7 @@ public class PrestadorServico implements Serializable{
     	ObjectInputStream ois;
     	
 		try {
-			fis = new FileInputStream("./bin/prestadorServicos.obj");
+			fis = new FileInputStream("\\bin\\prestadorServicos.obj");
 			ois = new ObjectInputStream(fis);
 			prestadorServicos = (ArrayList<PrestadorServico>)ois.readObject();
 			fis.close();

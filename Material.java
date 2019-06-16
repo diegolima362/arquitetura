@@ -68,7 +68,7 @@ public class Material implements Serializable{
 		FileOutputStream fos;
         ObjectOutputStream oos;
 		try {
-			fos = new FileOutputStream("./bin/materiais.obj");
+			fos = new FileOutputStream("\\bin\\materiais.obj");
 			oos = new ObjectOutputStream(fos);
 			oos.writeObject(materiais);
 			fos.close();
@@ -83,7 +83,7 @@ public class Material implements Serializable{
         FileOutputStream fos;
         ObjectOutputStream oos;
 		try {
-			fos = new FileOutputStream("./bin/materiais.obj");
+			fos = new FileOutputStream("\\bin\\materiais.obj");
 			oos = new ObjectOutputStream(fos);
 			materiais.add(material);
 			oos.writeObject(materiais);
@@ -103,7 +103,7 @@ public class Material implements Serializable{
     	ObjectInputStream ois;
     	
 		try {
-			fis = new FileInputStream("./bin/materiais.obj");
+			fis = new FileInputStream("\\bin\\materiais.obj");
 			ois = new ObjectInputStream(fis);
 			materiais = (ArrayList<Material>)ois.readObject();
 			fis.close();

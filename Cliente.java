@@ -55,7 +55,7 @@ public class Cliente implements Serializable {
 		FileOutputStream fos;
         ObjectOutputStream oos;
 		try {
-			fos = new FileOutputStream("./bin/clientes.obj");
+			fos = new FileOutputStream("\\bin\\clientes.obj");
 			oos = new ObjectOutputStream(fos);
 			oos.writeObject(clientes);
 			fos.close();
@@ -70,7 +70,7 @@ public class Cliente implements Serializable {
         FileOutputStream fos;
         ObjectOutputStream oos;
 		try {
-			fos = new FileOutputStream("./bin/clientes.obj");
+			fos = new FileOutputStream("\\bin\\clientes.obj");
 			oos = new ObjectOutputStream(fos);
 			clientes.add(cliente);
 			oos.writeObject(clientes);
@@ -90,7 +90,7 @@ public class Cliente implements Serializable {
     	ObjectInputStream ois;
     	
 		try {
-			fis = new FileInputStream("./bin/clientes.obj");
+			fis = new FileInputStream("\\bin\\clientes.obj");
 			ois = new ObjectInputStream(fis);
 			clientes = (ArrayList<Cliente>)ois.readObject();
 			fis.close();

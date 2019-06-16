@@ -80,7 +80,7 @@ public class Projeto implements Serializable {
 		FileOutputStream fos;
         ObjectOutputStream oos;
 		try {
-			fos = new FileOutputStream("./bin/projetos.obj");
+			fos = new FileOutputStream("\\bin\\projetos.obj");
 			oos = new ObjectOutputStream(fos);
 			oos.writeObject(projetos);
 			fos.close();
@@ -96,7 +96,7 @@ public class Projeto implements Serializable {
         FileOutputStream fos;
         ObjectOutputStream oos;
 		try {
-			fos = new FileOutputStream("./bin/projetos.obj");
+			fos = new FileOutputStream("\\bin\\projetos.obj");
 			oos = new ObjectOutputStream(fos);
 			projetos.add(projeto);
 			oos.writeObject(projetos);
@@ -116,7 +116,7 @@ public class Projeto implements Serializable {
     	ObjectInputStream ois;
     	
 		try {
-			fis = new FileInputStream("./bin/projetos.obj");
+			fis = new FileInputStream("\\bin\\projetos.obj");
 			ois = new ObjectInputStream(fis);
 			projetos = (ArrayList<Projeto>)ois.readObject();
 			fis.close();
