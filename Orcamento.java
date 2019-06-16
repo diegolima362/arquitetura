@@ -13,13 +13,13 @@ import java.util.ArrayList;
 public class Orcamento implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private int codigo;
-	private Projeto projeto;
-	private Cliente cliente;
+	private String projeto;
+	private String cliente;
 	private double valorProjeto;
-	private String[] detalhamentoCusto;
+	private String detalhamentoCusto;
 	
 	public Orcamento() {}
-	public Orcamento(Cliente cliente, Projeto projeto, double valorProjeto, String[] detalhamentoCusto) {
+	public Orcamento(String cliente, String projeto, double valorProjeto, String detalhamentoCusto) {
 		this.cliente = cliente;
 		this.projeto = projeto;
 		this.valorProjeto = valorProjeto;
@@ -32,16 +32,16 @@ public class Orcamento implements Serializable {
 	public void setCodigo(int codigo) {
 		this.codigo = codigo;
 	}
-	public Projeto getProjeto() {
+	public String getProjeto() {
 		return projeto;
 	}
-	public void setProjeto(Projeto projeto) {
+	public void setProjeto(String projeto) {
 		this.projeto = projeto;
 	}
-	public Cliente getCliente() {
+	public String getCliente() {
 		return cliente;
 	}
-	public void setCliente(Cliente cliente) {
+	public void setCliente(String cliente) {
 		this.cliente = cliente;
 	}
 	public double getValorProjeto() {
@@ -50,10 +50,10 @@ public class Orcamento implements Serializable {
 	public void setValorProjeto(double valorProjeto) {
 		this.valorProjeto = valorProjeto;
 	}
-	public String[] getDetalhamentoCusto() {
+	public String getDetalhamentoCusto() {
 		return detalhamentoCusto;
 	}
-	public void setDetalhamentoCusto(String[] detalhamentoCusto) {
+	public void setDetalhamentoCusto(String detalhamentoCusto) {
 		this.detalhamentoCusto = detalhamentoCusto;
 	}
 
@@ -74,7 +74,21 @@ public class Orcamento implements Serializable {
 			e.printStackTrace();
 		}     
     }
-    
+     public static void escrever(ArrayList<Orcamento> orcamentos) {
+		FileOutputStream fos;
+        ObjectOutputStream oos;
+		try {
+			fos = new FileOutputStream("./bin/orcamentos.obj");
+			oos = new ObjectOutputStream(fos);
+			oos.writeObject(orcamentos);
+			fos.close();
+			oos.close();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}     
+	}
     @SuppressWarnings("unchecked")
 	public static ArrayList<Orcamento> ler() {
     	ArrayList<Orcamento> orcamentos = new ArrayList<>();
@@ -96,6 +110,10 @@ public class Orcamento implements Serializable {
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}
-		return orcamentos;
+        return orcamentos;
+    }
+    public static void remover (int index, ArrayList<Orcamento> orcamentos) {
+    	orcamentos.remove(index);
+    	Orcamento.escrever(orcamentos);
     }
 }

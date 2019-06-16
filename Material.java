@@ -16,16 +16,23 @@ public class Material implements Serializable{
 	private String nome;
 	private String fabricante;
 	private String descricao;
+        private double valor;
 	private ArrayList<Material> catalogo;
 	
 	public Material() {}
 	public Material(String nome, String fabricante, String descricao, int codigo, 
-			ArrayList<Material> catalogo) {
+			double valor, ArrayList<Material> catalogo) {
 		this.nome = nome;
 		this.fabricante = fabricante;
 		this.descricao = descricao;
 		this.catalogo = catalogo;
 	}
+        public double getValor() {
+            return this.valor;
+        }
+        public void setValor(double valor) {
+            this.valor = valor;
+        }
 	public int getCodigo() {
 		return codigo;
 	}
@@ -57,6 +64,21 @@ public class Material implements Serializable{
 		this.catalogo = catalogo;
 	}
     
+        public static void escrever(ArrayList<Material> materiais) {
+		FileOutputStream fos;
+        ObjectOutputStream oos;
+		try {
+			fos = new FileOutputStream("./bin/materiais.obj");
+			oos = new ObjectOutputStream(fos);
+			oos.writeObject(materiais);
+			fos.close();
+			oos.close();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}     
+	}
     public static void escrever(Material material, ArrayList<Material> materiais) {
         FileOutputStream fos;
         ObjectOutputStream oos;
@@ -96,5 +118,9 @@ public class Material implements Serializable{
 			e.printStackTrace();
 		}
 		return materiais;
+    }
+    public static void remover (int index, ArrayList<Material> materiais) {
+    	materiais.remove(index);
+    	Material.escrever(materiais);
     }
 }

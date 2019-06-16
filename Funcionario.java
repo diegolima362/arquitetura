@@ -18,6 +18,7 @@ public class Funcionario implements Serializable {
 	private float salario;
 	private int projetoAlocado;
 	
+        public Funcionario(){}
 	public Funcionario(String nome, char tipo, int codigo, Endereco endereco, 
 			int telefone, float salario, int proJetoAlocado) {
 		this.nome = nome;
@@ -72,6 +73,21 @@ public class Funcionario implements Serializable {
 		this.projetoAlocado = projetoAlocado;
 	}
     
+    public static void escrever(ArrayList<Funcionario> funcionarios) {
+		FileOutputStream fos;
+        ObjectOutputStream oos;
+		try {
+			fos = new FileOutputStream("./bin/funcionarios.obj");
+			oos = new ObjectOutputStream(fos);
+			oos.writeObject(funcionarios);
+			fos.close();
+			oos.close();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}     
+	}
     public static void escrever(Funcionario funcionario, ArrayList<Funcionario> funcionarios) {
     	FileOutputStream fos;
     	ObjectOutputStream oos;
@@ -89,18 +105,18 @@ public class Funcionario implements Serializable {
 		}     
     }
     
-    @SuppressWarnings("unchecked")
+        @SuppressWarnings("unchecked")
 	public static ArrayList<Funcionario> ler() {
     	ArrayList<Funcionario> funcionarios = new ArrayList<>();
     	FileInputStream fis;
     	ObjectInputStream ois;
-		try {
-			fis = new FileInputStream("./bin/funcionarios.obj");
-			ois = new ObjectInputStream(fis);
-			funcionarios = (ArrayList<Funcionario>)ois.readObject();
-			fis.close();
-			ois.close();
-		} catch (EOFException e) {
+            try {
+                    fis = new FileInputStream("./bin/funcionarios.obj");
+                    ois = new ObjectInputStream(fis);
+                    funcionarios = (ArrayList<Funcionario>)ois.readObject();
+                    fis.close();
+                    ois.close();
+            } catch (EOFException e) {
 			e.printStackTrace();
     	} catch (FileNotFoundException e) {
 			e.printStackTrace();
@@ -110,5 +126,9 @@ public class Funcionario implements Serializable {
 			e.printStackTrace();
 		}
 		return funcionarios;
+    }
+    public static void remover (int index, ArrayList<Funcionario> funcionarios) {
+    	funcionarios.remove(index);
+    	Funcionario.escrever(funcionarios);
     }
 }

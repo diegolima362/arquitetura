@@ -51,6 +51,21 @@ public class Cliente implements Serializable {
         }
     }
     
+    public static void escrever(ArrayList<Cliente> clientes) {
+		FileOutputStream fos;
+        ObjectOutputStream oos;
+		try {
+			fos = new FileOutputStream("./bin/clientes.obj");
+			oos = new ObjectOutputStream(fos);
+			oos.writeObject(clientes);
+			fos.close();
+			oos.close();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}     
+	}
     public static void escrever(Cliente cliente, ArrayList<Cliente> clientes) {
         FileOutputStream fos;
         ObjectOutputStream oos;
@@ -90,5 +105,9 @@ public class Cliente implements Serializable {
 			e.printStackTrace();
 		}
 		return clientes;
+    }
+    public static void remover (int index, ArrayList<Cliente> clientes) {
+    	clientes.remove(index);
+    	Cliente.escrever(clientes);
     }
 } 

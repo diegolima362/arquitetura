@@ -46,7 +46,22 @@ public class PrestadorServico implements Serializable{
 	public void setDesconto(double desconto) {
 		this.desconto = desconto;
 	}
-	
+        
+                public static void escrever(ArrayList<PrestadorServico> prestadorServicos) {
+		FileOutputStream fos;
+        ObjectOutputStream oos;
+		try {
+			fos = new FileOutputStream("./bin/prestadorServicos.obj");
+			oos = new ObjectOutputStream(fos);
+			oos.writeObject(prestadorServicos);
+			fos.close();
+			oos.close();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}     
+	}
     public static void escrever(PrestadorServico prestadorServico, ArrayList<PrestadorServico> prestadorServicos) {
         FileOutputStream fos;
         ObjectOutputStream oos;
@@ -86,5 +101,9 @@ public class PrestadorServico implements Serializable{
 			e.printStackTrace();
 		}
 		return prestadorServicos;
+    }
+    public static void remover (int index, ArrayList<PrestadorServico> prestadorServicos) {
+    	prestadorServicos.remove(index);
+    	PrestadorServico.escrever(prestadorServicos);
     }
 }

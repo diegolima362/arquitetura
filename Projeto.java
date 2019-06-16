@@ -76,6 +76,22 @@ public class Projeto implements Serializable {
 		}
 	}
     
+	public static void escrever(ArrayList<Projeto> projetos) {
+		FileOutputStream fos;
+        ObjectOutputStream oos;
+		try {
+			fos = new FileOutputStream("./bin/projetos.obj");
+			oos = new ObjectOutputStream(fos);
+			oos.writeObject(projetos);
+			fos.close();
+			oos.close();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}     
+	}
+        
     public static void escrever(Projeto projeto, ArrayList<Projeto> projetos) {
         FileOutputStream fos;
         ObjectOutputStream oos;
@@ -115,5 +131,10 @@ public class Projeto implements Serializable {
 			e.printStackTrace();
 		}
 		return projetos;
+    }
+    
+    public static void remover (int index, ArrayList<Projeto> projetos) {
+    	projetos.remove(index);
+    	Projeto.escrever(projetos);
     }
 }
