@@ -62,7 +62,7 @@ public class Orcamento implements Serializable {
         FileOutputStream fos;
         ObjectOutputStream oos;
 		try {
-			fos = new FileOutputStream("\\bin\\orcamentos.obj");
+			fos = new FileOutputStream(".\\bin\\orcamentos.obj");
 			oos = new ObjectOutputStream(fos);
 			orcamentos.add(orcamento);
 			oos.writeObject(orcamentos);
@@ -78,7 +78,7 @@ public class Orcamento implements Serializable {
 		FileOutputStream fos;
         ObjectOutputStream oos;
 		try {
-			fos = new FileOutputStream("\\bin\\orcamentos.obj");
+			fos = new FileOutputStream(".\\bin\\orcamentos.obj");
 			oos = new ObjectOutputStream(fos);
 			oos.writeObject(orcamentos);
 			fos.close();
@@ -96,7 +96,7 @@ public class Orcamento implements Serializable {
     	ObjectInputStream ois;
     	
 		try {
-			fis = new FileInputStream("\\bin\\orcamentos.obj");
+			fis = new FileInputStream(".\\bin\\orcamentos.obj");
 			ois = new ObjectInputStream(fis);
 			orcamentos = (ArrayList<Orcamento>)ois.readObject();
 			fis.close();
