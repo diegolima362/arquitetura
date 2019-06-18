@@ -47,11 +47,16 @@ public class PrestadorServico implements Serializable{
 		this.desconto = desconto;
 	}
         
-                public static void escrever(ArrayList<PrestadorServico> prestadorServicos) {
+	public static void escrever(ArrayList<PrestadorServico> prestadorServicos) {
 		FileOutputStream fos;
         ObjectOutputStream oos;
 		try {
-			fos = new FileOutputStream(".\\bin\\prestadorServicos.obj");
+			if (System.getProperty("os.name").equals("Linux")) {
+				fos = new FileOutputStream("./bin/prestadorServicos.obj");
+			} else {
+				fos = new FileOutputStream(".\\bin\\prestadorServicos.obj");
+			}
+			
 			oos = new ObjectOutputStream(fos);
 			oos.writeObject(prestadorServicos);
 			fos.close();
@@ -66,7 +71,12 @@ public class PrestadorServico implements Serializable{
         FileOutputStream fos;
         ObjectOutputStream oos;
 		try {
-			fos = new FileOutputStream(".\\bin\\prestadorServicos.obj");
+			if (System.getProperty("os.name").equals("Linux")) {
+				fos = new FileOutputStream("./bin/prestadorServicos.obj");
+			} else {
+				fos = new FileOutputStream(".\\bin\\prestadorServicos.obj");
+			}
+			
 			oos = new ObjectOutputStream(fos);
 			prestadorServicos.add(prestadorServico);
 			oos.writeObject(prestadorServicos);
@@ -86,7 +96,12 @@ public class PrestadorServico implements Serializable{
     	ObjectInputStream ois;
     	
 		try {
-			fis = new FileInputStream(".\\bin\\prestadorServicos.obj");
+			if (System.getProperty("os.name").equals("Linux")) {
+				fis = new FileInputStream("./bin/prestadorServicos.obj");
+			} else {
+				fis = new FileInputStream(".\\bin\\prestadorServicos.obj");
+			}
+			
 			ois = new ObjectInputStream(fis);
 			prestadorServicos = (ArrayList<PrestadorServico>)ois.readObject();
 			fis.close();

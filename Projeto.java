@@ -60,12 +60,12 @@ public class Projeto implements Serializable {
 		return dataInicio;
 	}
 	public void setDataInicio(String dataInicio) {
-            DateFormat df = new SimpleDateFormat("MM/dd/yyyy"); 
-            try {
-				this.dataInicio = df.parse(dataInicio);
-			} catch (ParseException e) {
-				e.printStackTrace();
-			}
+        DateFormat df = new SimpleDateFormat("MM/dd/yyyy"); 
+        try {
+			this.dataInicio = df.parse(dataInicio);
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
 	}
 	public double getValorTotal() {
 		return valorTotal;
@@ -80,7 +80,12 @@ public class Projeto implements Serializable {
 		FileOutputStream fos;
         ObjectOutputStream oos;
 		try {
-			fos = new FileOutputStream(".\\bin\\projetos.obj");
+			if (System.getProperty("os.name").equals("Linux")) {
+				fos = new FileOutputStream("./bin/projetos.obj");
+			} else {
+				fos = new FileOutputStream(".\\bin\\projetos.obj");
+			}
+			
 			oos = new ObjectOutputStream(fos);
 			oos.writeObject(projetos);
 			fos.close();
@@ -96,7 +101,12 @@ public class Projeto implements Serializable {
         FileOutputStream fos;
         ObjectOutputStream oos;
 		try {
-			fos = new FileOutputStream(".\\bin\\projetos.obj");
+			if (System.getProperty("os.name").equals("Linux")) {
+				fos = new FileOutputStream("./bin/projetos.obj");
+			} else {
+				fos = new FileOutputStream(".\\bin\\projetos.obj");
+			}
+			
 			oos = new ObjectOutputStream(fos);
 			projetos.add(projeto);
 			oos.writeObject(projetos);
@@ -116,7 +126,12 @@ public class Projeto implements Serializable {
     	ObjectInputStream ois;
     	
 		try {
-			fis = new FileInputStream(".\\bin\\projetos.obj");
+			if (System.getProperty("os.name").equals("Linux")) {
+				fis = new FileInputStream("./bin/projetos.obj");
+			} else {
+				fis = new FileInputStream(".\\bin\\projetos.obj");
+			}
+			
 			ois = new ObjectInputStream(fis);
 			projetos = (ArrayList<Projeto>)ois.readObject();
 			fis.close();

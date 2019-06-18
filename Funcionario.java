@@ -77,7 +77,11 @@ public class Funcionario implements Serializable {
 		FileOutputStream fos;
         ObjectOutputStream oos;
 		try {
-			fos = new FileOutputStream(".\\bin\\funcionarios.obj");
+			if (System.getProperty("os.name").equals("Linux")) {
+				fos = new FileOutputStream(".\\bin\\funcionarios.obj");
+			} else {
+				fos = new FileOutputStream(".\\bin\\funcionarios.obj");
+			}
 			oos = new ObjectOutputStream(fos);
 			oos.writeObject(funcionarios);
 			fos.close();
@@ -92,7 +96,12 @@ public class Funcionario implements Serializable {
     	FileOutputStream fos;
     	ObjectOutputStream oos;
     	try {
-    		fos = new FileOutputStream(".\\bin\\funcionarios.obj");
+    		if (System.getProperty("os.name").equals("Linux")) {
+    			fos = new FileOutputStream("./bin/funcionarios.obj");
+    		} else {
+    			fos = new FileOutputStream(".\\bin\\funcionarios.obj");
+    		}
+    		
     		oos = new ObjectOutputStream(fos);
     		funcionarios.add(funcionario);
     		oos.writeObject(funcionarios);
@@ -111,11 +120,15 @@ public class Funcionario implements Serializable {
     	FileInputStream fis;
     	ObjectInputStream ois;
             try {
-                    fis = new FileInputStream(".\\bin\\funcionarios.obj");
-                    ois = new ObjectInputStream(fis);
-                    funcionarios = (ArrayList<Funcionario>)ois.readObject();
-                    fis.close();
-                    ois.close();
+            	if (System.getProperty("os.name").equals("Linux")) {
+            		fis = new FileInputStream("./bin/funcionarios.obj");
+            	} else {
+            		fis = new FileInputStream(".\\bin\\funcionarios.obj");
+            	}
+                ois = new ObjectInputStream(fis);
+                funcionarios = (ArrayList<Funcionario>)ois.readObject();
+                fis.close();
+                ois.close();
             } catch (EOFException e) {
 			e.printStackTrace();
     	} catch (FileNotFoundException e) {

@@ -71,7 +71,11 @@ public class LevantamentoVisita implements Serializable{
         FileOutputStream fos;
         ObjectOutputStream oos;
 		try {
-			fos = new FileOutputStream(".\\bin\\levantamentoVisitas.obj");
+			if (System.getProperty("os.name").equals("Linux")) {
+				fos = new FileOutputStream("./bin/levantamentoVisitas.obj");
+			} else {
+				fos = new FileOutputStream(".\\bin\\levantamentoVisitas.obj");
+			}
 			oos = new ObjectOutputStream(fos);
 			levantamentoVisitas.add(levantamentoVisita);
 			oos.writeObject(levantamentoVisitas);
@@ -91,7 +95,11 @@ public class LevantamentoVisita implements Serializable{
     	ObjectInputStream ois;
     	
 		try {
-			fis = new FileInputStream(".\\bin\\levantamentoVisitas.obj");
+			if (System.getProperty("os.name").equals("Linux")) {
+				fis = new FileInputStream("./bin/levantamentoVisitas.obj");
+			} else {
+				fis = new FileInputStream(".\\bin\\levantamentoVisitas.obj");
+			}
 			ois = new ObjectInputStream(fis);
 			levantamentoVisitas = (ArrayList<LevantamentoVisita>)ois.readObject();
 			fis.close();

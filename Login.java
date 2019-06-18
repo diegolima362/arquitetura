@@ -36,7 +36,12 @@ public class Login implements Serializable {
         FileOutputStream fos;
         ObjectOutputStream oos;
 		try {
-			fos = new FileOutputStream(".\\bin\\logins.obj");
+			if (System.getProperty("os.name").equals("Linux")) {
+				fos = new FileOutputStream("./bin/logins.obj");
+			} else {
+				fos = new FileOutputStream(".\\bin\\logins.obj");
+			}
+			
 			oos = new ObjectOutputStream(fos);
 			logins.add(login);
 			oos.writeObject(logins);
@@ -56,7 +61,12 @@ public class Login implements Serializable {
     	ObjectInputStream ois;
     	
 		try {
-			fis = new FileInputStream(".\\bin\\logins.obj");
+			if (System.getProperty("os.name").equals("Linux")) {
+				fis = new FileInputStream("./bin/logins.obj");
+			} else {
+				fis = new FileInputStream(".\\bin\\logins.obj");
+			}
+			
 			ois = new ObjectInputStream(fis);
 			logins = (ArrayList<Login>)ois.readObject();
 			fis.close();
