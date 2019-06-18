@@ -64,7 +64,12 @@ public class Orcamento implements Serializable {
         FileOutputStream fos;
         ObjectOutputStream oos;
 		try {
-			fos = new FileOutputStream(".\\bin\\orcamentos.obj");
+			if (System.getProperty("os.name").equals("Linux")) {
+				fos = new FileOutputStream("./bin/orcamentos.obj");
+			} else {
+				fos = new FileOutputStream(".\\bin\\orcamentos.obj");
+			}
+			
 			oos = new ObjectOutputStream(fos);
 			orcamentos.add(orcamento);
 			oos.writeObject(orcamentos);
@@ -80,7 +85,12 @@ public class Orcamento implements Serializable {
 		FileOutputStream fos;
         ObjectOutputStream oos;
 		try {
-			fos = new FileOutputStream(".\\bin\\orcamentos.obj");
+			if (System.getProperty("os.name").equals("Linux")) {
+				fos = new FileOutputStream("./bin/orcamentos.obj");
+			} else {
+				fos = new FileOutputStream(".\\bin\\orcamentos.obj");
+			}
+			
 			oos = new ObjectOutputStream(fos);
 			oos.writeObject(orcamentos);
 			fos.close();
@@ -98,7 +108,12 @@ public class Orcamento implements Serializable {
     	ObjectInputStream ois;
     	
 		try {
-			fis = new FileInputStream(".\\bin\\orcamentos.obj");
+			if (System.getProperty("os.name").equals("Linux")) {
+				fis = new FileInputStream("./bin/orcamentos.obj");
+			} else {
+				fis = new FileInputStream(".\\bin\\orcamentos.obj");
+			}
+			
 			ois = new ObjectInputStream(fis);
 			orcamentos = (ArrayList<Orcamento>)ois.readObject();
 			fis.close();

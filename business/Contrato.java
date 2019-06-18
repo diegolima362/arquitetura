@@ -99,7 +99,12 @@ public class Contrato implements Serializable {
         FileOutputStream fos;
         ObjectOutputStream oos;
 		try {
-			fos = new FileOutputStream(".\\bin\\contratos.obj");
+			if (System.getProperty("os.name").equals("Linux")) {
+				fos = new FileOutputStream("./bin/contratos.obj");
+			} else {
+				fos = new FileOutputStream(".\\bin\\contratos.obj");
+			}
+			
 			oos = new ObjectOutputStream(fos);
 			contratos.add(contrato);
 			oos.writeObject(contratos);
@@ -119,7 +124,11 @@ public class Contrato implements Serializable {
     	ObjectInputStream ois;
     	
 		try {
-			fis = new FileInputStream(".\\bin\\contratos.obj");
+			if (System.getProperty("os.name").equals("Linux")) {
+				fis = new FileInputStream("./bin/contratos.obj");
+			} else {
+				fis = new FileInputStream(".\\bin\\contratos.obj");
+			}
 			ois = new ObjectInputStream(fis);
 			contratos = (ArrayList<Contrato>)ois.readObject();
 			fis.close();
