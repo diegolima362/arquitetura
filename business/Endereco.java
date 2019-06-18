@@ -1,3 +1,5 @@
+package business;
+
 import java.io.Serializable;
 
 public class Endereco implements Serializable {
