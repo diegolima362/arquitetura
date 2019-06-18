@@ -78,10 +78,10 @@ public class Login implements Serializable {
         FileInputStream fis;
         ObjectInputStream ois;
 
-        if (getUserStatusAtivo() == false) {
+        if (!getUserStatusAtivo()) {
             JOptionPane.showMessageDialog(null, "O sistema não possui administrador cadastrado!", "Falha",
                     JOptionPane.INFORMATION_MESSAGE);
-        }
+        } 
 
         try {
             fis = new FileInputStream(PATH.toFile());

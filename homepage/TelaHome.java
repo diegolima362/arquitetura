@@ -34,7 +34,7 @@ public class TelaHome extends javax.swing.JFrame {
      */
     public TelaHome() {
         initComponents();
-        this.setLocationRelativeTo(null);
+        
         atualizarTabela();
         atualizarTabelaClientes();
         atualizarTabelaFuncionarios();
@@ -297,10 +297,12 @@ public class TelaHome extends javax.swing.JFrame {
         jButtonOrcamentoRemover = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
+        jMenuItemSair = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1280, 720));
+        setResizable(false);
 
         jPanelPrincipal.setTabPlacement(javax.swing.JTabbedPane.LEFT);
 
@@ -739,7 +741,7 @@ public class TelaHome extends javax.swing.JFrame {
                     .addComponent(jButtonProjetosRemover))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(220, Short.MAX_VALUE))
+                .addContainerGap(247, Short.MAX_VALUE))
         );
 
         jTabbedProjetos.addTab("Projetos", jPanelProjetoLista);
@@ -1024,7 +1026,7 @@ public class TelaHome extends javax.swing.JFrame {
                 .addGroup(jPanelNovoClienteConteudoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonClienteCancelar)
                     .addComponent(jButtonClienteSalvar))
-                .addContainerGap(294, Short.MAX_VALUE))
+                .addContainerGap(346, Short.MAX_VALUE))
         );
 
         jScrollPaneNovoCliente.setViewportView(jPanelNovoClienteConteudo);
@@ -1097,7 +1099,7 @@ public class TelaHome extends javax.swing.JFrame {
                     .addComponent(jButtonClienteRemover))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(220, Short.MAX_VALUE))
+                .addContainerGap(247, Short.MAX_VALUE))
         );
 
         jTabbedClientes.addTab("Clientes", jPanelClienteLIsta);
@@ -1404,7 +1406,7 @@ public class TelaHome extends javax.swing.JFrame {
                 .addGroup(jPanelNovoFuncionarioConteudoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonFuncionarioSalvar)
                     .addComponent(jButtonFuncionarioCancelar))
-                .addContainerGap(265, Short.MAX_VALUE))
+                .addContainerGap(287, Short.MAX_VALUE))
         );
 
         jScrollPaneNovoFuncionario.setViewportView(jPanelNovoFuncionarioConteudo);
@@ -1477,7 +1479,7 @@ public class TelaHome extends javax.swing.JFrame {
                     .addComponent(jButtonFuncionarioRemover))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(220, Short.MAX_VALUE))
+                .addContainerGap(247, Short.MAX_VALUE))
         );
 
         jTabbedFuncionarios.addTab("Funcionários", jPanelFuncionarioLista);
@@ -1676,7 +1678,7 @@ public class TelaHome extends javax.swing.JFrame {
         );
         jPanelNovoMaterialLayout.setVerticalGroup(
             jPanelNovoMaterialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPaneNovoMaterial, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 720, Short.MAX_VALUE)
+            .addComponent(jScrollPaneNovoMaterial, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 751, Short.MAX_VALUE)
         );
 
         jTabbedMateriais.addTab("Novo Material", jPanelNovoMaterial);
@@ -1736,7 +1738,7 @@ public class TelaHome extends javax.swing.JFrame {
                     .addComponent(jButtonMaterialRemover))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(220, Short.MAX_VALUE))
+                .addContainerGap(247, Short.MAX_VALUE))
         );
 
         jTabbedMateriais.addTab("Materiais", jPanelMaterialLista);
@@ -1916,7 +1918,7 @@ public class TelaHome extends javax.swing.JFrame {
         );
         jPanelNovoServicoLayout.setVerticalGroup(
             jPanelNovoServicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPaneNovoServico, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 755, Short.MAX_VALUE)
+            .addComponent(jScrollPaneNovoServico, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 751, Short.MAX_VALUE)
         );
 
         jTabbedServico.addTab("Novo Servico", jPanelNovoServico);
@@ -1976,7 +1978,7 @@ public class TelaHome extends javax.swing.JFrame {
                     .addComponent(jButtonServicoRemover))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(255, Short.MAX_VALUE))
+                .addContainerGap(247, Short.MAX_VALUE))
         );
 
         jTabbedServico.addTab("Serviços", jPanelServicoLista);
@@ -2173,7 +2175,7 @@ public class TelaHome extends javax.swing.JFrame {
         );
         jPanelNovoOrcamentoLayout.setVerticalGroup(
             jPanelNovoOrcamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPaneNovoOrcamento, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 755, Short.MAX_VALUE)
+            .addComponent(jScrollPaneNovoOrcamento, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 751, Short.MAX_VALUE)
         );
 
         jTabbedOrcamentos.addTab("Novo Orçamento", jPanelNovoOrcamento);
@@ -2233,7 +2235,7 @@ public class TelaHome extends javax.swing.JFrame {
                     .addComponent(jButtonOrcamentoRemover))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(255, Short.MAX_VALUE))
+                .addContainerGap(247, Short.MAX_VALUE))
         );
 
         jTabbedOrcamentos.addTab("Orçamentos", jPanelOrcamentoLista);
@@ -2253,7 +2255,18 @@ public class TelaHome extends javax.swing.JFrame {
 
         jPanelPrincipal.addTab("Orçamentos", jPanelOcamento);
 
+        jMenuBar1.setPreferredSize(new java.awt.Dimension(65, 25));
+
         jMenu1.setText("File");
+
+        jMenuItemSair.setText("Sair");
+        jMenuItemSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemSairActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItemSair);
+
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Edit");
@@ -2275,6 +2288,7 @@ public class TelaHome extends javax.swing.JFrame {
         jPanelPrincipal.getAccessibleContext().setAccessibleName("");
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTextFieldProjetoDataInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldProjetoDataInicioActionPerformed
@@ -2643,7 +2657,7 @@ public class TelaHome extends javax.swing.JFrame {
                     jTextFieldFuncionarioRua.getText(),
                     Integer.parseInt(jTextFieldFuncionarioNumero.getText())
             ));
-            Funcionario.escrever(funcionario, Funcionario.ler());
+            Funcionario.escrever(funcionario, Funcionario.lerFuncionarios());
             limparMenuFuncionario();
             JOptionPane.showMessageDialog(null, "Salva com sucesso.");
 
@@ -2660,7 +2674,7 @@ public class TelaHome extends javax.swing.JFrame {
 
     private void jButtonFuncionarioEditarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonFuncionarioEditarMouseClicked
         if (jTableFuncionarios.getSelectedRow() != -1) {
-            EditarFuncionario epf = new EditarFuncionario(jTableFuncionarios.getSelectedRow(), Funcionario.ler());
+            EditarFuncionario epf = new EditarFuncionario(jTableFuncionarios.getSelectedRow(), Funcionario.lerFuncionarios());
             epf.setVisible(true);
             atualizarTabelaFuncionarios();
         } else {
@@ -2677,7 +2691,7 @@ public class TelaHome extends javax.swing.JFrame {
             DefaultTableModel dtmTabelaFuncionario = (DefaultTableModel) jTableFuncionarios.getModel();
             int index = jTableFuncionarios.getSelectedRow();
             dtmTabelaFuncionario.removeRow(index);
-            Funcionario.remover(index, Funcionario.ler());
+            Funcionario.removerFuncionario(index, Funcionario.lerFuncionarios());
             atualizarTabelaFuncionarios();
         } else {
             JOptionPane.showMessageDialog(null, "Selecione um item para remover.");
@@ -2930,6 +2944,11 @@ public class TelaHome extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Selecione um item para remover.");
         }
     }//GEN-LAST:event_jButtonOrcamentoRemoverMouseClicked
+
+    private void jMenuItemSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemSairActionPerformed
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_jMenuItemSairActionPerformed
     private void atualizarTabela() {
         DefaultTableModel dtmTabela = (DefaultTableModel) jTableProjetos.getModel();
         Object[] dados = new Object[3];
@@ -2970,7 +2989,7 @@ public class TelaHome extends javax.swing.JFrame {
     private void atualizarTabelaFuncionarios() {
         DefaultTableModel dtmTabelaFuncionario = (DefaultTableModel) jTableFuncionarios.getModel();
         Object[] dados = new Object[3];
-        ArrayList<Funcionario> funcionarios = Funcionario.ler();
+        ArrayList<Funcionario> funcionarios = Funcionario.lerFuncionarios();
         int rowCount = dtmTabelaFuncionario.getRowCount();
 
         for (int i = rowCount - 1; i >= 0; i--) {
@@ -3242,6 +3261,7 @@ public class TelaHome extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItemSair;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel2;
