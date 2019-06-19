@@ -28,19 +28,9 @@ public class PrestadorServico implements Serializable {
     private String descricaoServico;
     private double desconto;
 
-    /**
-     *
-     */
     public PrestadorServico() {
     }
 
-    /**
-     *
-     * @param nome
-     * @param descricao
-     * @param codigo
-     * @param desconto
-     */
     public PrestadorServico(String nome, String descricao, int codigo, double desconto) {
         this.nome = nome;
         this.desconto = desconto;
@@ -48,66 +38,34 @@ public class PrestadorServico implements Serializable {
         this.desconto = desconto;
     }
 
-    /**
-     *
-     * @return
-     */
     public int getCodigo() {
         return codigo;
     }
 
-    /**
-     *
-     * @param codigo
-     */
     public void setCodigo(int codigo) {
         this.codigo = codigo;
     }
 
-    /**
-     *
-     * @return
-     */
     public String getNome() {
         return nome;
     }
 
-    /**
-     *
-     * @param nome
-     */
     public void setNome(String nome) {
         this.nome = nome;
     }
 
-    /**
-     *
-     * @return
-     */
     public String getDescricaoServico() {
         return descricaoServico;
     }
 
-    /**
-     *
-     * @param descricaoServico
-     */
     public void setDescricaoServico(String descricaoServico) {
         this.descricaoServico = descricaoServico;
     }
 
-    /**
-     *
-     * @return
-     */
     public double getDesconto() {
         return desconto;
     }
 
-    /**
-     *
-     * @param desconto
-     */
     public void setDesconto(double desconto) {
         this.desconto = desconto;
     }
@@ -122,18 +80,10 @@ public class PrestadorServico implements Serializable {
         }
     }
 
-    /**
-     *
-     * @return
-     */
     public static boolean getPrestadorFileStatus() {
         return Files.exists(getOSPath());
     }
 
-    /**
-     *
-     * @param prestadorServicos
-     */
     public static void escrever(ArrayList<PrestadorServico> prestadorServicos) {
         FileOutputStream fos;
         ObjectOutputStream oos;
@@ -149,11 +99,6 @@ public class PrestadorServico implements Serializable {
         }
     }
 
-    /**
-     *
-     * @param prestadorServico
-     * @param prestadorServicos
-     */
     public static void escrever(PrestadorServico prestadorServico, ArrayList<PrestadorServico> prestadorServicos) {
         FileOutputStream fos;
         ObjectOutputStream oos;
@@ -170,10 +115,6 @@ public class PrestadorServico implements Serializable {
         }
     }
 
-    /**
-     *
-     * @return
-     */
     public static ArrayList<PrestadorServico> ler() {
         ArrayList<PrestadorServico> prestadorServicos = new ArrayList<>();
         FileInputStream fis;
@@ -197,11 +138,6 @@ public class PrestadorServico implements Serializable {
         return prestadorServicos;
     }
 
-    /**
-     *
-     * @param index
-     * @param prestadorServicos
-     */
     public static void remover(int index, ArrayList<PrestadorServico> prestadorServicos) {
         prestadorServicos.remove(index);
         PrestadorServico.escrever(prestadorServicos);

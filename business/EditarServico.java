@@ -16,20 +16,14 @@ import javax.swing.JOptionPane;
 public class EditarServico extends javax.swing.JFrame {
 
     private final int index;
-    private PrestadorServico servico;
-    private ArrayList<PrestadorServico> servicos;
+    private final PrestadorServico servico;
+    private final ArrayList<PrestadorServico> servicos;
 
-    /**
-     * Creates new form EditarServico
-     *
-     * @param index
-     * @param servicos
-     */
     public EditarServico(int index, ArrayList<PrestadorServico> servicos) {
         this.index = index;
         this.servico = servicos.get(index);
         this.servicos = servicos;
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         initComponents();
         mostrar();
     }

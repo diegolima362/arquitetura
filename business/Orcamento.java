@@ -35,13 +35,6 @@ public class Orcamento implements Serializable {
     public Orcamento() {
     }
 
-    /**
-     *
-     * @param cliente
-     * @param projeto
-     * @param valorProjeto
-     * @param detalhamentoCusto
-     */
     public Orcamento(String cliente, String projeto, double valorProjeto, String detalhamentoCusto) {
         this.cliente = cliente;
         this.projeto = projeto;
@@ -49,82 +42,42 @@ public class Orcamento implements Serializable {
         this.detalhamentoCusto = detalhamentoCusto;
     }
 
-    /**
-     *
-     * @return
-     */
     public int getCodigo() {
         return codigo;
     }
 
-    /**
-     *
-     * @param codigo
-     */
     public void setCodigo(int codigo) {
         this.codigo = codigo;
     }
 
-    /**
-     *
-     * @return
-     */
     public String getProjeto() {
         return projeto;
     }
 
-    /**
-     *
-     * @param projeto
-     */
     public void setProjeto(String projeto) {
         this.projeto = projeto;
     }
 
-    /**
-     *
-     * @return
-     */
     public String getCliente() {
         return cliente;
     }
 
-    /**
-     *
-     * @param cliente
-     */
     public void setCliente(String cliente) {
         this.cliente = cliente;
     }
 
-    /**
-     *
-     * @return
-     */
     public double getValorProjeto() {
         return valorProjeto;
     }
 
-    /**
-     *
-     * @param valorProjeto
-     */
     public void setValorProjeto(double valorProjeto) {
         this.valorProjeto = valorProjeto;
     }
 
-    /**
-     *
-     * @return
-     */
     public String getDetalhamentoCusto() {
         return detalhamentoCusto;
     }
 
-    /**
-     *
-     * @param detalhamentoCusto
-     */
     public void setDetalhamentoCusto(String detalhamentoCusto) {
         this.detalhamentoCusto = detalhamentoCusto;
     }
@@ -139,19 +92,10 @@ public class Orcamento implements Serializable {
         }
     }
 
-    /**
-     *
-     * @return
-     */
     public static boolean getOrcamentoFileStatus() {
         return Files.exists(getOSPath());
     }
 
-    /**
-     *
-     * @param orcamento
-     * @param orcamentos
-     */
     public static void escrever(Orcamento orcamento, ArrayList<Orcamento> orcamentos) {
         FileOutputStream fos;
         ObjectOutputStream oos;
@@ -168,10 +112,6 @@ public class Orcamento implements Serializable {
         }
     }
 
-    /**
-     *
-     * @param orcamentos
-     */
     public static void escrever(ArrayList<Orcamento> orcamentos) {
         FileOutputStream fos;
         ObjectOutputStream oos;
@@ -187,10 +127,6 @@ public class Orcamento implements Serializable {
         }
     }
 
-    /**
-     *
-     * @return
-     */
     public static ArrayList<Orcamento> ler() {
         ArrayList<Orcamento> orcamentos = new ArrayList<>();
         FileInputStream fis;
@@ -214,11 +150,6 @@ public class Orcamento implements Serializable {
         return orcamentos;
     }
 
-    /**
-     *
-     * @param index
-     * @param orcamentos
-     */
     public static void remover(int index, ArrayList<Orcamento> orcamentos) {
         orcamentos.remove(index);
         Orcamento.escrever(orcamentos);

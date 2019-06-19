@@ -17,20 +17,15 @@ import javax.swing.JOptionPane;
 public class EditarOrcamento extends javax.swing.JFrame {
 
     private final int index;
-    private Orcamento orcamento;
-    private ArrayList<Orcamento> orcamentos;
+    private final Orcamento orcamento;
+    private final ArrayList<Orcamento> orcamentos;
 
-    /**
-     * Creates new form EditarOrcamento
-     *
-     * @param index
-     * @param orcamentos
-     */
+    
     public EditarOrcamento(int index, ArrayList<Orcamento> orcamentos) {
         this.index = index;
         this.orcamento = orcamentos.get(index);
         this.orcamentos = orcamentos;
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+       this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         initComponents();
         mostrar();
     }

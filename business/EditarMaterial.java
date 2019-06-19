@@ -9,7 +9,6 @@ import javax.swing.JOptionPane;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author thebell
@@ -17,20 +16,14 @@ import javax.swing.JOptionPane;
 public class EditarMaterial extends javax.swing.JFrame {
 
     private final int index;
-    private Material material;
-    private ArrayList<Material> materiais;
+    private final Material material;
+    private final ArrayList<Material> materiais;
 
-    /**
-     * Creates new form EditarMaterial
-     *
-     * @param index
-     * @param materiais
-     */
     public EditarMaterial(int index, ArrayList<Material> materiais) {
         this.index = index;
         this.material = materiais.get(index);
         this.materiais = materiais;
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         initComponents();
         mostrar();
     }

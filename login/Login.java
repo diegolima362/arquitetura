@@ -29,61 +29,32 @@ public class Login implements Serializable {
     private String senha;
     private long CPF;
 
-    /**
-     *
-     * @param nome
-     * @param senha
-     * @param cpf
-     */
     public Login(String nome, String senha, long cpf) {
         this.nome = nome;
         this.senha = senha;
         this.CPF = cpf;
     }
 
-    /**
-     *
-     */
     public Login() {
 
     }
 
-    /**
-     *
-     * @return
-     */
     public String getNome() {
         return nome;
     }
 
-    /**
-     *
-     * @return
-     */
     public String getSenha() {
         return senha;
     }
 
-    /**
-     *
-     * @return
-     */
     public long getCPF() {
         return this.CPF;
     }
 
-    /**
-     *
-     * @return
-     */
     public static boolean getUserStatusAtivo() {
         return Files.exists(getOSPath());
     }
 
-    /**
-     *
-     * @return
-     */
     private static Path getOSPath() {
         if (System.getProperty("os.name").equals("Linux")) {
 
@@ -94,19 +65,13 @@ public class Login implements Serializable {
         }
     }
 
-    /**
-     *
-     * @param login
-     * @return
-     */
     public static boolean gravarLogin(Login login) {
         FileOutputStream fos;
         ObjectOutputStream oos;
 
         try {
             if (getUserStatusAtivo() == true) {
-                JOptionPane.showMessageDialog(null, "O sistema já possui administrador!", "Falha",
-                        JOptionPane.INFORMATION_MESSAGE);
+
                 return false;
             }
             new File("./Data").mkdir();
@@ -125,10 +90,6 @@ public class Login implements Serializable {
         return false;
     }
 
-    /**
-     *
-     * @return
-     */
     public static Login lerLogin() {
 
         Login login = null;
@@ -136,8 +97,6 @@ public class Login implements Serializable {
         ObjectInputStream ois;
 
         if (!getUserStatusAtivo()) {
-            JOptionPane.showMessageDialog(null, "O sistema não possui administrador cadastrado!", "Falha",
-                    JOptionPane.INFORMATION_MESSAGE);
             new File("./Data").mkdir();
         }
 
@@ -161,11 +120,6 @@ public class Login implements Serializable {
         getOSPath().toFile().delete();
     }
 
-    /**
-     *
-     * @param cpf
-     * @param tle
-     */
     public static void restaurar(long cpf, TelaLogin tle) {
 
         if (getUserStatusAtivo()) {

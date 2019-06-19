@@ -15,11 +15,6 @@ public class TelaCadastroUser extends javax.swing.JFrame {
 
     private TelaLogin telaLoginTemp;
 
-    /**
-     * Creates new form TelaCadastroUser
-     *
-     * @param tl
-     */
     public TelaCadastroUser(TelaLogin tl) {
         initComponents();
         this.setLocationRelativeTo(null);
@@ -28,11 +23,6 @@ public class TelaCadastroUser extends javax.swing.JFrame {
 
     }
 
-    /**
-     *
-     * @param cpf
-     * @param tl
-     */
     public TelaCadastroUser(long cpf, TelaLogin tl) {
         initComponents();
         this.jTextFieldCPF.setText("" + cpf);

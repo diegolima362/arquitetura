@@ -15,15 +15,10 @@ import javax.swing.JOptionPane;
 public class EditarProjeto extends javax.swing.JFrame {
 
     private final int index;
-    private Projeto projeto;
-    private ArrayList<Projeto> projetos;
+    private final Projeto projeto;
+    private final ArrayList<Projeto> projetos;
 
-    /**
-     * Creates new form Editar
-     *
-     * @param index
-     * @param projetos
-     */
+   
     public EditarProjeto(int index, ArrayList<Projeto> projetos) {
         this.index = index;
         this.projeto = projetos.get(index);

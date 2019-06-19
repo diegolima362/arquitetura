@@ -16,15 +16,10 @@ import javax.swing.JOptionPane;
 public class EditarCliente extends javax.swing.JFrame {
 
     private final int index;
-    private Cliente cliente;
-    private ArrayList<Cliente> clientes;
+    private final Cliente cliente;
+    private final ArrayList<Cliente> clientes;
 
-    /**
-     * Creates new form EditarCliente
-     *
-     * @param index
-     * @param clientes
-     */
+    
     public EditarCliente(int index, ArrayList<Cliente> clientes) {
         this.index = index;
         this.cliente = clientes.get(index);

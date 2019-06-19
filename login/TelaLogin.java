@@ -11,18 +11,11 @@ public class TelaLogin extends javax.swing.JFrame {
 
     private JFrame tela;
 
-    /**
-     *
-     */
     public TelaLogin() {
         initComponents();
         this.setLocationRelativeTo(null);
     }
 
-    /**
-     *
-     * @param tl
-     */
     public void setTela(JFrame tl) {
         this.tela = tl;
         this.tela.setVisible(false);
@@ -164,9 +157,6 @@ public class TelaLogin extends javax.swing.JFrame {
         telaEsq.setVisible(true);
     }//GEN-LAST:event_jButtonEsqueciSenhaActionPerformed
 
-    /**
-     *
-     */
     public void realizarLogin() {
         Login login = Login.lerLogin();
 
@@ -182,7 +172,7 @@ public class TelaLogin extends javax.swing.JFrame {
                         JOptionPane.INFORMATION_MESSAGE);
             }
         } else {
-            JOptionPane.showMessageDialog(null, "O sistema não possui administrador cadastrado!", "Falha",
+            JOptionPane.showMessageDialog(null, "O sistema não possui administrador cadastrado !", "Falha",
                     JOptionPane.INFORMATION_MESSAGE);
         }
 

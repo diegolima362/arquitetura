@@ -31,21 +31,9 @@ public class LevantamentoVisita implements Serializable {
     private double cotas;
     private double valorCobrado;
 
-    /**
-     *
-     */
     public LevantamentoVisita() {
     }
 
-    /**
-     *
-     * @param cliente
-     * @param projeto
-     * @param codigo
-     * @param data
-     * @param cotas
-     * @param valorCobrado
-     */
     public LevantamentoVisita(Cliente cliente, Projeto projeto, int codigo, Date data,
             double cotas, double valorCobrado) {
         this.cliente = cliente;
@@ -56,98 +44,50 @@ public class LevantamentoVisita implements Serializable {
         this.valorCobrado = valorCobrado;
     }
 
-    /**
-     *
-     * @return
-     */
     public int getCodigo() {
         return codigo;
     }
 
-    /**
-     *
-     * @param codigo
-     */
     public void setCodigo(int codigo) {
         this.codigo = codigo;
     }
 
-    /**
-     *
-     * @return
-     */
     public Cliente getCliente() {
         return cliente;
     }
 
-    /**
-     *
-     * @param cliente
-     */
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
     }
 
-    /**
-     *
-     * @return
-     */
     public Projeto getProjeto() {
         return projeto;
     }
 
-    /**
-     *
-     * @param projeto
-     */
     public void setProjeto(Projeto projeto) {
         this.projeto = projeto;
     }
 
-    /**
-     *
-     * @return
-     */
     public Date getData() {
         return data;
     }
 
-    /**
-     *
-     * @param data
-     */
     public void setData(Date data) {
         this.data = data;
     }
 
-    /**
-     *
-     * @return
-     */
     public double getCotas() {
         return cotas;
     }
 
-    /**
-     *
-     * @param cotas
-     */
     public void setCotas(double cotas) {
         this.cotas = cotas;
     }
 
-    /**
-     *
-     * @return
-     */
     public double getValorCobrado() {
         return valorCobrado;
     }
 
-    /**
-     *
-     * @param valorCobrado
-     */
     public void setValorCobrado(double valorCobrado) {
         this.valorCobrado = valorCobrado;
     }
@@ -162,19 +102,10 @@ public class LevantamentoVisita implements Serializable {
         }
     }
 
-    /**
-     *
-     * @return
-     */
     public static boolean getLevantamentoFileStatus() {
         return Files.exists(getOSPath());
     }
 
-    /**
-     *
-     * @param levantamentoVisita
-     * @param levantamentoVisitas
-     */
     public static void escrever(LevantamentoVisita levantamentoVisita, ArrayList<LevantamentoVisita> levantamentoVisitas) {
         FileOutputStream fos;
         ObjectOutputStream oos;
@@ -190,10 +121,6 @@ public class LevantamentoVisita implements Serializable {
         }
     }
 
-    /**
-     *
-     * @return
-     */
     public static ArrayList<LevantamentoVisita> ler() {
         ArrayList<LevantamentoVisita> levantamentoVisitas = new ArrayList<>();
         FileInputStream fis;

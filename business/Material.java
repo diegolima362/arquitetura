@@ -36,15 +36,6 @@ public class Material implements Serializable {
     public Material() {
     }
 
-    /**
-     *
-     * @param nome
-     * @param fabricante
-     * @param descricao
-     * @param codigo
-     * @param valor
-     * @param catalogo
-     */
     public Material(String nome, String fabricante, String descricao, int codigo,
             double valor, ArrayList<Material> catalogo) {
         this.nome = nome;
@@ -53,98 +44,50 @@ public class Material implements Serializable {
         this.catalogo = catalogo;
     }
 
-    /**
-     *
-     * @return
-     */
     public double getValor() {
         return this.valor;
     }
 
-    /**
-     *
-     * @param valor
-     */
     public void setValor(double valor) {
         this.valor = valor;
     }
 
-    /**
-     *
-     * @return
-     */
     public int getCodigo() {
         return codigo;
     }
 
-    /**
-     *
-     * @param codigo
-     */
     public void setCodigo(int codigo) {
         this.codigo = codigo;
     }
 
-    /**
-     *
-     * @return
-     */
     public String getNome() {
         return nome;
     }
 
-    /**
-     *
-     * @param nome
-     */
     public void setNome(String nome) {
         this.nome = nome;
     }
 
-    /**
-     *
-     * @return
-     */
     public String getFabricante() {
         return fabricante;
     }
 
-    /**
-     *
-     * @param fabricante
-     */
     public void setFabricante(String fabricante) {
         this.fabricante = fabricante;
     }
 
-    /**
-     *
-     * @return
-     */
     public String getDescricao() {
         return descricao;
     }
 
-    /**
-     *
-     * @param descricao
-     */
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
 
-    /**
-     *
-     * @return
-     */
     public ArrayList<Material> getCatalogo() {
         return catalogo;
     }
 
-    /**
-     *
-     * @param catalogo
-     */
     public void setCatalogo(ArrayList<Material> catalogo) {
         this.catalogo = catalogo;
     }
@@ -159,18 +102,10 @@ public class Material implements Serializable {
         }
     }
 
-    /**
-     *
-     * @return
-     */
     public static boolean getMaterialFileStatus() {
         return Files.exists(getOSPath());
     }
 
-    /**
-     *
-     * @param materiais
-     */
     public static void escrever(ArrayList<Material> materiais) {
         FileOutputStream fos;
         ObjectOutputStream oos;
@@ -187,11 +122,6 @@ public class Material implements Serializable {
         }
     }
 
-    /**
-     *
-     * @param material
-     * @param materiais
-     */
     public static void escrever(Material material, ArrayList<Material> materiais) {
         FileOutputStream fos;
         ObjectOutputStream oos;
@@ -208,10 +138,6 @@ public class Material implements Serializable {
         }
     }
 
-    /**
-     *
-     * @return
-     */
     public static ArrayList<Material> ler() {
         ArrayList<Material> materiais = new ArrayList<>();
         FileInputStream fis;
@@ -234,11 +160,6 @@ public class Material implements Serializable {
         return materiais;
     }
 
-    /**
-     *
-     * @param index
-     * @param materiais
-     */
     public static void remover(int index, ArrayList<Material> materiais) {
         materiais.remove(index);
         Material.escrever(materiais);

@@ -35,21 +35,9 @@ public class Projeto implements Serializable {
     private Date dataInicio;
     private double valorTotal;
 
-    /**
-     *
-     */
     public Projeto() {
     }
 
-    /**
-     *
-     * @param nome
-     * @param cliente
-     * @param codigo
-     * @param descricao
-     * @param dataInicio
-     * @param valorTotal
-     */
     public Projeto(String nome, Cliente cliente, int codigo, String descricao, Date dataInicio,
             double valorTotal) {
         this.nome = nome;
@@ -59,82 +47,42 @@ public class Projeto implements Serializable {
         this.dataInicio = dataInicio;
     }
 
-    /**
-     *
-     * @return
-     */
     public int getCodigo() {
         return codigo;
     }
 
-    /**
-     *
-     * @param codigo
-     */
     public void setCodigo(int codigo) {
         this.codigo = codigo;
     }
 
-    /**
-     *
-     * @return
-     */
     public String getNome() {
         return nome;
     }
 
-    /**
-     *
-     * @param nome
-     */
     public void setNome(String nome) {
         this.nome = nome;
     }
 
-    /**
-     *
-     * @return
-     */
     public String getDescricao() {
         return descricao;
     }
 
-    /**
-     *
-     * @param descricao
-     */
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
 
-    /**
-     *
-     * @return
-     */
     public Cliente getCliente() {
         return cliente;
     }
 
-    /**
-     *
-     * @param cliente
-     */
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
     }
 
-    /**
-     *
-     * @return
-     */
     public Date getDataInicio() {
         return dataInicio;
     }
 
-    /**
-     *
-     * @param dataInicio
-     */
     public void setDataInicio(String dataInicio) {
         DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
         try {
@@ -143,18 +91,10 @@ public class Projeto implements Serializable {
         }
     }
 
-    /**
-     *
-     * @return
-     */
     public double getValorTotal() {
         return valorTotal;
     }
 
-    /**
-     *
-     * @param valorTotal
-     */
     public void setValorTotal(double valorTotal) {
         if (valorTotal >= 0) {
             this.valorTotal = valorTotal;
@@ -171,18 +111,10 @@ public class Projeto implements Serializable {
         }
     }
 
-    /**
-     *
-     * @return
-     */
     public static boolean getProjectFileStatusAtivo() {
         return Files.exists(getOSPath());
     }
 
-    /**
-     *
-     * @param projetos
-     */
     public static void escrever(ArrayList<Projeto> projetos) {
         FileOutputStream fos;
         ObjectOutputStream oos;
@@ -197,11 +129,6 @@ public class Projeto implements Serializable {
         }
     }
 
-    /**
-     *
-     * @param projeto
-     * @param projetos
-     */
     public static void escrever(Projeto projeto, ArrayList<Projeto> projetos) {
         FileOutputStream fos;
         ObjectOutputStream oos;
@@ -217,10 +144,6 @@ public class Projeto implements Serializable {
         }
     }
 
-    /**
-     *
-     * @return
-     */
     @SuppressWarnings("unchecked")
     public static ArrayList<Projeto> ler() {
         ArrayList<Projeto> projetos = new ArrayList<>();
@@ -245,11 +168,6 @@ public class Projeto implements Serializable {
         return projetos;
     }
 
-    /**
-     *
-     * @param index
-     * @param projetos
-     */
     public static void remover(int index, ArrayList<Projeto> projetos) {
         projetos.remove(index);
         Projeto.escrever(projetos);

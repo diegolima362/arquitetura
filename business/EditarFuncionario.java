@@ -16,20 +16,14 @@ import javax.swing.JOptionPane;
 public class EditarFuncionario extends javax.swing.JFrame {
 
     private final int index;
-    private Funcionario funcionario;
-    private ArrayList<Funcionario> funcionarios;
+    private final Funcionario funcionario;
+    private final ArrayList<Funcionario> funcionarios;
 
-    /**
-     * Creates new form EditarFuncionario
-     *
-     * @param index
-     * @param funcionarios
-     */
     public EditarFuncionario(int index, ArrayList<Funcionario> funcionarios) {
         this.index = index;
         this.funcionario = funcionarios.get(index);
         this.funcionarios = funcionarios;
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         initComponents();
         mostrar();
     }

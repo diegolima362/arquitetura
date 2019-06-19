@@ -15,10 +15,6 @@ public class TelaEsqueciSenha extends javax.swing.JFrame {
 
     private TelaLogin telaEsqTemp = null;
 
-    /**
-     *
-     * @param tl
-     */
     public TelaEsqueciSenha(TelaLogin tl) {
         this.telaEsqTemp = tl;
         this.telaEsqTemp.setVisible(false);
@@ -51,7 +47,7 @@ public class TelaEsqueciSenha extends javax.swing.JFrame {
 
         jButtonRecuperarDados.setText("Confirmar");
         jButtonRecuperarDados.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButtonRecuperarDados.setPreferredSize(new java.awt.Dimension(100, 35));
+        jButtonRecuperarDados.setPreferredSize(new java.awt.Dimension(95, 35));
         jButtonRecuperarDados.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonRecuperarDadosActionPerformed(evt);
@@ -61,9 +57,9 @@ public class TelaEsqueciSenha extends javax.swing.JFrame {
         jTextFieldRecuperarDados.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextFieldRecuperarDados.setPreferredSize(new java.awt.Dimension(200, 35));
 
-        jButtonCancelarRecover.setText("Cancelar");
+        jButtonCancelarRecover.setText("Voltar");
         jButtonCancelarRecover.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButtonCancelarRecover.setPreferredSize(new java.awt.Dimension(100, 35));
+        jButtonCancelarRecover.setPreferredSize(new java.awt.Dimension(95, 35));
         jButtonCancelarRecover.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonCancelarRecoverActionPerformed(evt);
@@ -80,14 +76,16 @@ public class TelaEsqueciSenha extends javax.swing.JFrame {
             jPanelRecuperarDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelRecuperarDadosLayout.createSequentialGroup()
                 .addGap(50, 50, 50)
-                .addGroup(jPanelRecuperarDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextFieldRecuperarDados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanelRecuperarDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanelRecuperarDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jTextFieldRecuperarDados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanelRecuperarDadosLayout.createSequentialGroup()
+                            .addGap(50, 50, 50)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanelRecuperarDadosLayout.createSequentialGroup()
-                        .addGap(50, 50, 50)
-                        .addGroup(jPanelRecuperarDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButtonCancelarRecover, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButtonRecuperarDados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(jButtonCancelarRecover, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButtonRecuperarDados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         jPanelRecuperarDadosLayout.setVerticalGroup(
@@ -97,11 +95,11 @@ public class TelaEsqueciSenha extends javax.swing.JFrame {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jTextFieldRecuperarDados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35)
-                .addComponent(jButtonRecuperarDados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 77, Short.MAX_VALUE)
-                .addComponent(jButtonCancelarRecover, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30))
+                .addGap(37, 37, 37)
+                .addGroup(jPanelRecuperarDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonRecuperarDados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonCancelarRecover, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(140, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
