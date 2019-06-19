@@ -309,13 +309,7 @@ public class TelaHome extends javax.swing.JFrame {
         jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-<<<<<<< HEAD
         setMinimumSize(new java.awt.Dimension(800, 600));
-        setPreferredSize(new java.awt.Dimension(1280, 720));
-=======
-        setPreferredSize(new java.awt.Dimension(950, 600));
-        setResizable(false);
->>>>>>> Criando o jcombobox
 
         jPanelPrincipal.setTabPlacement(javax.swing.JTabbedPane.LEFT);
 
@@ -1237,8 +1231,12 @@ public class TelaHome extends javax.swing.JFrame {
 
         jLabel79.setText("Projetos alocado");
 
-        jComboBoxFuncionarioProjetos.setEditable(true);
-        jComboBoxFuncionarioProjetos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione Um projeto" }));
+        jComboBoxFuncionarioProjetos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Escolha uma Projeto" }));
+        jComboBoxFuncionarioProjetos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jComboBoxFuncionarioProjetosMouseClicked(evt);
+            }
+        });
         jComboBoxFuncionarioProjetos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBoxFuncionarioProjetosActionPerformed(evt);
@@ -1246,6 +1244,11 @@ public class TelaHome extends javax.swing.JFrame {
         });
 
         jButtonFuncionarioAplicar.setText("Aplicar");
+        jButtonFuncionarioAplicar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonFuncionarioAplicarMouseClicked(evt);
+            }
+        });
         jButtonFuncionarioAplicar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonFuncionarioAplicarActionPerformed(evt);
@@ -2031,7 +2034,7 @@ public class TelaHome extends javax.swing.JFrame {
 
         jPanelPrincipal.addTab("Serviços", jPanelServico);
 
-        jPanel10.setBorder(javax.swing.BorderFactory.createTitledBorder("Dados do Material"));
+        jPanel10.setBorder(javax.swing.BorderFactory.createTitledBorder("Dados do Orçamento"));
 
         jLabel97.setText("Projeto");
 
@@ -2681,7 +2684,7 @@ public class TelaHome extends javax.swing.JFrame {
             funcionario.setCodigo(Integer.parseInt(jTextFieldFuncionarioCodigo.getText()));
             funcionario.setTelefone(Integer.parseInt(jTextFieldFuncionarioTelefone.getText()));
             funcionario.setSalario(Float.parseFloat(jTextFieldFuncionarioSalario1.getText()));
-            funcionario.setProjetoAlocado(Integer.parseInt(jTextFieldFuncionarioProjetoAlocado.getText()));
+            funcionario.setProjetoAlocado(jTextFieldFuncionarioProjetoAlocado.getText());
             funcionario.setEndereco(new Endereco(
                     jTextFieldFuncionarioPais.getText(),
                     jTextFieldFuncionarioEstado.getText(),
@@ -2988,15 +2991,25 @@ public class TelaHome extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldFuncionarioProjetoAlocadoActionPerformed
 
     private void jComboBoxFuncionarioProjetosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxFuncionarioProjetosActionPerformed
-       if (jComboBoxFuncionarioProjetos.getSelectedIndex() != -1) {
-           ArrayList<Projeto> projetos = Projeto.ler();
-           DefaultComboBoxModel cbFuncProjetos = (DefaultComboBoxModel) jComboBoxFuncionarioProjetos.getModel();
-            for (Projeto projeto: projetos) {
-                jComboBoxFuncionarioProjetos.addItem(projeto.getNome());
-            }
-        }
-        
+       
     }//GEN-LAST:event_jComboBoxFuncionarioProjetosActionPerformed
+
+    private void jComboBoxFuncionarioProjetosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComboBoxFuncionarioProjetosMouseClicked
+        ArrayList<Projeto> projetos = Projeto.ler();
+        jComboBoxFuncionarioProjetos.removeAllItems();
+        
+        for (int i = 0; i < projetos.size(); i++) {
+            jComboBoxFuncionarioProjetos.addItem(projetos.get(i).getNome());
+        }
+    
+    }//GEN-LAST:event_jComboBoxFuncionarioProjetosMouseClicked
+
+    private void jButtonFuncionarioAplicarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonFuncionarioAplicarMouseClicked
+        if (jComboBoxFuncionarioProjetos.getSelectedIndex() != -1) {
+            jTextFieldFuncionarioProjetoAlocado.setText(jComboBoxFuncionarioProjetos.getItemAt(
+                    jComboBoxFuncionarioProjetos.getSelectedIndex()));
+        }
+    }//GEN-LAST:event_jButtonFuncionarioAplicarMouseClicked
     private void atualizarTabela() {
         DefaultTableModel dtmTabela = (DefaultTableModel) jTableProjetos.getModel();
         Object[] dados = new Object[3];
@@ -3152,6 +3165,8 @@ public class TelaHome extends javax.swing.JFrame {
         jTextFieldFuncionarioNumero.setText("");
         jTextFieldFuncionarioSalario1.setText("");
         jTextFieldFuncionarioProjetoAlocado.setText("");
+        jComboBoxFuncionarioProjetos.removeAllItems();
+        jComboBoxFuncionarioProjetos.addItem("Selecione um projeto");
     }
 
     private void limparMenuMaterial() {

@@ -1,6 +1,7 @@
 package business;
 
 import java.util.ArrayList;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -72,8 +73,9 @@ public class EditarFuncionario extends javax.swing.JFrame {
         jLabel76 = new javax.swing.JLabel();
         jTextFieldFuncionarioSalario1 = new javax.swing.JTextField();
         jLabel77 = new javax.swing.JLabel();
-        jLabel78 = new javax.swing.JLabel();
+        jButtonFuncionarioAplicar = new javax.swing.JButton();
         jTextFieldFuncionarioProjetoAlocado = new javax.swing.JTextField();
+        jComboBoxFuncionarioProjetos = new javax.swing.JComboBox<>();
         jButtonFuncionarioSalvar = new javax.swing.JButton();
         jButtonFuncionarioCancelar = new javax.swing.JButton();
 
@@ -183,11 +185,23 @@ public class EditarFuncionario extends javax.swing.JFrame {
 
         jLabel77.setText("Projeto Alocado");
 
-        jLabel78.setText("Imagem");
+        jButtonFuncionarioAplicar.setText("Aplicar");
+        jButtonFuncionarioAplicar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonFuncionarioAplicarMouseClicked(evt);
+            }
+        });
 
         jTextFieldFuncionarioProjetoAlocado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldFuncionarioProjetoAlocadoActionPerformed(evt);
+            }
+        });
+
+        jComboBoxFuncionarioProjetos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Escolha um projeto" }));
+        jComboBoxFuncionarioProjetos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jComboBoxFuncionarioProjetosMouseClicked(evt);
             }
         });
 
@@ -223,7 +237,7 @@ public class EditarFuncionario extends javax.swing.JFrame {
                                         .addComponent(jLabel60)
                                         .addGap(3, 3, 3)
                                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jTextFieldFuncionarioPais, javax.swing.GroupLayout.DEFAULT_SIZE, 263, Short.MAX_VALUE)
+                                            .addComponent(jTextFieldFuncionarioPais, javax.swing.GroupLayout.DEFAULT_SIZE, 280, Short.MAX_VALUE)
                                             .addComponent(jTextFieldFuncionarioCidade)
                                             .addComponent(jTextFieldFuncionarioRua)
                                             .addComponent(jTextFieldFuncionarioCodigo)))))
@@ -242,26 +256,30 @@ public class EditarFuncionario extends javax.swing.JFrame {
                                     .addComponent(jLabel70)
                                     .addComponent(jLabel75)))))
                     .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel74)
-                            .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel57)
-                                .addComponent(jLabel65)
-                                .addComponent(jLabel73)))
-                        .addGap(18, 18, 18)
-                        .addComponent(jTextFieldFuncionarioNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel76)
-                        .addGap(6, 6, 6)
-                        .addComponent(jTextFieldFuncionarioSalario1))
+                        .addComponent(jLabel77)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel77)
                             .addGroup(jPanel7Layout.createSequentialGroup()
-                                .addComponent(jLabel78)
+                                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel74)
+                                    .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel57)
+                                        .addComponent(jLabel65)
+                                        .addComponent(jLabel73)))
                                 .addGap(18, 18, 18)
-                                .addComponent(jTextFieldFuncionarioProjetoAlocado, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                                .addComponent(jTextFieldFuncionarioNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jComboBoxFuncionarioProjetos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel7Layout.createSequentialGroup()
+                                .addComponent(jButtonFuncionarioAplicar)
+                                .addGap(1, 1, 1)
+                                .addComponent(jTextFieldFuncionarioProjetoAlocado))
+                            .addGroup(jPanel7Layout.createSequentialGroup()
+                                .addComponent(jLabel76)
+                                .addGap(6, 6, 6)
+                                .addComponent(jTextFieldFuncionarioSalario1)))))
                 .addContainerGap())
         );
         jPanel7Layout.setVerticalGroup(
@@ -307,26 +325,27 @@ public class EditarFuncionario extends javax.swing.JFrame {
                     .addComponent(jTextFieldFuncionarioRua, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel72)
                     .addComponent(jTextFieldFuncionarioBairro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel73)
+                    .addComponent(jLabel75))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel74)
+                    .addComponent(jTextFieldFuncionarioNumero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel76)
+                    .addComponent(jTextFieldFuncionarioSalario1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel73)
-                            .addComponent(jLabel75))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel74)
-                            .addComponent(jTextFieldFuncionarioNumero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel76)
-                            .addComponent(jTextFieldFuncionarioSalario1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel77)
-                        .addGap(0, 41, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jComboBoxFuncionarioProjetos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jTextFieldFuncionarioProjetoAlocado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel78)))))
+                            .addComponent(jButtonFuncionarioAplicar)))))
         );
 
         jButtonFuncionarioSalvar.setText("Salvar");
@@ -391,21 +410,17 @@ public class EditarFuncionario extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 735, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanelEditarFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(0, 6, Short.MAX_VALUE)
+                .addComponent(jPanelEditarFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 6, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 721, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanelEditarFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(0, 6, Short.MAX_VALUE)
+                .addComponent(jPanelEditarFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 7, Short.MAX_VALUE))
         );
 
         pack();
@@ -487,7 +502,7 @@ public class EditarFuncionario extends javax.swing.JFrame {
             funcionario.setCodigo(Integer.parseInt(jTextFieldFuncionarioCodigo.getText()));
             funcionario.setTelefone(Integer.parseInt(jTextFieldFuncionarioTelefone.getText()));
             funcionario.setSalario(Float.parseFloat(jTextFieldFuncionarioSalario1.getText()));
-            funcionario.setProjetoAlocado(Integer.parseInt(jTextFieldFuncionarioProjetoAlocado.getText()));
+            funcionario.setProjetoAlocado(jTextFieldFuncionarioProjetoAlocado.getText());
             funcionario.setEndereco(new Endereco(
                     jTextFieldFuncionarioPais.getText(),
                     jTextFieldFuncionarioEstado.getText(),
@@ -518,6 +533,8 @@ public class EditarFuncionario extends javax.swing.JFrame {
         jTextFieldFuncionarioNumero.setText("");
         jTextFieldFuncionarioSalario1.setText("");
         jTextFieldFuncionarioProjetoAlocado.setText("");
+        jComboBoxFuncionarioProjetos.removeAllItems();
+        jComboBoxFuncionarioProjetos.addItem("Selecione um projeto");
     }
 
     private void mostrar() {
@@ -531,7 +548,8 @@ public class EditarFuncionario extends javax.swing.JFrame {
         jTextFieldFuncionarioRua.setText(funcionario.getEndereco().getRua());
         jTextFieldFuncionarioNumero.setText(String.valueOf(funcionario.getEndereco().getNumero()));
         jTextFieldFuncionarioSalario1.setText(String.valueOf(funcionario.getSalario()));
-        jTextFieldFuncionarioProjetoAlocado.setText(String.valueOf(funcionario.getProjetoAlocado()));
+        jTextFieldFuncionarioProjetoAlocado.setText(funcionario.getProjetoAlocado());
+        
     }
     private void jButtonFuncionarioSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonFuncionarioSalvarActionPerformed
         // TODO add your handling code here:
@@ -549,10 +567,28 @@ public class EditarFuncionario extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldFuncionarioProjetoAlocadoActionPerformed
 
+    private void jComboBoxFuncionarioProjetosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComboBoxFuncionarioProjetosMouseClicked
+        ArrayList<Projeto> projetos = Projeto.ler();
+        jComboBoxFuncionarioProjetos.removeAllItems();
+        
+        for (int i = 0; i < projetos.size(); i++) {
+            jComboBoxFuncionarioProjetos.addItem(projetos.get(i).getNome());
+        }
+    }//GEN-LAST:event_jComboBoxFuncionarioProjetosMouseClicked
+
+    private void jButtonFuncionarioAplicarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonFuncionarioAplicarMouseClicked
+        if (jComboBoxFuncionarioProjetos.getSelectedIndex() != -1) {
+            jTextFieldFuncionarioProjetoAlocado.setText(jComboBoxFuncionarioProjetos.getItemAt(
+            jComboBoxFuncionarioProjetos.getSelectedIndex()));
+        }
+    }//GEN-LAST:event_jButtonFuncionarioAplicarMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButtonFuncionarioAplicar;
     private javax.swing.JButton jButtonFuncionarioCancelar;
     private javax.swing.JButton jButtonFuncionarioSalvar;
+    private javax.swing.JComboBox<String> jComboBoxFuncionarioProjetos;
     private javax.swing.JLabel jLabel57;
     private javax.swing.JLabel jLabel58;
     private javax.swing.JLabel jLabel59;
@@ -574,7 +610,6 @@ public class EditarFuncionario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel75;
     private javax.swing.JLabel jLabel76;
     private javax.swing.JLabel jLabel77;
-    private javax.swing.JLabel jLabel78;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanelEditarFuncionario;
     private javax.swing.JPanel jPanelNovoClienteConteudo1;

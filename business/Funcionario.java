@@ -31,20 +31,20 @@ public class Funcionario implements Serializable {
     private Endereco endereco;
     private int telefone;
     private float salario;
-    private int projetoAlocado;
+    private String projetoAlocado;
 
     public Funcionario() {
     }
 
     public Funcionario(String nome, char tipo, int codigo, Endereco endereco,
-            int telefone, float salario, int proJetoAlocado) {
+            int telefone, float salario, String projetoAlocado) {
         this.nome = nome;
         this.tipo = tipo;
         this.codigo = codigo;
         this.endereco = endereco;
         this.telefone = telefone;
         this.salario = salario;
-        this.projetoAlocado = proJetoAlocado;
+        this.projetoAlocado = projetoAlocado;
     }
 
     public int getCodigo() {
@@ -95,11 +95,11 @@ public class Funcionario implements Serializable {
         this.salario = salario;
     }
 
-    public int getProjetoAlocado() {
+    public String getProjetoAlocado() {
         return projetoAlocado;
     }
-
-    public void setProjetoAlocado(int projetoAlocado) {
+    
+    public void setProjetoAlocado(String projetoAlocado) {
         this.projetoAlocado = projetoAlocado;
     }
 
