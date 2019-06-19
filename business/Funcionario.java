@@ -147,7 +147,8 @@ public class Funcionario implements Serializable {
         } catch (IOException e) {
         }
     }
-
+    
+    @SuppressWarnings("unchecked")
     public static ArrayList<Funcionario> lerFuncionarios() {
         ArrayList<Funcionario> funcionarios = new ArrayList<>();
         FileInputStream fis;

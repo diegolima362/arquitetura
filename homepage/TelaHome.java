@@ -14,6 +14,7 @@ import business.EditarOrcamento;
 import business.EditarMaterial;
 import business.EditarProjeto;
 import java.util.ArrayList;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import login.*;
@@ -38,6 +39,9 @@ public class TelaHome extends javax.swing.JFrame {
         atualizarTabela();
         atualizarTabelaClientes();
         atualizarTabelaFuncionarios();
+        atualizarTabelaMateriais();
+        atualizarTabelaOrcamentos();
+        atualizarTabelaServicos();
 
     }
     private TelaLogin login;
@@ -201,7 +205,8 @@ public class TelaHome extends javax.swing.JFrame {
         jLabel78 = new javax.swing.JLabel();
         jTextFieldFuncionarioSalario1 = new javax.swing.JTextField();
         jLabel79 = new javax.swing.JLabel();
-        jLabel80 = new javax.swing.JLabel();
+        jComboBoxFuncionarioProjetos = new javax.swing.JComboBox<>();
+        jButtonFuncionarioAplicar = new javax.swing.JButton();
         jTextFieldFuncionarioProjetoAlocado = new javax.swing.JTextField();
         jButtonFuncionarioSalvar = new javax.swing.JButton();
         jButtonFuncionarioCancelar = new javax.swing.JButton();
@@ -304,8 +309,13 @@ public class TelaHome extends javax.swing.JFrame {
         jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+<<<<<<< HEAD
         setMinimumSize(new java.awt.Dimension(800, 600));
         setPreferredSize(new java.awt.Dimension(1280, 720));
+=======
+        setPreferredSize(new java.awt.Dimension(950, 600));
+        setResizable(false);
+>>>>>>> Criando o jcombobox
 
         jPanelPrincipal.setTabPlacement(javax.swing.JTabbedPane.LEFT);
 
@@ -744,7 +754,7 @@ public class TelaHome extends javax.swing.JFrame {
                     .addComponent(jButtonProjetosRemover))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(247, Short.MAX_VALUE))
+                .addContainerGap(277, Short.MAX_VALUE))
         );
 
         jTabbedProjetos.addTab("Projetos", jPanelProjetoLista);
@@ -1102,7 +1112,7 @@ public class TelaHome extends javax.swing.JFrame {
                     .addComponent(jButtonClienteRemover))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(247, Short.MAX_VALUE))
+                .addContainerGap(277, Short.MAX_VALUE))
         );
 
         jTabbedClientes.addTab("Clientes", jPanelClienteLIsta);
@@ -1225,9 +1235,22 @@ public class TelaHome extends javax.swing.JFrame {
             }
         });
 
-        jLabel79.setText("Projeto alocado");
+        jLabel79.setText("Projetos alocado");
 
-        jLabel80.setText("Imagem");
+        jComboBoxFuncionarioProjetos.setEditable(true);
+        jComboBoxFuncionarioProjetos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione Um projeto" }));
+        jComboBoxFuncionarioProjetos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxFuncionarioProjetosActionPerformed(evt);
+            }
+        });
+
+        jButtonFuncionarioAplicar.setText("Aplicar");
+        jButtonFuncionarioAplicar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonFuncionarioAplicarActionPerformed(evt);
+            }
+        });
 
         jTextFieldFuncionarioProjetoAlocado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1254,8 +1277,7 @@ public class TelaHome extends javax.swing.JFrame {
                             .addComponent(jLabel65)
                             .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addComponent(jLabel74)
-                                .addComponent(jLabel73)
-                                .addComponent(jLabel80)))
+                                .addComponent(jLabel73)))
                         .addGap(2, 2, 2)
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel7Layout.createSequentialGroup()
@@ -1273,16 +1295,10 @@ public class TelaHome extends javax.swing.JFrame {
                                         .addComponent(jLabel60)
                                         .addGap(3, 3, 3)
                                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jTextFieldFuncionarioPais, javax.swing.GroupLayout.DEFAULT_SIZE, 297, Short.MAX_VALUE)
+                                            .addComponent(jTextFieldFuncionarioPais, javax.swing.GroupLayout.DEFAULT_SIZE, 306, Short.MAX_VALUE)
                                             .addComponent(jTextFieldFuncionarioCidade)
                                             .addComponent(jTextFieldFuncionarioRua)
                                             .addComponent(jTextFieldFuncionarioCodigo)))))
-                            .addGroup(jPanel7Layout.createSequentialGroup()
-                                .addComponent(jTextFieldFuncionarioNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel78)
-                                .addGap(3, 3, 3)
-                                .addComponent(jTextFieldFuncionarioSalario1))
                             .addGroup(jPanel7Layout.createSequentialGroup()
                                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel7Layout.createSequentialGroup()
@@ -1298,11 +1314,23 @@ public class TelaHome extends javax.swing.JFrame {
                                             .addComponent(jLabel69)
                                             .addComponent(jLabel68)
                                             .addComponent(jLabel70)
-                                            .addComponent(jLabel77)))
-                                    .addComponent(jTextFieldFuncionarioProjetoAlocado, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 0, Short.MAX_VALUE))))
+                                            .addComponent(jLabel77))))
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(jPanel7Layout.createSequentialGroup()
+                                .addComponent(jTextFieldFuncionarioNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel78)
+                                .addGap(3, 3, 3)
+                                .addComponent(jTextFieldFuncionarioSalario1))
+                            .addGroup(jPanel7Layout.createSequentialGroup()
+                                .addGap(294, 294, 294)
+                                .addComponent(jButtonFuncionarioAplicar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextFieldFuncionarioProjetoAlocado))))
                     .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addComponent(jLabel79)
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel79)
+                            .addComponent(jComboBoxFuncionarioProjetos, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -1361,10 +1389,12 @@ public class TelaHome extends javax.swing.JFrame {
                     .addComponent(jTextFieldFuncionarioSalario1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel79)
-                .addGap(9, 9, 9)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel80, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jTextFieldFuncionarioProjetoAlocado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jComboBoxFuncionarioProjetos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonFuncionarioAplicar)
+                    .addComponent(jTextFieldFuncionarioProjetoAlocado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(6, 6, 6))
         );
 
         jButtonFuncionarioSalvar.setText("Salvar");
@@ -1418,11 +1448,11 @@ public class TelaHome extends javax.swing.JFrame {
         jPanelNovoFuncionario.setLayout(jPanelNovoFuncionarioLayout);
         jPanelNovoFuncionarioLayout.setHorizontalGroup(
             jPanelNovoFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPaneNovoFuncionario)
+            .addComponent(jScrollPaneNovoFuncionario, javax.swing.GroupLayout.DEFAULT_SIZE, 735, Short.MAX_VALUE)
         );
         jPanelNovoFuncionarioLayout.setVerticalGroup(
             jPanelNovoFuncionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPaneNovoFuncionario, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(jScrollPaneNovoFuncionario, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 777, Short.MAX_VALUE)
         );
 
         jTabbedFuncionarios.addTab("Novo Funcionário", jPanelNovoFuncionario);
@@ -1482,7 +1512,7 @@ public class TelaHome extends javax.swing.JFrame {
                     .addComponent(jButtonFuncionarioRemover))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(247, Short.MAX_VALUE))
+                .addContainerGap(277, Short.MAX_VALUE))
         );
 
         jTabbedFuncionarios.addTab("Funcionários", jPanelFuncionarioLista);
@@ -1681,7 +1711,7 @@ public class TelaHome extends javax.swing.JFrame {
         );
         jPanelNovoMaterialLayout.setVerticalGroup(
             jPanelNovoMaterialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPaneNovoMaterial, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 751, Short.MAX_VALUE)
+            .addComponent(jScrollPaneNovoMaterial, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 777, Short.MAX_VALUE)
         );
 
         jTabbedMateriais.addTab("Novo Material", jPanelNovoMaterial);
@@ -1741,7 +1771,7 @@ public class TelaHome extends javax.swing.JFrame {
                     .addComponent(jButtonMaterialRemover))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(247, Short.MAX_VALUE))
+                .addContainerGap(277, Short.MAX_VALUE))
         );
 
         jTabbedMateriais.addTab("Materiais", jPanelMaterialLista);
@@ -1921,7 +1951,7 @@ public class TelaHome extends javax.swing.JFrame {
         );
         jPanelNovoServicoLayout.setVerticalGroup(
             jPanelNovoServicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPaneNovoServico, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 751, Short.MAX_VALUE)
+            .addComponent(jScrollPaneNovoServico, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 777, Short.MAX_VALUE)
         );
 
         jTabbedServico.addTab("Novo Servico", jPanelNovoServico);
@@ -1981,7 +2011,7 @@ public class TelaHome extends javax.swing.JFrame {
                     .addComponent(jButtonServicoRemover))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(247, Short.MAX_VALUE))
+                .addContainerGap(277, Short.MAX_VALUE))
         );
 
         jTabbedServico.addTab("Serviços", jPanelServicoLista);
@@ -2178,7 +2208,7 @@ public class TelaHome extends javax.swing.JFrame {
         );
         jPanelNovoOrcamentoLayout.setVerticalGroup(
             jPanelNovoOrcamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPaneNovoOrcamento, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 751, Short.MAX_VALUE)
+            .addComponent(jScrollPaneNovoOrcamento, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 777, Short.MAX_VALUE)
         );
 
         jTabbedOrcamentos.addTab("Novo Orçamento", jPanelNovoOrcamento);
@@ -2238,7 +2268,7 @@ public class TelaHome extends javax.swing.JFrame {
                     .addComponent(jButtonOrcamentoRemover))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(247, Short.MAX_VALUE))
+                .addContainerGap(277, Short.MAX_VALUE))
         );
 
         jTabbedOrcamentos.addTab("Orçamentos", jPanelOrcamentoLista);
@@ -2709,10 +2739,6 @@ public class TelaHome extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldFuncionarioSalario1ActionPerformed
 
-    private void jTextFieldFuncionarioProjetoAlocadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldFuncionarioProjetoAlocadoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldFuncionarioProjetoAlocadoActionPerformed
-
     private void jButtonMaterialSalvarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonMaterialSalvarMouseClicked
         Material material = new Material();
         if (jTextFieldMaterialNome.getText().equals("")) {
@@ -2952,6 +2978,25 @@ public class TelaHome extends javax.swing.JFrame {
         // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_jMenuItemSairActionPerformed
+
+    private void jButtonFuncionarioAplicarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonFuncionarioAplicarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonFuncionarioAplicarActionPerformed
+
+    private void jTextFieldFuncionarioProjetoAlocadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldFuncionarioProjetoAlocadoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldFuncionarioProjetoAlocadoActionPerformed
+
+    private void jComboBoxFuncionarioProjetosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxFuncionarioProjetosActionPerformed
+       if (jComboBoxFuncionarioProjetos.getSelectedIndex() != -1) {
+           ArrayList<Projeto> projetos = Projeto.ler();
+           DefaultComboBoxModel cbFuncProjetos = (DefaultComboBoxModel) jComboBoxFuncionarioProjetos.getModel();
+            for (Projeto projeto: projetos) {
+                jComboBoxFuncionarioProjetos.addItem(projeto.getNome());
+            }
+        }
+        
+    }//GEN-LAST:event_jComboBoxFuncionarioProjetosActionPerformed
     private void atualizarTabela() {
         DefaultTableModel dtmTabela = (DefaultTableModel) jTableProjetos.getModel();
         Object[] dados = new Object[3];
@@ -3138,6 +3183,7 @@ public class TelaHome extends javax.swing.JFrame {
     private javax.swing.JButton jButtonClienteEditar;
     private javax.swing.JButton jButtonClienteRemover;
     private javax.swing.JButton jButtonClienteSalvar;
+    private javax.swing.JButton jButtonFuncionarioAplicar;
     private javax.swing.JButton jButtonFuncionarioAtualizar;
     private javax.swing.JButton jButtonFuncionarioCancelar;
     private javax.swing.JButton jButtonFuncionarioEditar;
@@ -3163,6 +3209,7 @@ public class TelaHome extends javax.swing.JFrame {
     private javax.swing.JButton jButtonServicoEditar;
     private javax.swing.JButton jButtonServicoRemover;
     private javax.swing.JButton jButtonServicoSalvar;
+    private javax.swing.JComboBox<String> jComboBoxFuncionarioProjetos;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel100;
@@ -3240,7 +3287,6 @@ public class TelaHome extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel78;
     private javax.swing.JLabel jLabel79;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel80;
     private javax.swing.JLabel jLabel81;
     private javax.swing.JLabel jLabel82;
     private javax.swing.JLabel jLabel83;
