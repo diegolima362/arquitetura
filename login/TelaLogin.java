@@ -1,4 +1,4 @@
-package login;
+﻿package login;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -8,8 +8,8 @@ public class TelaLogin extends javax.swing.JFrame {
     private JFrame tela;
 
     public TelaLogin() {
-
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     public void setTela(JFrame tl) {
@@ -19,7 +19,7 @@ public class TelaLogin extends javax.swing.JFrame {
     }
 
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
     private void initComponents() {
 
         jPanelLogin = new javax.swing.JPanel();
@@ -36,7 +36,7 @@ public class TelaLogin extends javax.swing.JFrame {
         setResizable(false);
         setSize(new java.awt.Dimension(300, 400));
 
-        jPanelLogin.setBackground(new java.awt.Color(254, 254, 254));
+        jPanelLogin.setBackground(new java.awt.Color(87, 87, 87));
         jPanelLogin.setPreferredSize(new java.awt.Dimension(300, 400));
 
         jTextFieldUsuario.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -55,6 +55,7 @@ public class TelaLogin extends javax.swing.JFrame {
         jLabelSenha.setText("Senha");
         jLabelSenha.setPreferredSize(new java.awt.Dimension(100, 35));
 
+        jButtonEntrar.setBackground(new java.awt.Color(0, 0, 0));
         jButtonEntrar.setText("Entrar");
         jButtonEntrar.setPreferredSize(new java.awt.Dimension(100, 35));
         jButtonEntrar.addActionListener(new java.awt.event.ActionListener() {
@@ -63,6 +64,7 @@ public class TelaLogin extends javax.swing.JFrame {
             }
         });
 
+        jButtonCriarUsuario.setBackground(new java.awt.Color(0, 0, 0));
         jButtonCriarUsuario.setText("Criar Usuário");
         jButtonCriarUsuario.setPreferredSize(new java.awt.Dimension(100, 35));
         jButtonCriarUsuario.addActionListener(new java.awt.event.ActionListener() {
@@ -71,6 +73,7 @@ public class TelaLogin extends javax.swing.JFrame {
             }
         });
 
+        jButtonEsqueciSenha.setBackground(new java.awt.Color(0, 0, 0));
         jButtonEsqueciSenha.setText("Esqueci Login");
         jButtonEsqueciSenha.setPreferredSize(new java.awt.Dimension(150, 35));
         jButtonEsqueciSenha.addActionListener(new java.awt.event.ActionListener() {
@@ -132,26 +135,26 @@ public class TelaLogin extends javax.swing.JFrame {
         getContentPane().add(jPanelLogin, java.awt.BorderLayout.CENTER);
 
         pack();
-    }// </editor-fold>//GEN-END:initComponents
+    }// </editor-fold>                        
 
-    private void jButtonEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEntrarActionPerformed
+    private void jButtonEntrarActionPerformed(java.awt.event.ActionEvent evt) {                                              
         // TODO add your handling code here:
         realizarLogin();
-    }//GEN-LAST:event_jButtonEntrarActionPerformed
+    }                                             
 
-    private void jButtonCriarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCriarUsuarioActionPerformed
+    private void jButtonCriarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {                                                    
         // TODO add your handling code here:
         TelaCadastroUser telaCad = new TelaCadastroUser(this);
         telaCad.setVisible(true);
-    }//GEN-LAST:event_jButtonCriarUsuarioActionPerformed
+    }                                                   
 
-    private void jButtonEsqueciSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEsqueciSenhaActionPerformed
+    private void jButtonEsqueciSenhaActionPerformed(java.awt.event.ActionEvent evt) {                                                    
         // TODO add your handling code here:
         TelaEsqueciSenha telaEsq;
         telaEsq = new TelaEsqueciSenha(this);
 
         telaEsq.setVisible(true);
-    }//GEN-LAST:event_jButtonEsqueciSenhaActionPerformed
+    }                                                   
 
     public void realizarLogin() {
         Login login = Login.lerLogin();
@@ -175,7 +178,7 @@ public class TelaLogin extends javax.swing.JFrame {
     }
 
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
+    // Variables declaration - do not modify                     
     private javax.swing.JButton jButtonCriarUsuario;
     private javax.swing.JButton jButtonEntrar;
     private javax.swing.JButton jButtonEsqueciSenha;
@@ -184,5 +187,5 @@ public class TelaLogin extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelLogin;
     private javax.swing.JPasswordField jPasswordSenha;
     private javax.swing.JTextField jTextFieldUsuario;
-    // End of variables declaration//GEN-END:variables
+    // End of variables declaration                   
 }
