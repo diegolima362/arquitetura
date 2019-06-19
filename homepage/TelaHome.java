@@ -34,7 +34,7 @@ public class TelaHome extends javax.swing.JFrame {
      */
     public TelaHome() {
         initComponents();
-        
+
         atualizarTabela();
         atualizarTabelaClientes();
         atualizarTabelaFuncionarios();
@@ -42,6 +42,9 @@ public class TelaHome extends javax.swing.JFrame {
     }
     private TelaLogin login;
 
+    /**
+     *
+     */
     public void programa() {
         login = new TelaLogin();
         setVisible(false);
@@ -301,8 +304,8 @@ public class TelaHome extends javax.swing.JFrame {
         jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(800, 600));
         setPreferredSize(new java.awt.Dimension(1280, 720));
-        setResizable(false);
 
         jPanelPrincipal.setTabPlacement(javax.swing.JTabbedPane.LEFT);
 

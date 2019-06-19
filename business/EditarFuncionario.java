@@ -1,6 +1,5 @@
 package business;
 
-
 import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -10,17 +9,21 @@ import javax.swing.JOptionPane;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author thebell
  */
 public class EditarFuncionario extends javax.swing.JFrame {
+
     private final int index;
     private Funcionario funcionario;
     private ArrayList<Funcionario> funcionarios;
+
     /**
      * Creates new form EditarFuncionario
+     *
+     * @param index
+     * @param funcionarios
      */
     public EditarFuncionario(int index, ArrayList<Funcionario> funcionarios) {
         this.index = index;
@@ -492,18 +495,18 @@ public class EditarFuncionario extends javax.swing.JFrame {
             funcionario.setSalario(Float.parseFloat(jTextFieldFuncionarioSalario1.getText()));
             funcionario.setProjetoAlocado(Integer.parseInt(jTextFieldFuncionarioProjetoAlocado.getText()));
             funcionario.setEndereco(new Endereco(
-                jTextFieldFuncionarioPais.getText(),
-                jTextFieldFuncionarioEstado.getText(),
-                jTextFieldFuncionarioCidade.getText(),
-                jTextFieldFuncionarioBairro.getText(),
-                jTextFieldFuncionarioRua.getText(),
-                Integer.parseInt(jTextFieldFuncionarioNumero.getText())
+                    jTextFieldFuncionarioPais.getText(),
+                    jTextFieldFuncionarioEstado.getText(),
+                    jTextFieldFuncionarioCidade.getText(),
+                    jTextFieldFuncionarioBairro.getText(),
+                    jTextFieldFuncionarioRua.getText(),
+                    Integer.parseInt(jTextFieldFuncionarioNumero.getText())
             ));
-            
+
             funcionarios.remove(index);
             funcionarios.add(index, funcionario);
             Funcionario.escrever(funcionarios);
-            
+
             JOptionPane.showMessageDialog(null, "Salva com sucesso.");
             dispose();
 
@@ -522,12 +525,13 @@ public class EditarFuncionario extends javax.swing.JFrame {
         jTextFieldFuncionarioSalario1.setText("");
         jTextFieldFuncionarioProjetoAlocado.setText("");
     }
+
     private void mostrar() {
         jTextFieldFuncionarioNome.setText(funcionario.getNome());
         jTextFieldFuncionarioCodigo.setText(String.valueOf(funcionario.getCodigo()));
         jTextFieldFuncionarioTelefone.setText(String.valueOf(funcionario.getTelefone()));
         jTextFieldFuncionarioPais.setText(funcionario.getEndereco().getPais());
-        jTextFieldFuncionarioEstado.setText(funcionario.getEndereco().getEstado());   
+        jTextFieldFuncionarioEstado.setText(funcionario.getEndereco().getEstado());
         jTextFieldFuncionarioCidade.setText(funcionario.getEndereco().getCidade());
         jTextFieldFuncionarioBairro.setText(funcionario.getEndereco().getBairro());
         jTextFieldFuncionarioRua.setText(funcionario.getEndereco().getRua());
@@ -552,7 +556,6 @@ public class EditarFuncionario extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldFuncionarioProjetoAlocadoActionPerformed
 
 
-    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonFuncionarioCancelar;
     private javax.swing.JButton jButtonFuncionarioSalvar;

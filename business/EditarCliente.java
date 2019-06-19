@@ -1,6 +1,5 @@
 package business;
 
-
 import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -10,17 +9,21 @@ import javax.swing.JOptionPane;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author thebell
  */
 public class EditarCliente extends javax.swing.JFrame {
+
     private final int index;
     private Cliente cliente;
     private ArrayList<Cliente> clientes;
+
     /**
      * Creates new form EditarCliente
+     *
+     * @param index
+     * @param clientes
      */
     public EditarCliente(int index, ArrayList<Cliente> clientes) {
         this.index = index;
@@ -420,18 +423,18 @@ public class EditarCliente extends javax.swing.JFrame {
         } else if (jTextFieldClienteNumero.getText().equals("")) {
             JOptionPane.showMessageDialog(this, "Todos os campos devem ser preenchidos");
         } else {
-        
-             cliente.setNome(jTextFieldClienteNome.getText());
-             cliente.setCodigo(Integer.parseInt(jTextFieldClienteCodigo.getText()));
-             cliente.setTelefone(Integer.parseInt(jTextFieldClienteTelefone.getText()));
-             cliente.setEndereco(new Endereco(
-                     jTextFieldClientePais.getText(),
-                     jTextFieldClienteEstado.getText(),
-                     jTextFieldClienteCidade.getText(),
-                     jTextFieldClienteBairro.getText(),
-                     jTextFieldClienteRua.getText(),
-                     Integer.parseInt(jTextFieldClienteNumero.getText())
-             ));
+
+            cliente.setNome(jTextFieldClienteNome.getText());
+            cliente.setCodigo(Integer.parseInt(jTextFieldClienteCodigo.getText()));
+            cliente.setTelefone(Integer.parseInt(jTextFieldClienteTelefone.getText()));
+            cliente.setEndereco(new Endereco(
+                    jTextFieldClientePais.getText(),
+                    jTextFieldClienteEstado.getText(),
+                    jTextFieldClienteCidade.getText(),
+                    jTextFieldClienteBairro.getText(),
+                    jTextFieldClienteRua.getText(),
+                    Integer.parseInt(jTextFieldClienteNumero.getText())
+            ));
             clientes.remove(index);
             clientes.add(index, cliente);
             Cliente.escrever(clientes);
@@ -446,11 +449,11 @@ public class EditarCliente extends javax.swing.JFrame {
         jTextFieldClienteCodigo.setText(String.valueOf(cliente.getCodigo()));
         jTextFieldClienteTelefone.setText(String.valueOf(cliente.getTelefone()));
         jTextFieldClientePais.setText(cliente.getEndereco().getPais());
-        jTextFieldClienteEstado.setText(cliente.getEndereco().getEstado());   
+        jTextFieldClienteEstado.setText(cliente.getEndereco().getEstado());
         jTextFieldClienteCidade.setText(cliente.getEndereco().getCidade());
         jTextFieldClienteBairro.setText(cliente.getEndereco().getBairro());
         jTextFieldClienteRua.setText(cliente.getEndereco().getRua());
-        jTextFieldClienteNumero.setText(String.valueOf(cliente.getEndereco().getNumero()));   
+        jTextFieldClienteNumero.setText(String.valueOf(cliente.getEndereco().getNumero()));
     }
     private void jButtonClienteSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonClienteSalvarActionPerformed
         // TODO add your handling code here:

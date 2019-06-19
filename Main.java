@@ -1,8 +1,16 @@
 import homepage.TelaHome;
 import javax.swing.UIManager;
 
+/**
+ *
+ * @author diego
+ */
 public class Main {
     
+    /**
+     *
+     * @param args
+     */
     public static void main(String args[]) {
         try {
 

@@ -3,22 +3,27 @@ package business;
 import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author thebell
  */
 public class EditarServico extends javax.swing.JFrame {
+
     private final int index;
     private PrestadorServico servico;
     private ArrayList<PrestadorServico> servicos;
+
     /**
      * Creates new form EditarServico
+     *
+     * @param index
+     * @param servicos
      */
     public EditarServico(int index, ArrayList<PrestadorServico> servicos) {
         this.index = index;
@@ -278,7 +283,7 @@ public class EditarServico extends javax.swing.JFrame {
             servico.setCodigo(Integer.parseInt(jTextFieldServicoCodigo.getText()));
             servico.setDesconto(Double.parseDouble(jTextFieldServicoDesconto.getText()));
             servico.setDescricaoServico(jTextAreaServicoDescricao.getText());
-            
+
             servicos.remove(index);
             servicos.add(index, servico);
             PrestadorServico.escrever(servicos);
@@ -307,7 +312,7 @@ public class EditarServico extends javax.swing.JFrame {
         jTextFieldServicoNome.setText(servico.getNome());
         jTextFieldServicoCodigo.setText(String.valueOf(servico.getCodigo()));
         jTextFieldServicoDesconto.setText(String.valueOf(servico.getDesconto()));
-        jTextAreaServicoDescricao.setText(servico.getDescricaoServico());  
+        jTextAreaServicoDescricao.setText(servico.getDescricaoServico());
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonServicoCancelar;

@@ -15,6 +15,10 @@ public class TelaEsqueciSenha extends javax.swing.JFrame {
 
     private TelaLogin telaEsqTemp = null;
 
+    /**
+     *
+     * @param tl
+     */
     public TelaEsqueciSenha(TelaLogin tl) {
         this.telaEsqTemp = tl;
         this.telaEsqTemp.setVisible(false);

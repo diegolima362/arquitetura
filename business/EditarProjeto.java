@@ -1,8 +1,6 @@
 package business;
 
-
 import java.util.ArrayList;
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /*
@@ -10,17 +8,21 @@ import javax.swing.JOptionPane;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author thebell
  */
 public class EditarProjeto extends javax.swing.JFrame {
+
     private final int index;
     private Projeto projeto;
     private ArrayList<Projeto> projetos;
+
     /**
      * Creates new form Editar
+     *
+     * @param index
+     * @param projetos
      */
     public EditarProjeto(int index, ArrayList<Projeto> projetos) {
         this.index = index;
@@ -28,7 +30,7 @@ public class EditarProjeto extends javax.swing.JFrame {
         this.projetos = projetos;
         initComponents();
         mostrar();
-        
+
     }
 
     /**
@@ -551,7 +553,7 @@ public class EditarProjeto extends javax.swing.JFrame {
     private void jTextFieldClienteNumeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldClienteNumeroActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldClienteNumeroActionPerformed
-    
+
     private void jButtonProjetoSalvarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonProjetoSalvarMouseClicked
 
         if (jTextFieldProjetoNome.getText().equals("")) {
@@ -607,21 +609,21 @@ public class EditarProjeto extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Salvo com sucesso.");
             dispose();
         }
-    
+
     }//GEN-LAST:event_jButtonProjetoSalvarMouseClicked
-    
+
     private void mostrar() {
         jTextFieldProjetoNome.setText(projeto.getNome());
         jTextFieldProjetoCodigo.setText(String.valueOf(projeto.getCodigo()));
         jTextFieldProjetoDataInicio.setText(projeto.getDataInicio().toString());
         jTextFieldProjetoValorTotal.setText(String.valueOf(projeto.getValorTotal()));
         jTextAreaProjetoDescricao.setText(projeto.getDescricao());
-        
+
         jTextFieldClienteNome.setText(projeto.getCliente().getNome());
         jTextFieldClienteCodigo.setText(String.valueOf(projeto.getCliente().getCodigo()));
         jTextFieldClienteTelefone.setText(String.valueOf(projeto.getCliente().getTelefone()));
         jTextFieldClientePais.setText(projeto.getCliente().getEndereco().getPais());
-        jTextFieldClienteEstado.setText(projeto.getCliente().getEndereco().getEstado());   
+        jTextFieldClienteEstado.setText(projeto.getCliente().getEndereco().getEstado());
         jTextFieldClienteCidade.setText(projeto.getCliente().getEndereco().getCidade());
         jTextFieldClienteBairro.setText(projeto.getCliente().getEndereco().getBairro());
         jTextFieldClienteRua.setText(projeto.getCliente().getEndereco().getRua());
@@ -632,7 +634,7 @@ public class EditarProjeto extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonProjetoSalvarActionPerformed
 
     private void jButtonProjtoCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonProjtoCancelarActionPerformed
-        
+
     }//GEN-LAST:event_jButtonProjtoCancelarActionPerformed
 
     private void jButtonProjtoCancelarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonProjtoCancelarMouseClicked

@@ -16,36 +16,89 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
+/**
+ *
+ * @author diego
+ */
 public class Login implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    private final static Path PATH = Paths.get("./Data/login.dat");
+    private final static Path PATHUNIX = Paths.get("./Data/.login.obj");
+    private final static Path PATHMS = Paths.get(".\\Data\\.login.obj");
     private String nome;
     private String senha;
     private long CPF;
 
+    /**
+     *
+     * @param nome
+     * @param senha
+     * @param cpf
+     */
     public Login(String nome, String senha, long cpf) {
         this.nome = nome;
         this.senha = senha;
         this.CPF = cpf;
     }
 
+    /**
+     *
+     */
     public Login() {
 
     }
 
+    /**
+     *
+     * @return
+     */
     public String getNome() {
         return nome;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getSenha() {
         return senha;
     }
 
+    /**
+     *
+     * @return
+     */
     public long getCPF() {
         return this.CPF;
     }
 
+    /**
+     *
+     * @return
+     */
+    public static boolean getUserStatusAtivo() {
+        return Files.exists(getOSPath());
+    }
+
+    /**
+     *
+     * @return
+     */
+    private static Path getOSPath() {
+        if (System.getProperty("os.name").equals("Linux")) {
+
+            return PATHUNIX;
+        } else {
+
+            return PATHMS;
+        }
+    }
+
+    /**
+     *
+     * @param login
+     * @return
+     */
     public static boolean gravarLogin(Login login) {
         FileOutputStream fos;
         ObjectOutputStream oos;
@@ -57,7 +110,7 @@ public class Login implements Serializable {
                 return false;
             }
             new File("./Data").mkdir();
-            fos = new FileOutputStream(PATH.toFile());
+            fos = new FileOutputStream(getOSPath().toFile());
             oos = new ObjectOutputStream(fos);
 
             oos.writeObject(login);
@@ -72,6 +125,10 @@ public class Login implements Serializable {
         return false;
     }
 
+    /**
+     *
+     * @return
+     */
     public static Login lerLogin() {
 
         Login login = null;
@@ -81,10 +138,11 @@ public class Login implements Serializable {
         if (!getUserStatusAtivo()) {
             JOptionPane.showMessageDialog(null, "O sistema não possui administrador cadastrado!", "Falha",
                     JOptionPane.INFORMATION_MESSAGE);
-        } 
+            new File("./Data").mkdir();
+        }
 
         try {
-            fis = new FileInputStream(PATH.toFile());
+            fis = new FileInputStream(getOSPath().toFile());
             ois = new ObjectInputStream(fis);
             login = (Login) ois.readObject();
 
@@ -100,9 +158,14 @@ public class Login implements Serializable {
     }
 
     private static void removeLogin() {
-        PATH.toFile().delete();
+        getOSPath().toFile().delete();
     }
 
+    /**
+     *
+     * @param cpf
+     * @param tle
+     */
     public static void restaurar(long cpf, TelaLogin tle) {
 
         if (getUserStatusAtivo()) {
@@ -112,7 +175,4 @@ public class Login implements Serializable {
         }
     }
 
-    public static boolean getUserStatusAtivo() {
-        return Files.exists(PATH);
-    }
 }

@@ -14,6 +14,10 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 
+/**
+ *
+ * @author thebell
+ */
 public class Funcionario implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -29,9 +33,22 @@ public class Funcionario implements Serializable {
     private float salario;
     private int projetoAlocado;
 
+    /**
+     *
+     */
     public Funcionario() {
     }
 
+    /**
+     *
+     * @param nome
+     * @param tipo
+     * @param codigo
+     * @param endereco
+     * @param telefone
+     * @param salario
+     * @param proJetoAlocado
+     */
     public Funcionario(String nome, char tipo, int codigo, Endereco endereco,
             int telefone, float salario, int proJetoAlocado) {
         this.nome = nome;
@@ -43,58 +60,114 @@ public class Funcionario implements Serializable {
         this.projetoAlocado = proJetoAlocado;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getCodigo() {
         return codigo;
     }
 
+    /**
+     *
+     * @param codigo
+     */
     public void setCodigo(int codigo) {
         this.codigo = codigo;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getNome() {
         return nome;
     }
 
+    /**
+     *
+     * @param nome
+     */
     public void setNome(String nome) {
         this.nome = nome;
     }
 
+    /**
+     *
+     * @return
+     */
     public char getTipo() {
         return tipo;
     }
 
+    /**
+     *
+     * @param tipo
+     */
     public void setTipo(char tipo) {
         this.tipo = tipo;
     }
 
+    /**
+     *
+     * @return
+     */
     public Endereco getEndereco() {
         return endereco;
     }
 
+    /**
+     *
+     * @param endereco
+     */
     public void setEndereco(Endereco endereco) {
         this.endereco = endereco;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getTelefone() {
         return telefone;
     }
 
+    /**
+     *
+     * @param telefone
+     */
     public void setTelefone(int telefone) {
         this.telefone = telefone;
     }
 
+    /**
+     *
+     * @return
+     */
     public float getSalario() {
         return salario;
     }
 
+    /**
+     *
+     * @param salario
+     */
     public void setSalario(float salario) {
         this.salario = salario;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getProjetoAlocado() {
         return projetoAlocado;
     }
 
+    /**
+     *
+     * @param projetoAlocado
+     */
     public void setProjetoAlocado(int projetoAlocado) {
         this.projetoAlocado = projetoAlocado;
     }
@@ -109,10 +182,18 @@ public class Funcionario implements Serializable {
         }
     }
 
+    /**
+     *
+     * @return
+     */
     public static boolean getFuncFileStatusAtivo() {
         return Files.exists(getOSPath());
     }
 
+    /**
+     *
+     * @param funcionarios
+     */
     public static void escrever(ArrayList<Funcionario> funcionarios) {
         FileOutputStream fos;
         ObjectOutputStream oos;
@@ -127,6 +208,11 @@ public class Funcionario implements Serializable {
         }
     }
 
+    /**
+     *
+     * @param funcionario
+     * @param funcionarios
+     */
     public static void escrever(Funcionario funcionario, ArrayList<Funcionario> funcionarios) {
         FileOutputStream fos;
         ObjectOutputStream oos;
@@ -144,6 +230,10 @@ public class Funcionario implements Serializable {
         }
     }
 
+    /**
+     *
+     * @return
+     */
     public static ArrayList<Funcionario> lerFuncionarios() {
         ArrayList<Funcionario> funcionarios = new ArrayList<>();
         FileInputStream fis;
@@ -167,6 +257,11 @@ public class Funcionario implements Serializable {
         return funcionarios;
     }
 
+    /**
+     *
+     * @param index
+     * @param funcionarios
+     */
     public static void removerFuncionario(int index, ArrayList<Funcionario> funcionarios) {
         funcionarios.remove(index);
         Funcionario.escrever(funcionarios);

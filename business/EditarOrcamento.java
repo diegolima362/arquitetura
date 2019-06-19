@@ -3,6 +3,7 @@ package business;
 import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -14,11 +15,16 @@ import javax.swing.JOptionPane;
  * @author thebell
  */
 public class EditarOrcamento extends javax.swing.JFrame {
+
     private final int index;
     private Orcamento orcamento;
     private ArrayList<Orcamento> orcamentos;
+
     /**
      * Creates new form EditarOrcamento
+     *
+     * @param index
+     * @param orcamentos
      */
     public EditarOrcamento(int index, ArrayList<Orcamento> orcamentos) {
         this.index = index;
@@ -284,7 +290,7 @@ public class EditarOrcamento extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldOrcamentoValorActionPerformed
 
     private void jButtonOrcamentoSalvarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonOrcamentoSalvarMouseClicked
-        
+
         if (jTextFieldOrcamentoProjeto.getText().equals("")) {
             JOptionPane.showMessageDialog(this, "Todos os campos devem ser preenchidos");
             limparMenuOrcamento();
@@ -307,7 +313,7 @@ public class EditarOrcamento extends javax.swing.JFrame {
             orcamento.setCliente(jTextFieldOrcamentoCliente.getText());
             orcamento.setValorProjeto(Double.parseDouble(jTextFieldOrcamentoValor.getText()));
             orcamento.setDetalhamentoCusto(jTextAreaOrcamentodescricao.getText());
-            
+
             orcamentos.remove(index);
             orcamentos.add(index, orcamento);
             Orcamento.escrever(orcamentos);
@@ -331,13 +337,13 @@ public class EditarOrcamento extends javax.swing.JFrame {
         jTextFieldOrcamentoValor.setText("");
         jTextAreaOrcamentodescricao.setText("");
     }
-    
+
     private void mostrar() {
         jTextFieldOrcamentoCliente.setText(orcamento.getCliente());
         jTextFieldOrcamentoCodigo.setText(String.valueOf(orcamento.getCodigo()));
         jTextFieldOrcamentoProjeto.setText(orcamento.getProjeto());
         jTextFieldOrcamentoValor.setText(String.valueOf(orcamento.getValorProjeto()));
-        jTextAreaOrcamentodescricao.setText(orcamento.getDetalhamentoCusto());  
+        jTextAreaOrcamentodescricao.setText(orcamento.getDetalhamentoCusto());
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

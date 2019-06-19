@@ -3,6 +3,7 @@ package business;
 import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -14,11 +15,16 @@ import javax.swing.JOptionPane;
  * @author thebell
  */
 public class EditarMaterial extends javax.swing.JFrame {
+
     private final int index;
     private Material material;
     private ArrayList<Material> materiais;
+
     /**
      * Creates new form EditarMaterial
+     *
+     * @param index
+     * @param materiais
      */
     public EditarMaterial(int index, ArrayList<Material> materiais) {
         this.index = index;
@@ -306,7 +312,7 @@ public class EditarMaterial extends javax.swing.JFrame {
             material.setFabricante(jTextFieldMaterialFabricante.getText());
             material.setValor(Double.parseDouble(jTextFieldMaterialValor.getText()));
             material.setDescricao(jTextAreaMaterialDescricao.getText());
-           
+
             materiais.remove(index);
             materiais.add(index, material);
             Material.escrever(materiais);
@@ -329,13 +335,13 @@ public class EditarMaterial extends javax.swing.JFrame {
         jTextFieldMaterialFabricante.setText("");
         jTextAreaMaterialDescricao.setText("");
     }
-    
-     private void mostrar() {
+
+    private void mostrar() {
         jTextFieldMaterialNome.setText(material.getNome());
         jTextFieldMaterialCodigo.setText(String.valueOf(material.getCodigo()));
         jTextFieldMaterialFabricante.setText(material.getFabricante());
         jTextFieldMaterialValor.setText(String.valueOf(material.getValor()));
-        jTextAreaMaterialDescricao.setText(material.getDescricao());  
+        jTextAreaMaterialDescricao.setText(material.getDescricao());
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonMaterialCancelar;

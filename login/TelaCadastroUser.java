@@ -28,6 +28,11 @@ public class TelaCadastroUser extends javax.swing.JFrame {
 
     }
 
+    /**
+     *
+     * @param cpf
+     * @param tl
+     */
     public TelaCadastroUser(long cpf, TelaLogin tl) {
         initComponents();
         this.jTextFieldCPF.setText("" + cpf);
@@ -93,7 +98,7 @@ public class TelaCadastroUser extends javax.swing.JFrame {
         jTextFieldCPF.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextFieldCPF.setPreferredSize(new java.awt.Dimension(200, 35));
 
-        jButtonCancelCad.setText("Cancelar");
+        jButtonCancelCad.setText("Voltar");
         jButtonCancelCad.setPreferredSize(new java.awt.Dimension(95, 35));
         jButtonCancelCad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
