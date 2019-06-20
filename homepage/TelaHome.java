@@ -5,9 +5,11 @@ import business.Orcamento;
 import business.Projeto;
 import business.PrestadorServico;
 import business.Cliente;
+import business.Contrato;
 import business.Funcionario;
 import business.Endereco;
 import business.EditarCliente;
+import business.EditarContrato;
 import business.EditarFuncionario;
 import business.EditarServico;
 import business.EditarOrcamento;
@@ -279,6 +281,42 @@ public class TelaHome extends javax.swing.JFrame {
         jButtonOrcamentoEditar = new javax.swing.JButton();
         jButtonOrcamentoAtualizar = new javax.swing.JButton();
         jButtonOrcamentoRemover = new javax.swing.JButton();
+        jPanelContrato = new javax.swing.JPanel();
+        jTabbedContratos = new javax.swing.JTabbedPane();
+        jPanelNovoContrato = new javax.swing.JPanel();
+        jScrollPaneNovoContrato = new javax.swing.JScrollPane();
+        jPanelNovoContratoConteudo = new javax.swing.JPanel();
+        jPanel11 = new javax.swing.JPanel();
+        jLabel109 = new javax.swing.JLabel();
+        jLabel110 = new javax.swing.JLabel();
+        jTextFieldContratoCodigo = new javax.swing.JTextField();
+        jLabel111 = new javax.swing.JLabel();
+        jLabel112 = new javax.swing.JLabel();
+        jTextFieldContratoCusto = new javax.swing.JTextField();
+        jLabel113 = new javax.swing.JLabel();
+        jLabel115 = new javax.swing.JLabel();
+        jLabel117 = new javax.swing.JLabel();
+        jLabel118 = new javax.swing.JLabel();
+        jTextFieldContratoValorTotal = new javax.swing.JTextField();
+        jComboBoxContratoFuncionario = new javax.swing.JComboBox<>();
+        jLabel114 = new javax.swing.JLabel();
+        jComboBoxContratoProjeto = new javax.swing.JComboBox<>();
+        jLabel116 = new javax.swing.JLabel();
+        jComboBoxContratoOrcamento = new javax.swing.JComboBox<>();
+        jLabel119 = new javax.swing.JLabel();
+        jLabel120 = new javax.swing.JLabel();
+        jTextFieldContratoDataInicio = new javax.swing.JTextField();
+        jLabel121 = new javax.swing.JLabel();
+        jLabel122 = new javax.swing.JLabel();
+        jTextFieldContratoDataTermino = new javax.swing.JTextField();
+        jButtonContratoSalvar = new javax.swing.JButton();
+        jButtonContratoCancelar = new javax.swing.JButton();
+        jPanelContratoLista = new javax.swing.JPanel();
+        jScrollPane12 = new javax.swing.JScrollPane();
+        jTableContratos = new javax.swing.JTable();
+        jButtonContratoEditar = new javax.swing.JButton();
+        jButtonContratoAtualizar = new javax.swing.JButton();
+        jButtonContratoRemover = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItemSair = new javax.swing.JMenuItem();
@@ -2111,6 +2149,321 @@ public class TelaHome extends javax.swing.JFrame {
 
         jPanelPrincipal.addTab("Orçamentos", jPanelOcamento);
 
+        jPanel11.setBorder(javax.swing.BorderFactory.createTitledBorder("Dados do Contrato"));
+
+        jLabel109.setText("Código");
+
+        jLabel110.setText("Imagem");
+
+        jTextFieldContratoCodigo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldContratoCodigoActionPerformed(evt);
+            }
+        });
+
+        jLabel111.setText("Custo do material");
+
+        jLabel112.setText("Imagem");
+
+        jTextFieldContratoCusto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldContratoCustoActionPerformed(evt);
+            }
+        });
+
+        jLabel113.setText("Funcionário");
+
+        jLabel117.setText("Valor");
+
+        jLabel118.setText("Imagem");
+
+        jTextFieldContratoValorTotal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldContratoValorTotalActionPerformed(evt);
+            }
+        });
+
+        jComboBoxContratoFuncionario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione o funcionario" }));
+        jComboBoxContratoFuncionario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jComboBoxContratoFuncionarioMouseClicked(evt);
+            }
+        });
+
+        jLabel114.setText("Projeto");
+
+        jComboBoxContratoProjeto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione o projeto" }));
+        jComboBoxContratoProjeto.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jComboBoxContratoProjetoMouseClicked(evt);
+            }
+        });
+
+        jLabel116.setText("Orçamento");
+
+        jComboBoxContratoOrcamento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione o orçamento" }));
+        jComboBoxContratoOrcamento.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jComboBoxContratoOrcamentoMouseClicked(evt);
+            }
+        });
+
+        jLabel119.setText("Data início");
+
+        jLabel120.setText("Imagem");
+
+        jTextFieldContratoDataInicio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldContratoDataInicioActionPerformed(evt);
+            }
+        });
+
+        jLabel121.setText("Data término");
+
+        jLabel122.setText("Imagem");
+
+        jTextFieldContratoDataTermino.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldContratoDataTerminoActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
+        jPanel11.setLayout(jPanel11Layout);
+        jPanel11Layout.setHorizontalGroup(
+            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel11Layout.createSequentialGroup()
+                .addComponent(jLabel120)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextFieldContratoDataInicio)
+                .addGap(52, 52, 52)
+                .addComponent(jLabel122)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextFieldContratoDataTermino)
+                .addGap(33, 33, 33))
+            .addGroup(jPanel11Layout.createSequentialGroup()
+                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel11Layout.createSequentialGroup()
+                        .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel113)
+                            .addComponent(jLabel109)
+                            .addGroup(jPanel11Layout.createSequentialGroup()
+                                .addComponent(jLabel110)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextFieldContratoCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel111)
+                            .addGroup(jPanel11Layout.createSequentialGroup()
+                                .addComponent(jLabel117)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel115))
+                            .addGroup(jPanel11Layout.createSequentialGroup()
+                                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel112)
+                                    .addComponent(jLabel118))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jTextFieldContratoCusto, javax.swing.GroupLayout.DEFAULT_SIZE, 285, Short.MAX_VALUE)
+                                    .addComponent(jTextFieldContratoValorTotal)))))
+                    .addGroup(jPanel11Layout.createSequentialGroup()
+                        .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jComboBoxContratoFuncionario, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel114)
+                            .addComponent(jComboBoxContratoProjeto, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(167, 167, 167)
+                        .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel116)
+                            .addComponent(jComboBoxContratoOrcamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel11Layout.createSequentialGroup()
+                        .addComponent(jLabel119)
+                        .addGap(308, 308, 308)
+                        .addComponent(jLabel121)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel11Layout.setVerticalGroup(
+            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel11Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel109)
+                    .addComponent(jLabel111))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel110)
+                    .addComponent(jTextFieldContratoCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel112)
+                    .addComponent(jTextFieldContratoCusto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel113)
+                    .addComponent(jLabel115)
+                    .addComponent(jLabel117))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel118)
+                    .addComponent(jTextFieldContratoValorTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBoxContratoFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel114)
+                    .addComponent(jLabel116))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jComboBoxContratoProjeto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBoxContratoOrcamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel119)
+                    .addComponent(jLabel121))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel120)
+                    .addComponent(jTextFieldContratoDataInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel122)
+                    .addComponent(jTextFieldContratoDataTermino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(24, Short.MAX_VALUE))
+        );
+
+        jButtonContratoSalvar.setText("Salvar");
+        jButtonContratoSalvar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonContratoSalvarMouseClicked(evt);
+            }
+        });
+        jButtonContratoSalvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonContratoSalvarActionPerformed(evt);
+            }
+        });
+
+        jButtonContratoCancelar.setText("Cancelar");
+        jButtonContratoCancelar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonContratoCancelarMouseClicked(evt);
+            }
+        });
+        jButtonContratoCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonContratoCancelarActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanelNovoContratoConteudoLayout = new javax.swing.GroupLayout(jPanelNovoContratoConteudo);
+        jPanelNovoContratoConteudo.setLayout(jPanelNovoContratoConteudoLayout);
+        jPanelNovoContratoConteudoLayout.setHorizontalGroup(
+            jPanelNovoContratoConteudoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelNovoContratoConteudoLayout.createSequentialGroup()
+                .addGroup(jPanelNovoContratoConteudoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, 735, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanelNovoContratoConteudoLayout.createSequentialGroup()
+                        .addComponent(jButtonContratoSalvar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButtonContratoCancelar)))
+                .addGap(0, 62, Short.MAX_VALUE))
+        );
+        jPanelNovoContratoConteudoLayout.setVerticalGroup(
+            jPanelNovoContratoConteudoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelNovoContratoConteudoLayout.createSequentialGroup()
+                .addGap(13, 13, 13)
+                .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(39, 39, 39)
+                .addGroup(jPanelNovoContratoConteudoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonContratoSalvar)
+                    .addComponent(jButtonContratoCancelar))
+                .addContainerGap(367, Short.MAX_VALUE))
+        );
+
+        jScrollPaneNovoContrato.setViewportView(jPanelNovoContratoConteudo);
+
+        javax.swing.GroupLayout jPanelNovoContratoLayout = new javax.swing.GroupLayout(jPanelNovoContrato);
+        jPanelNovoContrato.setLayout(jPanelNovoContratoLayout);
+        jPanelNovoContratoLayout.setHorizontalGroup(
+            jPanelNovoContratoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPaneNovoContrato, javax.swing.GroupLayout.DEFAULT_SIZE, 745, Short.MAX_VALUE)
+        );
+        jPanelNovoContratoLayout.setVerticalGroup(
+            jPanelNovoContratoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPaneNovoContrato, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 777, Short.MAX_VALUE)
+        );
+
+        jTabbedContratos.addTab("Novo Contrato", jPanelNovoContrato);
+
+        jTableContratos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Projeto", "Código", "Valor"
+            }
+        ));
+        jScrollPane12.setViewportView(jTableContratos);
+
+        jButtonContratoEditar.setText("Editar");
+        jButtonContratoEditar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonContratoEditarMouseClicked(evt);
+            }
+        });
+
+        jButtonContratoAtualizar.setText("Atualizar");
+        jButtonContratoAtualizar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonContratoAtualizarMouseClicked(evt);
+            }
+        });
+
+        jButtonContratoRemover.setText("Remover");
+        jButtonContratoRemover.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonContratoRemoverMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanelContratoListaLayout = new javax.swing.GroupLayout(jPanelContratoLista);
+        jPanelContratoLista.setLayout(jPanelContratoListaLayout);
+        jPanelContratoListaLayout.setHorizontalGroup(
+            jPanelContratoListaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane12, javax.swing.GroupLayout.DEFAULT_SIZE, 745, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelContratoListaLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButtonContratoEditar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButtonContratoAtualizar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButtonContratoRemover)
+                .addGap(26, 26, 26))
+        );
+        jPanelContratoListaLayout.setVerticalGroup(
+            jPanelContratoListaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelContratoListaLayout.createSequentialGroup()
+                .addGap(34, 34, 34)
+                .addGroup(jPanelContratoListaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonContratoEditar)
+                    .addComponent(jButtonContratoAtualizar)
+                    .addComponent(jButtonContratoRemover))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(277, Short.MAX_VALUE))
+        );
+
+        jTabbedContratos.addTab("Contratos", jPanelContratoLista);
+
+        javax.swing.GroupLayout jPanelContratoLayout = new javax.swing.GroupLayout(jPanelContrato);
+        jPanelContrato.setLayout(jPanelContratoLayout);
+        jPanelContratoLayout.setHorizontalGroup(
+            jPanelContratoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jTabbedContratos)
+        );
+        jPanelContratoLayout.setVerticalGroup(
+            jPanelContratoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelContratoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jTabbedContratos))
+        );
+
+        jPanelPrincipal.addTab("Contratos", jPanelContrato);
+
         jMenuBar1.setPreferredSize(new java.awt.Dimension(65, 25));
 
         jMenu1.setText("File");
@@ -2439,7 +2792,7 @@ public class TelaHome extends javax.swing.JFrame {
                     jTextFieldFuncionarioRua.getText(),
                     Integer.parseInt(jTextFieldFuncionarioNumero.getText())
             ));
-            Funcionario.escrever(funcionario, Funcionario.lerFuncionarios());
+            Funcionario.escrever(funcionario, Funcionario.ler());
             limparMenuFuncionario();
             JOptionPane.showMessageDialog(null, "Salva com sucesso.");
 
@@ -2456,7 +2809,7 @@ public class TelaHome extends javax.swing.JFrame {
 
     private void jButtonFuncionarioEditarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonFuncionarioEditarMouseClicked
         if (jTableFuncionarios.getSelectedRow() != -1) {
-            EditarFuncionario epf = new EditarFuncionario(jTableFuncionarios.getSelectedRow(), Funcionario.lerFuncionarios());
+            EditarFuncionario epf = new EditarFuncionario(jTableFuncionarios.getSelectedRow(), Funcionario.ler());
             epf.setVisible(true);
             atualizarTabelaFuncionarios();
         } else {
@@ -2473,7 +2826,7 @@ public class TelaHome extends javax.swing.JFrame {
             DefaultTableModel dtmTabelaFuncionario = (DefaultTableModel) jTableFuncionarios.getModel();
             int index = jTableFuncionarios.getSelectedRow();
             dtmTabelaFuncionario.removeRow(index);
-            Funcionario.removerFuncionario(index, Funcionario.lerFuncionarios());
+            Funcionario.removerFuncionario(index, Funcionario.ler());
             atualizarTabelaFuncionarios();
         } else {
             JOptionPane.showMessageDialog(null, "Selecione um item para remover.");
@@ -2784,6 +3137,125 @@ public class TelaHome extends javax.swing.JFrame {
             jComboBoxProjetoCliente.addItem(clientes.get(i).getNome());
         }
     }//GEN-LAST:event_jComboBoxProjetoClienteMouseClicked
+
+    private void jTextFieldContratoCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldContratoCodigoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldContratoCodigoActionPerformed
+
+    private void jTextFieldContratoCustoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldContratoCustoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldContratoCustoActionPerformed
+
+    private void jTextFieldContratoValorTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldContratoValorTotalActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldContratoValorTotalActionPerformed
+
+    private void jButtonContratoSalvarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonContratoSalvarMouseClicked
+        Contrato contrato = new Contrato();
+        if (jTextFieldContratoCodigo.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "Todos os campos devem ser preenchidos");
+            limparMenuContrato();
+        } else if (jTextFieldContratoCusto.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "Todos os campos devem ser preenchidos");
+            limparMenuContrato();
+        } else if (jTextFieldContratoDataInicio.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "Todos os campos devem ser preenchidos");
+            limparMenuContrato();
+        } else if (jTextFieldContratoDataTermino.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "Todos os campos devem ser preenchidos");
+            limparMenuContrato();
+        } else if (jTextFieldContratoValorTotal.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "Todos os campos devem ser preenchidos");
+            limparMenuContrato();
+        } else {
+
+            contrato.setCodigo(Integer.parseInt(jTextFieldContratoCodigo.getText()));
+            contrato.setCustoMaterial(Double.parseDouble(jTextFieldContratoCusto.getText()));
+            contrato.setValorTotal(Double.parseDouble(jTextFieldContratoValorTotal.getText()));
+            contrato.setDataInicio(jTextFieldContratoDataInicio.getText());
+            contrato.setDataTermino(jTextFieldContratoDataTermino.getText());
+            Contrato.escrever(contrato, contrato.ler());
+            contrato.setProjeto(jComboBoxContratoProjeto.getItemAt(jComboBoxContratoProjeto.getSelectedIndex()));
+            contrato.setFuncionarios(jComboBoxContratoFuncionario.getItemAt(jComboBoxContratoFuncionario.getSelectedIndex()));
+            contrato.setOrcamento(jComboBoxContratoOrcamento.getItemAt(jComboBoxContratoOrcamento.getSelectedIndex()));
+            limparMenuContrato();
+            JOptionPane.showMessageDialog(null, "Salvo com sucesso.");
+
+        }
+    }//GEN-LAST:event_jButtonContratoSalvarMouseClicked
+
+    private void jButtonContratoSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonContratoSalvarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonContratoSalvarActionPerformed
+
+    private void jButtonContratoCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonContratoCancelarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonContratoCancelarActionPerformed
+
+    private void jButtonContratoEditarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonContratoEditarMouseClicked
+        if (jTableContratos.getSelectedRow() != -1) {
+            EditarContrato epct = new EditarContrato(jTableContratos.getSelectedRow(), Contrato.ler());
+            epct.setVisible(true);
+            atualizarTabelaContratos();
+        } else {
+            JOptionPane.showMessageDialog(null, "Selecione um item para editar.");
+        }
+    }//GEN-LAST:event_jButtonContratoEditarMouseClicked
+
+    private void jButtonContratoAtualizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonContratoAtualizarMouseClicked
+        atualizarTabelaContratos();
+    }//GEN-LAST:event_jButtonContratoAtualizarMouseClicked
+
+    private void jButtonContratoRemoverMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonContratoRemoverMouseClicked
+        if (jTableContratos.getSelectedRow() != -1) {
+            DefaultTableModel dtmTabelaContrato = (DefaultTableModel) jTableContratos.getModel();
+            int index = jTableContratos.getSelectedRow();
+            dtmTabelaContrato.removeRow(index);
+            Contrato.remover(index, Contrato.ler());
+            atualizarTabelaContratos();
+        } else {
+            JOptionPane.showMessageDialog(null, "Selecione um item para remover.");
+        }
+    }//GEN-LAST:event_jButtonContratoRemoverMouseClicked
+
+    private void jTextFieldContratoDataInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldContratoDataInicioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldContratoDataInicioActionPerformed
+
+    private void jTextFieldContratoDataTerminoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldContratoDataTerminoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldContratoDataTerminoActionPerformed
+
+    private void jComboBoxContratoFuncionarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComboBoxContratoFuncionarioMouseClicked
+        ArrayList<Funcionario> funcionarios = Funcionario.ler();
+        jComboBoxContratoFuncionario.removeAllItems();
+        
+        for (int i = 0; i < funcionarios.size(); i++) {
+            jComboBoxContratoFuncionario.addItem(funcionarios.get(i).getNome());
+        }
+    }//GEN-LAST:event_jComboBoxContratoFuncionarioMouseClicked
+
+    private void jComboBoxContratoOrcamentoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComboBoxContratoOrcamentoMouseClicked
+        ArrayList<Orcamento> orcamentos = Orcamento.ler();
+        jComboBoxContratoOrcamento.removeAllItems();
+        
+        for (int i = 0; i < orcamentos.size(); i++) {
+            jComboBoxContratoOrcamento.addItem(orcamentos.get(i).getProjeto());
+        }
+    }//GEN-LAST:event_jComboBoxContratoOrcamentoMouseClicked
+
+    private void jComboBoxContratoProjetoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComboBoxContratoProjetoMouseClicked
+        ArrayList<Projeto> projetos = Projeto.ler();
+        jComboBoxContratoProjeto.removeAllItems();
+        
+        for (int i = 0; i < projetos.size(); i++) {
+            jComboBoxContratoProjeto.addItem(projetos.get(i).getNome());
+        }
+    }//GEN-LAST:event_jComboBoxContratoProjetoMouseClicked
+
+    private void jButtonContratoCancelarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonContratoCancelarMouseClicked
+        limparMenuContrato();
+    }//GEN-LAST:event_jButtonContratoCancelarMouseClicked
     private void atualizarTabela() {
         DefaultTableModel dtmTabela = (DefaultTableModel) jTableProjetos.getModel();
         Object[] dados = new Object[3];
@@ -2824,7 +3296,7 @@ public class TelaHome extends javax.swing.JFrame {
     private void atualizarTabelaFuncionarios() {
         DefaultTableModel dtmTabelaFuncionario = (DefaultTableModel) jTableFuncionarios.getModel();
         Object[] dados = new Object[3];
-        ArrayList<Funcionario> funcionarios = Funcionario.lerFuncionarios();
+        ArrayList<Funcionario> funcionarios = Funcionario.ler();
         int rowCount = dtmTabelaFuncionario.getRowCount();
 
         for (int i = rowCount - 1; i >= 0; i--) {
@@ -2891,12 +3363,30 @@ public class TelaHome extends javax.swing.JFrame {
         for (int i = 0; i < orcamentos.size(); i++) {
             dados[0] = orcamentos.get(i).getProjeto();
             dados[1] = String.valueOf(orcamentos.get(i).getCodigo());
-            dados[2] = String.valueOf(orcamentos.get(i).getClass());
+            dados[2] = String.valueOf(orcamentos.get(i).getCliente());
             dtmTabelaOrcamento.addRow(dados);
             jTableOrcamentos.validate();
         }
     }
+    
+    private void atualizarTabelaContratos() {
+        DefaultTableModel dtmTabelaContrato = (DefaultTableModel) jTableContratos.getModel();
+        Object[] dados = new Object[3];
+        ArrayList<Contrato> contratos = Contrato.ler();
+        int rowCount = dtmTabelaContrato.getRowCount();
 
+        for (int i = rowCount - 1; i >= 0; i--) {
+            dtmTabelaContrato.removeRow(i);
+        }
+
+        for (int i = 0; i < contratos.size(); i++) {
+            dados[0] = contratos.get(i).getProjeto();
+            dados[1] = String.valueOf(contratos.get(i).getCodigo());
+            dados[2] = String.valueOf(contratos.get(i).getValorTotal());
+            dtmTabelaContrato.addRow(dados);
+            jTableContratos.validate();
+        }
+    }
     private void limparMenuProjeto() {
         jTextFieldProjetoNome.setText("");
         jTextFieldProjetoCodigo.setText("");
@@ -2957,7 +3447,20 @@ public class TelaHome extends javax.swing.JFrame {
         jTextFieldOrcamentoValor.setText("");
         jTextAreaOrcamentodescricao.setText("");
     }
-
+    
+    private void limparMenuContrato() {
+        jTextFieldContratoCodigo.setText("");
+        jTextFieldContratoCusto.setText("");
+        jTextFieldContratoDataInicio.setText("");
+        jTextFieldContratoDataTermino.setText("");
+        jTextFieldContratoValorTotal.setText("");
+        jComboBoxContratoFuncionario.removeAllItems();
+        jComboBoxContratoFuncionario.addItem("Selecione um funcionário");
+        jComboBoxContratoOrcamento.removeAllItems();
+        jComboBoxContratoOrcamento.addItem("Selecione um orçamento");
+        jComboBoxContratoProjeto.removeAllItems();
+        jComboBoxContratoProjeto.addItem("Selecione um projeto");
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonClienteAtualizar;
@@ -2965,6 +3468,11 @@ public class TelaHome extends javax.swing.JFrame {
     private javax.swing.JButton jButtonClienteEditar;
     private javax.swing.JButton jButtonClienteRemover;
     private javax.swing.JButton jButtonClienteSalvar;
+    private javax.swing.JButton jButtonContratoAtualizar;
+    private javax.swing.JButton jButtonContratoCancelar;
+    private javax.swing.JButton jButtonContratoEditar;
+    private javax.swing.JButton jButtonContratoRemover;
+    private javax.swing.JButton jButtonContratoSalvar;
     private javax.swing.JButton jButtonFuncionarioAplicar;
     private javax.swing.JButton jButtonFuncionarioAtualizar;
     private javax.swing.JButton jButtonFuncionarioCancelar;
@@ -2992,6 +3500,9 @@ public class TelaHome extends javax.swing.JFrame {
     private javax.swing.JButton jButtonServicoEditar;
     private javax.swing.JButton jButtonServicoRemover;
     private javax.swing.JButton jButtonServicoSalvar;
+    private javax.swing.JComboBox<String> jComboBoxContratoFuncionario;
+    private javax.swing.JComboBox<String> jComboBoxContratoOrcamento;
+    private javax.swing.JComboBox<String> jComboBoxContratoProjeto;
     private javax.swing.JComboBox<String> jComboBoxFuncionarioProjetos;
     private javax.swing.JComboBox<String> jComboBoxProjetoCliente;
     private javax.swing.JLabel jLabel1;
@@ -3005,6 +3516,20 @@ public class TelaHome extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel106;
     private javax.swing.JLabel jLabel107;
     private javax.swing.JLabel jLabel108;
+    private javax.swing.JLabel jLabel109;
+    private javax.swing.JLabel jLabel110;
+    private javax.swing.JLabel jLabel111;
+    private javax.swing.JLabel jLabel112;
+    private javax.swing.JLabel jLabel113;
+    private javax.swing.JLabel jLabel114;
+    private javax.swing.JLabel jLabel115;
+    private javax.swing.JLabel jLabel116;
+    private javax.swing.JLabel jLabel117;
+    private javax.swing.JLabel jLabel118;
+    private javax.swing.JLabel jLabel119;
+    private javax.swing.JLabel jLabel120;
+    private javax.swing.JLabel jLabel121;
+    private javax.swing.JLabel jLabel122;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -3080,6 +3605,7 @@ public class TelaHome extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItemSair;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
+    private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
@@ -3087,12 +3613,16 @@ public class TelaHome extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel9;
     private javax.swing.JPanel jPanelCliente;
     private javax.swing.JPanel jPanelClienteLIsta;
+    private javax.swing.JPanel jPanelContrato;
+    private javax.swing.JPanel jPanelContratoLista;
     private javax.swing.JPanel jPanelFuncionario;
     private javax.swing.JPanel jPanelFuncionarioLista;
     private javax.swing.JPanel jPanelMaterial;
     private javax.swing.JPanel jPanelMaterialLista;
     private javax.swing.JPanel jPanelNovoCliente;
     private javax.swing.JPanel jPanelNovoClienteConteudo;
+    private javax.swing.JPanel jPanelNovoContrato;
+    private javax.swing.JPanel jPanelNovoContratoConteudo;
     private javax.swing.JPanel jPanelNovoFuncionario;
     private javax.swing.JPanel jPanelNovoFuncionarioConteudo;
     private javax.swing.JPanel jPanelNovoMaterial;
@@ -3111,6 +3641,7 @@ public class TelaHome extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelServicoLista;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;
+    private javax.swing.JScrollPane jScrollPane12;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
@@ -3120,18 +3651,21 @@ public class TelaHome extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JScrollPane jScrollPaneNovoCliente;
+    private javax.swing.JScrollPane jScrollPaneNovoContrato;
     private javax.swing.JScrollPane jScrollPaneNovoFuncionario;
     private javax.swing.JScrollPane jScrollPaneNovoMaterial;
     private javax.swing.JScrollPane jScrollPaneNovoOrcamento;
     private javax.swing.JScrollPane jScrollPaneNovoProjeto;
     private javax.swing.JScrollPane jScrollPaneNovoServico;
     private javax.swing.JTabbedPane jTabbedClientes;
+    private javax.swing.JTabbedPane jTabbedContratos;
     private javax.swing.JTabbedPane jTabbedFuncionarios;
     private javax.swing.JTabbedPane jTabbedMateriais;
     private javax.swing.JTabbedPane jTabbedOrcamentos;
     private javax.swing.JTabbedPane jTabbedProjetos;
     private javax.swing.JTabbedPane jTabbedServico;
     private javax.swing.JTable jTableClientes;
+    private javax.swing.JTable jTableContratos;
     private javax.swing.JTable jTableFuncionarios;
     private javax.swing.JTable jTableMateriais;
     private javax.swing.JTable jTableOrcamentos;
@@ -3150,6 +3684,11 @@ public class TelaHome extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldClientePais1;
     private javax.swing.JTextField jTextFieldClienteRua1;
     private javax.swing.JTextField jTextFieldClienteTelefone1;
+    private javax.swing.JTextField jTextFieldContratoCodigo;
+    private javax.swing.JTextField jTextFieldContratoCusto;
+    private javax.swing.JTextField jTextFieldContratoDataInicio;
+    private javax.swing.JTextField jTextFieldContratoDataTermino;
+    private javax.swing.JTextField jTextFieldContratoValorTotal;
     private javax.swing.JTextField jTextFieldFuncionarioBairro;
     private javax.swing.JTextField jTextFieldFuncionarioCidade;
     private javax.swing.JTextField jTextFieldFuncionarioCodigo;

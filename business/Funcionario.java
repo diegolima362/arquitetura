@@ -149,7 +149,7 @@ public class Funcionario implements Serializable {
     }
     
     @SuppressWarnings("unchecked")
-    public static ArrayList<Funcionario> lerFuncionarios() {
+    public static ArrayList<Funcionario> ler() {
         ArrayList<Funcionario> funcionarios = new ArrayList<>();
         FileInputStream fis;
         ObjectInputStream ois;

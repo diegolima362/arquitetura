@@ -12,6 +12,9 @@ import java.io.Serializable;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -25,20 +28,20 @@ public class Contrato implements Serializable {
     private final static Path PATHUNIX = Paths.get("./Data/contratos.obj");
     private final static Path PATHMS = Paths.get(".\\Data\\contratos.obj");
     private int codigo;
-    private Projeto projeto;
-    private Orcamento orcamento;
+    private String projeto;
+    private String orcamento;
     private Date dataInicio;
     private Date dataTermino;
     private double custoMaterial;
     private double valorTotal;
-    private ArrayList<Funcionario> funcionarios;
+    private String funcionarios;
     private int visitasTecnicasCobradas;
 
     public Contrato() {
     }
 
-    public Contrato(Projeto projeto, Orcamento orcamento, int codigo, Date dataInicio, Date dataTermino,
-            double custoMaterial, double valorTotal, ArrayList<Funcionario> funcionarios, int visitasTecnicasCobradas) {
+    public Contrato(String projeto, String orcamento, int codigo, Date dataInicio, Date dataTermino,
+            double custoMaterial, double valorTotal, String funcionarios, int visitasTecnicasCobradas) {
         this.projeto = projeto;
         this.orcamento = orcamento;
         this.codigo = codigo;
@@ -59,19 +62,19 @@ public class Contrato implements Serializable {
         this.codigo = codigo;
     }
 
-    public Projeto getProjeto() {
+    public String getProjeto() {
         return projeto;
     }
 
-    public void setProjeto(Projeto projeto) {
+    public void setProjeto(String projeto) {
         this.projeto = projeto;
     }
 
-    public Orcamento getOrcamento() {
+    public String getOrcamento() {
         return orcamento;
     }
 
-    public void setOrcamento(Orcamento orcamento) {
+    public void setOrcamento(String orcamento) {
         this.orcamento = orcamento;
     }
 
@@ -79,16 +82,25 @@ public class Contrato implements Serializable {
         return dataInicio;
     }
 
-    public void setDataInicio(Date dataInicio) {
-        this.dataInicio = dataInicio;
+    public void setDataInicio(String dataInicio) {
+        DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+        try {
+            this.dataInicio = df.parse(dataInicio);
+        } catch (ParseException e) {
+        }
+        
     }
 
     public Date getDataTermino() {
         return dataTermino;
     }
 
-    public void setDataTermino(Date dataTermino) {
-        this.dataTermino = dataTermino;
+    public void setDataTermino(String dataTermino) {
+        DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+        try {
+            this.dataTermino = df.parse(dataTermino);
+        } catch (ParseException e) {
+        }
     }
 
     public double getCustoMaterial() {
@@ -107,11 +119,11 @@ public class Contrato implements Serializable {
         this.valorTotal = valorTotal;
     }
 
-    public ArrayList<Funcionario> getFuncionarios() {
+    public String getFuncionarios() {
         return funcionarios;
     }
 
-    public void setFuncionarios(ArrayList<Funcionario> funcionarios) {
+    public void setFuncionarios(String funcionarios) {
         this.funcionarios = funcionarios;
     }
 
@@ -137,6 +149,19 @@ public class Contrato implements Serializable {
         return Files.exists(getOSPath());
     }
 
+    public static void escrever(ArrayList<Contrato> contratos) {
+        FileOutputStream fos;
+        ObjectOutputStream oos;
+        try {
+            fos = new FileOutputStream(getOSPath().toFile());
+            oos = new ObjectOutputStream(fos);
+            oos.writeObject(contratos);
+            fos.close();
+            oos.close();
+        } catch (FileNotFoundException e) {
+        } catch (IOException e) {
+        }
+    }
     public static void escrever(Contrato contrato, ArrayList<Contrato> contratos) {
         FileOutputStream fos;
         ObjectOutputStream oos;
@@ -175,5 +200,9 @@ public class Contrato implements Serializable {
 
         }
         return contratos;
+    }
+    public static void remover(int index, ArrayList<Contrato> contratos) {
+        contratos.remove(index);
+        Contrato.escrever(contratos);
     }
 }
