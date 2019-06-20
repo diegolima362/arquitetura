@@ -73,7 +73,7 @@ public class EditarFuncionario extends javax.swing.JFrame {
         jLabel76 = new javax.swing.JLabel();
         jTextFieldFuncionarioSalario1 = new javax.swing.JTextField();
         jLabel77 = new javax.swing.JLabel();
-        jButtonFuncionarioAplicar = new javax.swing.JButton();
+        jButtonFuncionarioAdicionar = new javax.swing.JButton();
         jTextFieldFuncionarioProjetoAlocado = new javax.swing.JTextField();
         jComboBoxFuncionarioProjetos = new javax.swing.JComboBox<>();
         jButtonFuncionarioSalvar = new javax.swing.JButton();
@@ -185,10 +185,10 @@ public class EditarFuncionario extends javax.swing.JFrame {
 
         jLabel77.setText("Projeto Alocado");
 
-        jButtonFuncionarioAplicar.setText("Aplicar");
-        jButtonFuncionarioAplicar.addMouseListener(new java.awt.event.MouseAdapter() {
+        jButtonFuncionarioAdicionar.setText("Adicionar");
+        jButtonFuncionarioAdicionar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButtonFuncionarioAplicarMouseClicked(evt);
+                jButtonFuncionarioAdicionarMouseClicked(evt);
             }
         });
 
@@ -202,6 +202,11 @@ public class EditarFuncionario extends javax.swing.JFrame {
         jComboBoxFuncionarioProjetos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jComboBoxFuncionarioProjetosMouseClicked(evt);
+            }
+        });
+        jComboBoxFuncionarioProjetos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxFuncionarioProjetosActionPerformed(evt);
             }
         });
 
@@ -273,7 +278,7 @@ public class EditarFuncionario extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel7Layout.createSequentialGroup()
-                                .addComponent(jButtonFuncionarioAplicar)
+                                .addComponent(jButtonFuncionarioAdicionar)
                                 .addGap(1, 1, 1)
                                 .addComponent(jTextFieldFuncionarioProjetoAlocado))
                             .addGroup(jPanel7Layout.createSequentialGroup()
@@ -345,7 +350,7 @@ public class EditarFuncionario extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jTextFieldFuncionarioProjetoAlocado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButtonFuncionarioAplicar)))))
+                            .addComponent(jButtonFuncionarioAdicionar)))))
         );
 
         jButtonFuncionarioSalvar.setText("Salvar");
@@ -576,16 +581,20 @@ public class EditarFuncionario extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jComboBoxFuncionarioProjetosMouseClicked
 
-    private void jButtonFuncionarioAplicarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonFuncionarioAplicarMouseClicked
+    private void jButtonFuncionarioAdicionarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonFuncionarioAdicionarMouseClicked
         if (jComboBoxFuncionarioProjetos.getSelectedIndex() != -1) {
             jTextFieldFuncionarioProjetoAlocado.setText(jComboBoxFuncionarioProjetos.getItemAt(
             jComboBoxFuncionarioProjetos.getSelectedIndex()));
         }
-    }//GEN-LAST:event_jButtonFuncionarioAplicarMouseClicked
+    }//GEN-LAST:event_jButtonFuncionarioAdicionarMouseClicked
+
+    private void jComboBoxFuncionarioProjetosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxFuncionarioProjetosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBoxFuncionarioProjetosActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonFuncionarioAplicar;
+    private javax.swing.JButton jButtonFuncionarioAdicionar;
     private javax.swing.JButton jButtonFuncionarioCancelar;
     private javax.swing.JButton jButtonFuncionarioSalvar;
     private javax.swing.JComboBox<String> jComboBoxFuncionarioProjetos;

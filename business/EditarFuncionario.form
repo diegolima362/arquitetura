@@ -190,7 +190,7 @@
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Group type="102" attributes="0">
-                                              <Component id="jButtonFuncionarioAplicar" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jButtonFuncionarioAdicionar" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
                                               <Component id="jTextFieldFuncionarioProjetoAlocado" max="32767" attributes="0"/>
                                           </Group>
@@ -280,7 +280,7 @@
                                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jTextFieldFuncionarioProjetoAlocado" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jButtonFuncionarioAplicar" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jButtonFuncionarioAdicionar" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
@@ -444,12 +444,12 @@
                         <Property name="text" type="java.lang.String" value="Projeto Alocado"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JButton" name="jButtonFuncionarioAplicar">
+                    <Component class="javax.swing.JButton" name="jButtonFuncionarioAdicionar">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Aplicar"/>
+                        <Property name="text" type="java.lang.String" value="Adicionar"/>
                       </Properties>
                       <Events>
-                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButtonFuncionarioAplicarMouseClicked"/>
+                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButtonFuncionarioAdicionarMouseClicked"/>
                       </Events>
                     </Component>
                     <Component class="javax.swing.JTextField" name="jTextFieldFuncionarioProjetoAlocado">
@@ -467,6 +467,7 @@
                       </Properties>
                       <Events>
                         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jComboBoxFuncionarioProjetosMouseClicked"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboBoxFuncionarioProjetosActionPerformed"/>
                       </Events>
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>

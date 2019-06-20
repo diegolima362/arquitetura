@@ -31,14 +31,14 @@ public class Projeto implements Serializable {
     private int codigo;
     private String nome;
     private String descricao;
-    private Cliente cliente;
+    private String cliente;
     private Date dataInicio;
     private double valorTotal;
 
     public Projeto() {
     }
 
-    public Projeto(String nome, Cliente cliente, int codigo, String descricao, Date dataInicio,
+    public Projeto(String nome, String cliente, int codigo, String descricao, Date dataInicio,
             double valorTotal) {
         this.nome = nome;
         this.cliente = cliente;
@@ -71,11 +71,11 @@ public class Projeto implements Serializable {
         this.descricao = descricao;
     }
 
-    public Cliente getCliente() {
+    public String getCliente() {
         return cliente;
     }
 
-    public void setCliente(Cliente cliente) {
+    public void setCliente(String cliente) {
         this.cliente = cliente;
     }
 
