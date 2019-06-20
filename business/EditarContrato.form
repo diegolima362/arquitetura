@@ -73,7 +73,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jPanel11" alignment="0" min="-2" pref="735" max="-2" attributes="0"/>
+                              <Component id="jPanel11" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="jButtonContratoSalvar" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -113,67 +113,55 @@
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="jLabel120" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jTextFieldContratoDataInicio" max="32767" attributes="0"/>
-                              <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
-                              <Component id="jLabel122" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jTextFieldContratoDataTermino" max="32767" attributes="0"/>
-                              <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jLabel113" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel109" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Component id="jLabel110" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="jTextFieldContratoCodigo" min="-2" pref="291" max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jLabel111" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Component id="jLabel117" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="jLabel115" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="jLabel112" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="jLabel118" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                              <EmptySpace max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                  <Component id="jTextFieldContratoCusto" alignment="0" pref="285" max="32767" attributes="0"/>
-                                                  <Component id="jTextFieldContratoValorTotal" alignment="0" max="32767" attributes="0"/>
-                                              </Group>
-                                          </Group>
-                                      </Group>
-                                  </Group>
+                                  <Component id="jLabel119" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jTextFieldContratoDataInicio" min="-2" pref="259" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                           <Component id="jComboBoxContratoFuncionario" alignment="0" max="32767" attributes="0"/>
                                           <Component id="jLabel114" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Component id="jComboBoxContratoProjeto" alignment="0" max="32767" attributes="0"/>
                                       </Group>
-                                      <EmptySpace min="-2" pref="167" max="-2" attributes="0"/>
+                                      <EmptySpace min="167" pref="167" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="jLabel116" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Component id="jComboBoxContratoOrcamento" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jTextFieldContratoValorTotal" alignment="0" min="-2" pref="285" max="-2" attributes="0"/>
+                                          <Component id="jLabel121" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jTextFieldContratoDataTermino" alignment="0" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Component id="jLabel119" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="308" max="-2" attributes="0"/>
-                                      <Component id="jLabel121" min="-2" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="jLabel113" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="jLabel109" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace min="-2" pref="300" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" attributes="0">
+                                              <Component id="jTextFieldContratoCodigo" max="32767" attributes="0"/>
+                                              <EmptySpace min="-2" pref="116" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jTextFieldContratoCusto" min="-2" pref="285" max="-2" attributes="0"/>
+                                          <Component id="jLabel111" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="jLabel117" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="jLabel115" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
                                   </Group>
                               </Group>
-                              <EmptySpace max="32767" attributes="0"/>
+                              <EmptySpace pref="65" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -187,9 +175,7 @@
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel110" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jTextFieldContratoCodigo" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel112" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jTextFieldContratoCusto" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -200,7 +186,6 @@
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel118" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jTextFieldContratoValorTotal" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jComboBoxContratoFuncionario" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
@@ -221,9 +206,7 @@
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel120" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jTextFieldContratoDataInicio" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel122" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jTextFieldContratoDataTermino" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace pref="24" max="32767" attributes="0"/>
@@ -237,11 +220,6 @@
                         <Property name="text" type="java.lang.String" value="C&#xf3;digo"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="jLabel110">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Imagem"/>
-                      </Properties>
-                    </Component>
                     <Component class="javax.swing.JTextField" name="jTextFieldContratoCodigo">
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldContratoCodigoActionPerformed"/>
@@ -250,11 +228,6 @@
                     <Component class="javax.swing.JLabel" name="jLabel111">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Custo do material"/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JLabel" name="jLabel112">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Imagem"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="jTextFieldContratoCusto">
@@ -272,11 +245,6 @@
                     <Component class="javax.swing.JLabel" name="jLabel117">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Valor"/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JLabel" name="jLabel118">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Imagem"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="jTextFieldContratoValorTotal">
@@ -344,11 +312,6 @@
                         <Property name="text" type="java.lang.String" value="Data in&#xed;cio"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="jLabel120">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Imagem"/>
-                      </Properties>
-                    </Component>
                     <Component class="javax.swing.JTextField" name="jTextFieldContratoDataInicio">
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldContratoDataInicioActionPerformed"/>
@@ -357,11 +320,6 @@
                     <Component class="javax.swing.JLabel" name="jLabel121">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Data t&#xe9;rmino"/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JLabel" name="jLabel122">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Imagem"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="jTextFieldContratoDataTermino">

@@ -112,56 +112,31 @@
                   <Layout>
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="jLabel101" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel97" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel106" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jLabel98" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel101" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel102" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel97" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jTextFieldOrcamentoProjeto" alignment="0" min="-2" pref="280" max="-2" attributes="0"/>
+                                          <Component id="jTextFieldOrcamentoCliente" alignment="0" min="-2" pref="280" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                           <Group type="102" alignment="0" attributes="0">
-                                              <Component id="jTextFieldOrcamentoProjeto" min="-2" pref="280" max="-2" attributes="0"/>
-                                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Group type="102" alignment="0" attributes="0">
-                                                      <Component id="jLabel99" min="-2" max="-2" attributes="0"/>
-                                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                                  </Group>
-                                                  <Group type="102" alignment="0" attributes="0">
-                                                      <Component id="jLabel100" min="-2" max="-2" attributes="0"/>
-                                                      <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
-                                                      <Component id="jTextFieldOrcamentoCodigo" max="32767" attributes="0"/>
-                                                  </Group>
-                                                  <Group type="102" alignment="0" attributes="0">
-                                                      <Component id="jLabel107" min="-2" max="-2" attributes="0"/>
-                                                      <EmptySpace max="-2" attributes="0"/>
-                                                      <Component id="jLabel105" min="-2" max="-2" attributes="0"/>
-                                                      <EmptySpace min="309" pref="360" max="32767" attributes="0"/>
-                                                  </Group>
-                                              </Group>
+                                              <Component id="jLabel107" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="jLabel105" min="-2" max="-2" attributes="0"/>
                                           </Group>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Component id="jTextFieldOrcamentoCliente" min="-2" pref="280" max="-2" attributes="0"/>
-                                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                                              <Component id="jLabel108" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
-                                              <Component id="jTextFieldOrcamentoValor" max="32767" attributes="0"/>
-                                          </Group>
+                                          <Component id="jLabel99" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jTextFieldOrcamentoCodigo" alignment="0" pref="312" max="32767" attributes="0"/>
+                                          <Component id="jTextFieldOrcamentoValor" alignment="0" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jLabel106" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jScrollPane9" alignment="0" min="-2" pref="667" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                  </Group>
+                                  <Component id="jScrollPane9" alignment="0" max="32767" attributes="0"/>
                               </Group>
-                              <EmptySpace max="-2" attributes="0"/>
+                              <EmptySpace pref="100" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -175,9 +150,7 @@
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel98" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jTextFieldOrcamentoProjeto" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel100" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jTextFieldOrcamentoCodigo" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -188,9 +161,7 @@
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel102" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jTextFieldOrcamentoCliente" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel108" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jTextFieldOrcamentoValor" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -208,11 +179,6 @@
                         <Property name="text" type="java.lang.String" value="Projeto"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="jLabel98">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Imagem"/>
-                      </Properties>
-                    </Component>
                     <Component class="javax.swing.JTextField" name="jTextFieldOrcamentoProjeto">
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldOrcamentoProjetoActionPerformed"/>
@@ -223,11 +189,6 @@
                         <Property name="text" type="java.lang.String" value="C&#xf3;digo"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="jLabel100">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Imagem"/>
-                      </Properties>
-                    </Component>
                     <Component class="javax.swing.JTextField" name="jTextFieldOrcamentoCodigo">
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldOrcamentoCodigoActionPerformed"/>
@@ -236,11 +197,6 @@
                     <Component class="javax.swing.JLabel" name="jLabel101">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Cliente"/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JLabel" name="jLabel102">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Imagem"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="jTextFieldOrcamentoCliente">
@@ -273,11 +229,6 @@
                     <Component class="javax.swing.JLabel" name="jLabel107">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Valor"/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JLabel" name="jLabel108">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Imagem"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="jTextFieldOrcamentoValor">

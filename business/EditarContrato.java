@@ -44,15 +44,12 @@ public class EditarContrato extends javax.swing.JFrame {
         jPanelNovoContratoConteudo = new javax.swing.JPanel();
         jPanel11 = new javax.swing.JPanel();
         jLabel109 = new javax.swing.JLabel();
-        jLabel110 = new javax.swing.JLabel();
         jTextFieldContratoCodigo = new javax.swing.JTextField();
         jLabel111 = new javax.swing.JLabel();
-        jLabel112 = new javax.swing.JLabel();
         jTextFieldContratoCusto = new javax.swing.JTextField();
         jLabel113 = new javax.swing.JLabel();
         jLabel115 = new javax.swing.JLabel();
         jLabel117 = new javax.swing.JLabel();
-        jLabel118 = new javax.swing.JLabel();
         jTextFieldContratoValorTotal = new javax.swing.JTextField();
         jComboBoxContratoFuncionario = new javax.swing.JComboBox<>();
         jLabel114 = new javax.swing.JLabel();
@@ -60,10 +57,8 @@ public class EditarContrato extends javax.swing.JFrame {
         jLabel116 = new javax.swing.JLabel();
         jComboBoxContratoOrcamento = new javax.swing.JComboBox<>();
         jLabel119 = new javax.swing.JLabel();
-        jLabel120 = new javax.swing.JLabel();
         jTextFieldContratoDataInicio = new javax.swing.JTextField();
         jLabel121 = new javax.swing.JLabel();
-        jLabel122 = new javax.swing.JLabel();
         jTextFieldContratoDataTermino = new javax.swing.JTextField();
         jButtonContratoSalvar = new javax.swing.JButton();
         jButtonContratoCancelar = new javax.swing.JButton();
@@ -74,8 +69,6 @@ public class EditarContrato extends javax.swing.JFrame {
 
         jLabel109.setText("Código");
 
-        jLabel110.setText("Imagem");
-
         jTextFieldContratoCodigo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldContratoCodigoActionPerformed(evt);
@@ -83,8 +76,6 @@ public class EditarContrato extends javax.swing.JFrame {
         });
 
         jLabel111.setText("Custo do material");
-
-        jLabel112.setText("Imagem");
 
         jTextFieldContratoCusto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -95,8 +86,6 @@ public class EditarContrato extends javax.swing.JFrame {
         jLabel113.setText("Funcionário");
 
         jLabel117.setText("Valor");
-
-        jLabel118.setText("Imagem");
 
         jTextFieldContratoValorTotal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -131,8 +120,6 @@ public class EditarContrato extends javax.swing.JFrame {
 
         jLabel119.setText("Data início");
 
-        jLabel120.setText("Imagem");
-
         jTextFieldContratoDataInicio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldContratoDataInicioActionPerformed(evt);
@@ -140,8 +127,6 @@ public class EditarContrato extends javax.swing.JFrame {
         });
 
         jLabel121.setText("Data término");
-
-        jLabel122.setText("Imagem");
 
         jTextFieldContratoDataTermino.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -154,39 +139,12 @@ public class EditarContrato extends javax.swing.JFrame {
         jPanel11Layout.setHorizontalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel11Layout.createSequentialGroup()
-                .addComponent(jLabel120)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextFieldContratoDataInicio)
-                .addGap(52, 52, 52)
-                .addComponent(jLabel122)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextFieldContratoDataTermino)
-                .addGap(33, 33, 33))
+                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel119)
+                    .addComponent(jTextFieldContratoDataInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel11Layout.createSequentialGroup()
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel11Layout.createSequentialGroup()
-                        .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel113)
-                            .addComponent(jLabel109)
-                            .addGroup(jPanel11Layout.createSequentialGroup()
-                                .addComponent(jLabel110)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextFieldContratoCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel111)
-                            .addGroup(jPanel11Layout.createSequentialGroup()
-                                .addComponent(jLabel117)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel115))
-                            .addGroup(jPanel11Layout.createSequentialGroup()
-                                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel112)
-                                    .addComponent(jLabel118))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jTextFieldContratoCusto, javax.swing.GroupLayout.DEFAULT_SIZE, 285, Short.MAX_VALUE)
-                                    .addComponent(jTextFieldContratoValorTotal)))))
                     .addGroup(jPanel11Layout.createSequentialGroup()
                         .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jComboBoxContratoFuncionario, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -195,12 +153,28 @@ public class EditarContrato extends javax.swing.JFrame {
                         .addGap(167, 167, 167)
                         .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel116)
-                            .addComponent(jComboBoxContratoOrcamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jComboBoxContratoOrcamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextFieldContratoValorTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel121)
+                            .addComponent(jTextFieldContratoDataTermino)))
                     .addGroup(jPanel11Layout.createSequentialGroup()
-                        .addComponent(jLabel119)
-                        .addGap(308, 308, 308)
-                        .addComponent(jLabel121)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel11Layout.createSequentialGroup()
+                                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel113)
+                                    .addComponent(jLabel109))
+                                .addGap(300, 300, 300))
+                            .addGroup(jPanel11Layout.createSequentialGroup()
+                                .addComponent(jTextFieldContratoCodigo)
+                                .addGap(116, 116, 116)))
+                        .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextFieldContratoCusto, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel111)
+                            .addGroup(jPanel11Layout.createSequentialGroup()
+                                .addComponent(jLabel117)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel115)))))
+                .addContainerGap(65, Short.MAX_VALUE))
         );
         jPanel11Layout.setVerticalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -211,9 +185,7 @@ public class EditarContrato extends javax.swing.JFrame {
                     .addComponent(jLabel111))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel110)
                     .addComponent(jTextFieldContratoCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel112)
                     .addComponent(jTextFieldContratoCusto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -222,7 +194,6 @@ public class EditarContrato extends javax.swing.JFrame {
                     .addComponent(jLabel117))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel118)
                     .addComponent(jTextFieldContratoValorTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jComboBoxContratoFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
@@ -239,9 +210,7 @@ public class EditarContrato extends javax.swing.JFrame {
                     .addComponent(jLabel121))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel120)
                     .addComponent(jTextFieldContratoDataInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel122)
                     .addComponent(jTextFieldContratoDataTermino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(24, Short.MAX_VALUE))
         );
@@ -276,7 +245,7 @@ public class EditarContrato extends javax.swing.JFrame {
             jPanelNovoContratoConteudoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelNovoContratoConteudoLayout.createSequentialGroup()
                 .addGroup(jPanelNovoContratoConteudoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, 735, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanelNovoContratoConteudoLayout.createSequentialGroup()
                         .addComponent(jButtonContratoSalvar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -440,19 +409,14 @@ public class EditarContrato extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jComboBoxContratoOrcamento;
     private javax.swing.JComboBox<String> jComboBoxContratoProjeto;
     private javax.swing.JLabel jLabel109;
-    private javax.swing.JLabel jLabel110;
     private javax.swing.JLabel jLabel111;
-    private javax.swing.JLabel jLabel112;
     private javax.swing.JLabel jLabel113;
     private javax.swing.JLabel jLabel114;
     private javax.swing.JLabel jLabel115;
     private javax.swing.JLabel jLabel116;
     private javax.swing.JLabel jLabel117;
-    private javax.swing.JLabel jLabel118;
     private javax.swing.JLabel jLabel119;
-    private javax.swing.JLabel jLabel120;
     private javax.swing.JLabel jLabel121;
-    private javax.swing.JLabel jLabel122;
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanelNovoContrato;
     private javax.swing.JPanel jPanelNovoContratoConteudo;

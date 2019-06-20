@@ -42,20 +42,16 @@ public class EditarMaterial extends javax.swing.JFrame {
         jPanelNovoClienteConteudo2 = new javax.swing.JPanel();
         jPanel8 = new javax.swing.JPanel();
         jLabel81 = new javax.swing.JLabel();
-        jLabel82 = new javax.swing.JLabel();
         jTextFieldMaterialNome = new javax.swing.JTextField();
         jLabel83 = new javax.swing.JLabel();
-        jLabel84 = new javax.swing.JLabel();
         jTextFieldMaterialCodigo = new javax.swing.JTextField();
         jLabel85 = new javax.swing.JLabel();
-        jLabel86 = new javax.swing.JLabel();
         jTextFieldMaterialFabricante = new javax.swing.JTextField();
         jLabel87 = new javax.swing.JLabel();
         jLabel103 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTextAreaMaterialDescricao = new javax.swing.JTextArea();
         jLabel88 = new javax.swing.JLabel();
-        jLabel89 = new javax.swing.JLabel();
         jTextFieldMaterialValor = new javax.swing.JTextField();
         jButtonMaterialSalvar = new javax.swing.JButton();
         jButtonMaterialCancelar = new javax.swing.JButton();
@@ -66,8 +62,6 @@ public class EditarMaterial extends javax.swing.JFrame {
 
         jLabel81.setText("Nome");
 
-        jLabel82.setText("Imagem");
-
         jTextFieldMaterialNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldMaterialNomeActionPerformed(evt);
@@ -76,8 +70,6 @@ public class EditarMaterial extends javax.swing.JFrame {
 
         jLabel83.setText("Código");
 
-        jLabel84.setText("Imagem");
-
         jTextFieldMaterialCodigo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldMaterialCodigoActionPerformed(evt);
@@ -85,8 +77,6 @@ public class EditarMaterial extends javax.swing.JFrame {
         });
 
         jLabel85.setText("Fabricante");
-
-        jLabel86.setText("Imagem");
 
         jTextFieldMaterialFabricante.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -102,8 +92,6 @@ public class EditarMaterial extends javax.swing.JFrame {
 
         jLabel88.setText("Valor");
 
-        jLabel89.setText("Imagem");
-
         jTextFieldMaterialValor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldMaterialValorActionPerformed(evt);
@@ -118,40 +106,24 @@ public class EditarMaterial extends javax.swing.JFrame {
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel8Layout.createSequentialGroup()
                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel82)
-                            .addComponent(jLabel85)
-                            .addComponent(jLabel86)
-                            .addComponent(jLabel81))
-                        .addGap(2, 2, 2)
+                            .addComponent(jTextFieldMaterialNome, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextFieldMaterialFabricante, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(62, 62, 62)
                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel8Layout.createSequentialGroup()
-                                .addComponent(jTextFieldMaterialNome, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel8Layout.createSequentialGroup()
-                                        .addComponent(jLabel83)
-                                        .addGap(0, 0, Short.MAX_VALUE))
-                                    .addGroup(jPanel8Layout.createSequentialGroup()
-                                        .addComponent(jLabel84)
-                                        .addGap(3, 3, 3)
-                                        .addComponent(jTextFieldMaterialCodigo))
-                                    .addGroup(jPanel8Layout.createSequentialGroup()
-                                        .addComponent(jLabel88)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jLabel87)
-                                        .addGap(309, 360, Short.MAX_VALUE))))
-                            .addGroup(jPanel8Layout.createSequentialGroup()
-                                .addComponent(jTextFieldMaterialFabricante, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel89)
-                                .addGap(3, 3, 3)
-                                .addComponent(jTextFieldMaterialValor))))
+                            .addComponent(jTextFieldMaterialValor, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel83)
+                                .addComponent(jTextFieldMaterialCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addComponent(jLabel85)
+                    .addComponent(jLabel81)
+                    .addComponent(jLabel103)
                     .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel103)
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 667, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addGap(342, 342, 342)
+                        .addComponent(jLabel88)
+                        .addGap(32, 32, 32)
+                        .addComponent(jLabel87))
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 627, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(52, Short.MAX_VALUE))
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -162,9 +134,7 @@ public class EditarMaterial extends javax.swing.JFrame {
                     .addComponent(jLabel83))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel82)
                     .addComponent(jTextFieldMaterialNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel84)
                     .addComponent(jTextFieldMaterialCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -173,9 +143,7 @@ public class EditarMaterial extends javax.swing.JFrame {
                     .addComponent(jLabel88))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel86)
                     .addComponent(jTextFieldMaterialFabricante, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel89)
                     .addComponent(jTextFieldMaterialValor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jLabel103)
@@ -345,14 +313,10 @@ public class EditarMaterial extends javax.swing.JFrame {
     private javax.swing.JButton jButtonMaterialSalvar;
     private javax.swing.JLabel jLabel103;
     private javax.swing.JLabel jLabel81;
-    private javax.swing.JLabel jLabel82;
     private javax.swing.JLabel jLabel83;
-    private javax.swing.JLabel jLabel84;
     private javax.swing.JLabel jLabel85;
-    private javax.swing.JLabel jLabel86;
     private javax.swing.JLabel jLabel87;
     private javax.swing.JLabel jLabel88;
-    private javax.swing.JLabel jLabel89;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanelNovoClienteConteudo2;
     private javax.swing.JPanel jPanelNovoMaterial;
