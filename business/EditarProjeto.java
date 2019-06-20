@@ -1,5 +1,8 @@
 package business;
 
+import java.text.DateFormat;
+import java.text.Format;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
@@ -47,7 +50,6 @@ public class EditarProjeto extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jTextFieldProjetoCodigo = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        jTextFieldProjetoDataInicio = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jTextFieldProjetoValorTotal = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -57,6 +59,7 @@ public class EditarProjeto extends javax.swing.JFrame {
         jComboBoxProjetoCliente = new javax.swing.JComboBox<>();
         jTextFieldProjetoCliente = new javax.swing.JTextField();
         jButtonProjetoAdicionar = new javax.swing.JButton();
+        jFormattedTextFieldProjetoData = new javax.swing.JFormattedTextField();
         jButtonProjetoSalvar = new javax.swing.JButton();
         jButtonProjtoCancelar = new javax.swing.JButton();
 
@@ -81,12 +84,6 @@ public class EditarProjeto extends javax.swing.JFrame {
         });
 
         jLabel6.setText("Data");
-
-        jTextFieldProjetoDataInicio.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldProjetoDataInicioActionPerformed(evt);
-            }
-        });
 
         jLabel5.setText("Valor total");
 
@@ -129,6 +126,12 @@ public class EditarProjeto extends javax.swing.JFrame {
             }
         });
 
+        try {
+            jFormattedTextFieldProjetoData.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -143,11 +146,11 @@ public class EditarProjeto extends javax.swing.JFrame {
                         .addComponent(jTextFieldProjetoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel2Layout.createSequentialGroup()
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(jLabel1)
                                 .addComponent(jLabel6)
-                                .addComponent(jTextFieldProjetoNome, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jTextFieldProjetoDataInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jTextFieldProjetoNome, javax.swing.GroupLayout.DEFAULT_SIZE, 280, Short.MAX_VALUE)
+                                .addComponent(jFormattedTextFieldProjetoData))
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(jPanel2Layout.createSequentialGroup()
                                     .addGap(121, 121, 121)
@@ -182,8 +185,8 @@ public class EditarProjeto extends javax.swing.JFrame {
                     .addComponent(jLabel5))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextFieldProjetoDataInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldProjetoValorTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldProjetoValorTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jFormattedTextFieldProjetoData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel10)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -293,10 +296,6 @@ public class EditarProjeto extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldProjetoCodigoActionPerformed
 
-    private void jTextFieldProjetoDataInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldProjetoDataInicioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldProjetoDataInicioActionPerformed
-
     private void jTextFieldProjetoValorTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldProjetoValorTotalActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldProjetoValorTotalActionPerformed
@@ -306,7 +305,7 @@ public class EditarProjeto extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Todos os campos devem ser preenchidos");
         } else if (jTextFieldProjetoCodigo.getText().equals("")) {
             JOptionPane.showMessageDialog(this, "Todos os campos devem ser preenchidos");
-        } else if (jTextFieldProjetoDataInicio.getText().equals("")) {
+        } else if (jFormattedTextFieldProjetoData.getText().equals("")) {
             JOptionPane.showMessageDialog(this, "Todos os campos devem ser preenchidos");
         } else if (jTextFieldProjetoValorTotal.getText().equals("")) {
             JOptionPane.showMessageDialog(this, "Todos os campos devem ser preenchidos");
@@ -317,7 +316,7 @@ public class EditarProjeto extends javax.swing.JFrame {
         } else {
             projeto.setNome(jTextFieldProjetoNome.getText());
             projeto.setCodigo(Integer.parseInt(jTextFieldProjetoCodigo.getText()));
-            projeto.setDataInicio(jTextFieldProjetoDataInicio.getText());
+            projeto.setDataInicio(jFormattedTextFieldProjetoData.getText());
             projeto.setValorTotal(Double.parseDouble(jTextFieldProjetoValorTotal.getText()));
             projeto.setDescricao(jTextAreaProjetoDescricao.getText());
             projeto.setCliente(jTextFieldProjetoCliente.getText());
@@ -333,9 +332,12 @@ public class EditarProjeto extends javax.swing.JFrame {
      * Método para preencher os campos do menu com os dados do projeto
      */
     private void mostrar() {
+        String pattern = "dd/MM/yyyy";
+        DateFormat df = new SimpleDateFormat(pattern);
+        String data = df.format(projeto.getDataInicio());
         jTextFieldProjetoNome.setText(projeto.getNome());
         jTextFieldProjetoCodigo.setText(String.valueOf(projeto.getCodigo()));
-        jTextFieldProjetoDataInicio.setText(projeto.getDataInicio().toString());
+        jFormattedTextFieldProjetoData.setText(data);
         jTextFieldProjetoValorTotal.setText(String.valueOf(projeto.getValorTotal()));
         jTextAreaProjetoDescricao.setText(projeto.getDescricao());
         jTextFieldProjetoCliente.setText(projeto.getCliente());
@@ -382,6 +384,7 @@ public class EditarProjeto extends javax.swing.JFrame {
     private javax.swing.JButton jButtonProjetoSalvar;
     private javax.swing.JButton jButtonProjtoCancelar;
     private javax.swing.JComboBox<String> jComboBoxProjetoCliente;
+    private javax.swing.JFormattedTextField jFormattedTextFieldProjetoData;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel16;
@@ -397,7 +400,6 @@ public class EditarProjeto extends javax.swing.JFrame {
     private javax.swing.JTextArea jTextAreaProjetoDescricao;
     private javax.swing.JTextField jTextFieldProjetoCliente;
     private javax.swing.JTextField jTextFieldProjetoCodigo;
-    private javax.swing.JTextField jTextFieldProjetoDataInicio;
     private javax.swing.JTextField jTextFieldProjetoNome;
     private javax.swing.JTextField jTextFieldProjetoValorTotal;
     // End of variables declaration//GEN-END:variables

@@ -15,6 +15,9 @@ import business.EditarServico;
 import business.EditarOrcamento;
 import business.EditarMaterial;
 import business.EditarProjeto;
+import java.text.DateFormat;
+import java.text.Format;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
@@ -80,7 +83,6 @@ public class TelaHome extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jTextFieldProjetoCodigo = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        jTextFieldProjetoDataInicio = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jTextFieldProjetoValorTotal = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -90,6 +92,7 @@ public class TelaHome extends javax.swing.JFrame {
         jComboBoxProjetoCliente = new javax.swing.JComboBox<>();
         jTextFieldProjetoCliente = new javax.swing.JTextField();
         jButtonProjetoAdicionar = new javax.swing.JButton();
+        jFormattedTextFieldProjetoData = new javax.swing.JFormattedTextField();
         jButtonProjetoSalvar = new javax.swing.JButton();
         jButtonProjtoCancelar = new javax.swing.JButton();
         jPanelProjetoLista = new javax.swing.JPanel();
@@ -266,9 +269,9 @@ public class TelaHome extends javax.swing.JFrame {
         jLabel116 = new javax.swing.JLabel();
         jComboBoxContratoOrcamento = new javax.swing.JComboBox<>();
         jLabel119 = new javax.swing.JLabel();
-        jTextFieldContratoDataInicio = new javax.swing.JTextField();
         jLabel121 = new javax.swing.JLabel();
-        jTextFieldContratoDataTermino = new javax.swing.JTextField();
+        jFormattedTextFieldContratoDataInicio = new javax.swing.JFormattedTextField();
+        jFormattedTextFieldContratoDataTermino = new javax.swing.JFormattedTextField();
         jButtonContratoSalvar = new javax.swing.JButton();
         jButtonContratoCancelar = new javax.swing.JButton();
         jPanelContratoLista = new javax.swing.JPanel();
@@ -308,12 +311,6 @@ public class TelaHome extends javax.swing.JFrame {
         });
 
         jLabel6.setText("Data");
-
-        jTextFieldProjetoDataInicio.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldProjetoDataInicioActionPerformed(evt);
-            }
-        });
 
         jLabel5.setText("Valor total");
 
@@ -361,6 +358,12 @@ public class TelaHome extends javax.swing.JFrame {
             }
         });
 
+        try {
+            jFormattedTextFieldProjetoData.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -368,11 +371,11 @@ public class TelaHome extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel1)
                             .addComponent(jLabel6)
-                            .addComponent(jTextFieldProjetoNome, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextFieldProjetoDataInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jTextFieldProjetoNome, javax.swing.GroupLayout.DEFAULT_SIZE, 280, Short.MAX_VALUE)
+                            .addComponent(jFormattedTextFieldProjetoData))
                         .addGap(76, 76, 76)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
@@ -415,8 +418,8 @@ public class TelaHome extends javax.swing.JFrame {
                     .addComponent(jLabel5))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextFieldProjetoDataInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldProjetoValorTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldProjetoValorTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jFormattedTextFieldProjetoData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel10)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1974,19 +1977,19 @@ public class TelaHome extends javax.swing.JFrame {
 
         jLabel119.setText("Data início");
 
-        jTextFieldContratoDataInicio.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldContratoDataInicioActionPerformed(evt);
-            }
-        });
-
         jLabel121.setText("Data término");
 
-        jTextFieldContratoDataTermino.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldContratoDataTerminoActionPerformed(evt);
-            }
-        });
+        try {
+            jFormattedTextFieldContratoDataInicio.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
+        try {
+            jFormattedTextFieldContratoDataTermino.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
 
         javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
         jPanel11.setLayout(jPanel11Layout);
@@ -1996,13 +1999,11 @@ public class TelaHome extends javax.swing.JFrame {
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel11Layout.createSequentialGroup()
                         .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jTextFieldContratoCodigo, javax.swing.GroupLayout.DEFAULT_SIZE, 208, Short.MAX_VALUE)
                             .addComponent(jLabel113)
                             .addComponent(jLabel109)
-                            .addGroup(jPanel11Layout.createSequentialGroup()
-                                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextFieldContratoDataInicio, javax.swing.GroupLayout.DEFAULT_SIZE, 208, Short.MAX_VALUE)
-                                    .addComponent(jTextFieldContratoCodigo))
-                                .addGap(83, 83, 83)))
+                            .addComponent(jFormattedTextFieldContratoDataInicio))
+                        .addGap(83, 83, 83)
                         .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel11Layout.createSequentialGroup()
                                 .addComponent(jLabel117)
@@ -2012,10 +2013,10 @@ public class TelaHome extends javax.swing.JFrame {
                             .addComponent(jTextFieldContratoValorTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel116)
                             .addComponent(jLabel121)
+                            .addComponent(jLabel111)
                             .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jTextFieldContratoDataTermino, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jComboBoxContratoOrcamento, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(jLabel111)))
+                                .addComponent(jFormattedTextFieldContratoDataTermino, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jComboBoxContratoOrcamento, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                     .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jComboBoxContratoFuncionario, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel114)
@@ -2057,8 +2058,8 @@ public class TelaHome extends javax.swing.JFrame {
                     .addComponent(jLabel121))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextFieldContratoDataInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldContratoDataTermino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jFormattedTextFieldContratoDataInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jFormattedTextFieldContratoDataTermino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(24, Short.MAX_VALUE))
         );
 
@@ -2237,17 +2238,9 @@ public class TelaHome extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextFieldProjetoDataInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldProjetoDataInicioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldProjetoDataInicioActionPerformed
-
     private void jTextFieldProjetoCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldProjetoCodigoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldProjetoCodigoActionPerformed
-
-    private void jTextFieldProjetoNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldProjetoNomeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldProjetoNomeActionPerformed
 
     private void jTextFieldProjetoValorTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldProjetoValorTotalActionPerformed
         // TODO add your handling code here:
@@ -2269,7 +2262,7 @@ public class TelaHome extends javax.swing.JFrame {
         } else if (jTextFieldProjetoCodigo.getText().equals("")) {
             JOptionPane.showMessageDialog(this, "Todos os campos devem ser preenchidos");
             limparMenuProjeto();
-        } else if (jTextFieldProjetoDataInicio.getText().equals("")) {
+        } else if (jFormattedTextFieldProjetoData.getText().equals("")) {
             JOptionPane.showMessageDialog(this, "Todos os campos devem ser preenchidos");
             limparMenuProjeto();
         } else if (jTextFieldProjetoValorTotal.getText().equals("")) {
@@ -2284,7 +2277,7 @@ public class TelaHome extends javax.swing.JFrame {
         } else {
             projeto.setNome(jTextFieldProjetoNome.getText());
             projeto.setCodigo(Integer.parseInt(jTextFieldProjetoCodigo.getText()));
-            projeto.setDataInicio(jTextFieldProjetoDataInicio.getText());
+            projeto.setDataInicio(jFormattedTextFieldProjetoData.getText());
             projeto.setValorTotal(Double.parseDouble(jTextFieldProjetoValorTotal.getText()));
             projeto.setDescricao(jTextAreaProjetoDescricao.getText());
             projeto.setCliente(jTextFieldProjetoCliente.getText());
@@ -2826,10 +2819,10 @@ public class TelaHome extends javax.swing.JFrame {
         } else if (jTextFieldContratoCusto.getText().equals("")) {
             JOptionPane.showMessageDialog(this, "Todos os campos devem ser preenchidos");
             limparMenuContrato();
-        } else if (jTextFieldContratoDataInicio.getText().equals("")) {
+        } else if (jFormattedTextFieldContratoDataInicio.getText().equals("")) {
             JOptionPane.showMessageDialog(this, "Todos os campos devem ser preenchidos");
             limparMenuContrato();
-        } else if (jTextFieldContratoDataTermino.getText().equals("")) {
+        } else if (jFormattedTextFieldContratoDataTermino.getText().equals("")) {
             JOptionPane.showMessageDialog(this, "Todos os campos devem ser preenchidos");
             limparMenuContrato();
         } else if (jTextFieldContratoValorTotal.getText().equals("")) {
@@ -2840,8 +2833,8 @@ public class TelaHome extends javax.swing.JFrame {
             contrato.setCodigo(Integer.parseInt(jTextFieldContratoCodigo.getText()));
             contrato.setCustoMaterial(Double.parseDouble(jTextFieldContratoCusto.getText()));
             contrato.setValorTotal(Double.parseDouble(jTextFieldContratoValorTotal.getText()));
-            contrato.setDataInicio(jTextFieldContratoDataInicio.getText());
-            contrato.setDataTermino(jTextFieldContratoDataTermino.getText());
+            contrato.setDataInicio(jFormattedTextFieldContratoDataInicio.getText());
+            contrato.setDataTermino(jFormattedTextFieldContratoDataTermino.getText());
             Contrato.escrever(contrato, contrato.ler());
             contrato.setProjeto(jComboBoxContratoProjeto.getItemAt(jComboBoxContratoProjeto.getSelectedIndex()));
             contrato.setFuncionarios(jComboBoxContratoFuncionario.getItemAt(jComboBoxContratoFuncionario.getSelectedIndex()));
@@ -2885,14 +2878,6 @@ public class TelaHome extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Selecione um item para remover.");
         }
     }//GEN-LAST:event_jButtonContratoRemoverMouseClicked
-
-    private void jTextFieldContratoDataInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldContratoDataInicioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldContratoDataInicioActionPerformed
-
-    private void jTextFieldContratoDataTerminoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldContratoDataTerminoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldContratoDataTerminoActionPerformed
 
     private void jComboBoxContratoFuncionarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComboBoxContratoFuncionarioMouseClicked
         ArrayList<Funcionario> funcionarios = Funcionario.ler();
@@ -2993,7 +2978,13 @@ public class TelaHome extends javax.swing.JFrame {
     private void jTextFieldFuncionarioNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldFuncionarioNomeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldFuncionarioNomeActionPerformed
+
+    private void jTextFieldProjetoNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldProjetoNomeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldProjetoNomeActionPerformed
     private void atualizarTabela() {
+        String pattern = "MM/dd/yyyy";
+        DateFormat df = new SimpleDateFormat(pattern);
         DefaultTableModel dtmTabela = (DefaultTableModel) jTableProjetos.getModel();
         Object[] dados = new Object[3];
         ArrayList<Projeto> projetos = Projeto.ler();
@@ -3005,7 +2996,7 @@ public class TelaHome extends javax.swing.JFrame {
         for (int i = 0; i < projetos.size(); i++) {
             dados[0] = projetos.get(i).getNome();
             dados[1] = projetos.get(i).getCliente();
-            dados[2] = projetos.get(i).getDataInicio().toString();
+            dados[2] = df.format(projetos.get(i).getDataInicio());
             dtmTabela.addRow(dados);
             jTableProjetos.validate();
         }
@@ -3127,7 +3118,7 @@ public class TelaHome extends javax.swing.JFrame {
     private void limparMenuProjeto() {
         jTextFieldProjetoNome.setText("");
         jTextFieldProjetoCodigo.setText("");
-        jTextFieldProjetoDataInicio.setText("");
+        jFormattedTextFieldProjetoData.setText("");
         jTextFieldProjetoValorTotal.setText("");
         jTextAreaProjetoDescricao.setText("");
         jTextFieldProjetoCliente.setText("");
@@ -3188,8 +3179,8 @@ public class TelaHome extends javax.swing.JFrame {
     private void limparMenuContrato() {
         jTextFieldContratoCodigo.setText("");
         jTextFieldContratoCusto.setText("");
-        jTextFieldContratoDataInicio.setText("");
-        jTextFieldContratoDataTermino.setText("");
+        jFormattedTextFieldContratoDataInicio.setText("");
+        jFormattedTextFieldContratoDataTermino.setText("");
         jTextFieldContratoValorTotal.setText("");
         jComboBoxContratoFuncionario.removeAllItems();
         jComboBoxContratoFuncionario.addItem("Selecione um funcionário");
@@ -3242,6 +3233,9 @@ public class TelaHome extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jComboBoxContratoProjeto;
     private javax.swing.JComboBox<String> jComboBoxFuncionarioProjetos;
     private javax.swing.JComboBox<String> jComboBoxProjetoCliente;
+    private javax.swing.JFormattedTextField jFormattedTextFieldContratoDataInicio;
+    private javax.swing.JFormattedTextField jFormattedTextFieldContratoDataTermino;
+    private javax.swing.JFormattedTextField jFormattedTextFieldProjetoData;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel101;
@@ -3383,8 +3377,6 @@ public class TelaHome extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldClienteTelefone1;
     private javax.swing.JTextField jTextFieldContratoCodigo;
     private javax.swing.JTextField jTextFieldContratoCusto;
-    private javax.swing.JTextField jTextFieldContratoDataInicio;
-    private javax.swing.JTextField jTextFieldContratoDataTermino;
     private javax.swing.JTextField jTextFieldContratoValorTotal;
     private javax.swing.JTextField jTextFieldFuncionarioBairro;
     private javax.swing.JTextField jTextFieldFuncionarioCidade;
@@ -3408,7 +3400,6 @@ public class TelaHome extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldOrcamentoValor;
     private javax.swing.JTextField jTextFieldProjetoCliente;
     private javax.swing.JTextField jTextFieldProjetoCodigo;
-    private javax.swing.JTextField jTextFieldProjetoDataInicio;
     private javax.swing.JTextField jTextFieldProjetoNome;
     private javax.swing.JTextField jTextFieldProjetoValorTotal;
     private javax.swing.JTextField jTextFieldServicoCodigo;

@@ -188,11 +188,11 @@
                                       <Group type="102" attributes="0">
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Group type="102" attributes="0">
-                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                                                       <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                      <Component id="jTextFieldProjetoNome" min="-2" pref="280" max="-2" attributes="0"/>
-                                                      <Component id="jTextFieldProjetoDataInicio" min="-2" pref="280" max="-2" attributes="0"/>
+                                                      <Component id="jTextFieldProjetoNome" pref="280" max="32767" attributes="0"/>
+                                                      <Component id="jFormattedTextFieldProjetoData" alignment="0" max="32767" attributes="0"/>
                                                   </Group>
                                                   <EmptySpace min="-2" pref="76" max="-2" attributes="0"/>
                                                   <Group type="103" groupAlignment="0" attributes="0">
@@ -249,8 +249,8 @@
                                           </Group>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="3" attributes="0">
-                                              <Component id="jTextFieldProjetoDataInicio" alignment="3" min="-2" max="-2" attributes="0"/>
                                               <Component id="jTextFieldProjetoValorTotal" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jFormattedTextFieldProjetoData" alignment="3" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                           <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
@@ -296,11 +296,6 @@
                                   <Properties>
                                     <Property name="text" type="java.lang.String" value="Data"/>
                                   </Properties>
-                                </Component>
-                                <Component class="javax.swing.JTextField" name="jTextFieldProjetoDataInicio">
-                                  <Events>
-                                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldProjetoDataInicioActionPerformed"/>
-                                  </Events>
                                 </Component>
                                 <Component class="javax.swing.JLabel" name="jLabel5">
                                   <Properties>
@@ -366,6 +361,13 @@
                                     <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButtonProjetoAdicionarMouseClicked"/>
                                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonProjetoAdicionarActionPerformed"/>
                                   </Events>
+                                </Component>
+                                <Component class="javax.swing.JFormattedTextField" name="jFormattedTextFieldProjetoData">
+                                  <Properties>
+                                    <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
+                                      <Format format="##/##/####" subtype="-1" type="5"/>
+                                    </Property>
+                                  </Properties>
                                 </Component>
                               </SubComponents>
                             </Container>
@@ -2681,16 +2683,12 @@
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Group type="102" attributes="0">
                                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                      <Component id="jTextFieldContratoCodigo" pref="208" max="32767" attributes="0"/>
                                                       <Component id="jLabel113" alignment="0" min="-2" max="-2" attributes="0"/>
                                                       <Component id="jLabel109" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                      <Group type="102" attributes="0">
-                                                          <Group type="103" groupAlignment="0" attributes="0">
-                                                              <Component id="jTextFieldContratoDataInicio" alignment="0" pref="208" max="32767" attributes="0"/>
-                                                              <Component id="jTextFieldContratoCodigo" alignment="0" max="32767" attributes="0"/>
-                                                          </Group>
-                                                          <EmptySpace min="83" pref="83" max="-2" attributes="0"/>
-                                                      </Group>
+                                                      <Component id="jFormattedTextFieldContratoDataInicio" alignment="0" max="32767" attributes="0"/>
                                                   </Group>
+                                                  <EmptySpace min="83" pref="83" max="-2" attributes="0"/>
                                                   <Group type="103" groupAlignment="0" attributes="0">
                                                       <Group type="102" alignment="0" attributes="0">
                                                           <Component id="jLabel117" min="-2" max="-2" attributes="0"/>
@@ -2701,11 +2699,11 @@
                                                       <Component id="jTextFieldContratoValorTotal" alignment="0" min="-2" pref="285" max="-2" attributes="0"/>
                                                       <Component id="jLabel116" alignment="0" min="-2" max="-2" attributes="0"/>
                                                       <Component id="jLabel121" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="jLabel111" min="-2" max="-2" attributes="0"/>
                                                       <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                                          <Component id="jTextFieldContratoDataTermino" alignment="0" max="32767" attributes="0"/>
+                                                          <Component id="jFormattedTextFieldContratoDataTermino" alignment="0" max="32767" attributes="0"/>
                                                           <Component id="jComboBoxContratoOrcamento" alignment="0" max="32767" attributes="0"/>
                                                       </Group>
-                                                      <Component id="jLabel111" min="-2" max="-2" attributes="0"/>
                                                   </Group>
                                               </Group>
                                               <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
@@ -2760,8 +2758,8 @@
                                           </Group>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="3" attributes="0">
-                                              <Component id="jTextFieldContratoDataInicio" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jTextFieldContratoDataTermino" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jFormattedTextFieldContratoDataInicio" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jFormattedTextFieldContratoDataTermino" alignment="3" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                           <EmptySpace pref="24" max="32767" attributes="0"/>
                                       </Group>
@@ -2866,20 +2864,24 @@
                                     <Property name="text" type="java.lang.String" value="Data in&#xed;cio"/>
                                   </Properties>
                                 </Component>
-                                <Component class="javax.swing.JTextField" name="jTextFieldContratoDataInicio">
-                                  <Events>
-                                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldContratoDataInicioActionPerformed"/>
-                                  </Events>
-                                </Component>
                                 <Component class="javax.swing.JLabel" name="jLabel121">
                                   <Properties>
                                     <Property name="text" type="java.lang.String" value="Data t&#xe9;rmino"/>
                                   </Properties>
                                 </Component>
-                                <Component class="javax.swing.JTextField" name="jTextFieldContratoDataTermino">
-                                  <Events>
-                                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldContratoDataTerminoActionPerformed"/>
-                                  </Events>
+                                <Component class="javax.swing.JFormattedTextField" name="jFormattedTextFieldContratoDataInicio">
+                                  <Properties>
+                                    <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
+                                      <Format format="##/##/####" subtype="-1" type="5"/>
+                                    </Property>
+                                  </Properties>
+                                </Component>
+                                <Component class="javax.swing.JFormattedTextField" name="jFormattedTextFieldContratoDataTermino">
+                                  <Properties>
+                                    <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
+                                      <Format format="##/##/####" subtype="-1" type="5"/>
+                                    </Property>
+                                  </Properties>
                                 </Component>
                               </SubComponents>
                             </Container>

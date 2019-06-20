@@ -5,6 +5,8 @@
  */
 package business;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
@@ -57,9 +59,9 @@ public class EditarContrato extends javax.swing.JFrame {
         jLabel116 = new javax.swing.JLabel();
         jComboBoxContratoOrcamento = new javax.swing.JComboBox<>();
         jLabel119 = new javax.swing.JLabel();
-        jTextFieldContratoDataInicio = new javax.swing.JTextField();
         jLabel121 = new javax.swing.JLabel();
-        jTextFieldContratoDataTermino = new javax.swing.JTextField();
+        jFormattedTextFieldContratoDataInicio = new javax.swing.JFormattedTextField();
+        jFormattedTextFieldContratoDataTermino = new javax.swing.JFormattedTextField();
         jButtonContratoSalvar = new javax.swing.JButton();
         jButtonContratoCancelar = new javax.swing.JButton();
 
@@ -120,19 +122,19 @@ public class EditarContrato extends javax.swing.JFrame {
 
         jLabel119.setText("Data início");
 
-        jTextFieldContratoDataInicio.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldContratoDataInicioActionPerformed(evt);
-            }
-        });
-
         jLabel121.setText("Data término");
 
-        jTextFieldContratoDataTermino.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldContratoDataTerminoActionPerformed(evt);
-            }
-        });
+        try {
+            jFormattedTextFieldContratoDataInicio.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
+        try {
+            jFormattedTextFieldContratoDataTermino.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
 
         javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
         jPanel11.setLayout(jPanel11Layout);
@@ -141,24 +143,22 @@ public class EditarContrato extends javax.swing.JFrame {
             .addGroup(jPanel11Layout.createSequentialGroup()
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel119)
-                    .addComponent(jTextFieldContratoDataInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel11Layout.createSequentialGroup()
-                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel11Layout.createSequentialGroup()
                         .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jComboBoxContratoFuncionario, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel114)
-                            .addComponent(jComboBoxContratoProjeto, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jComboBoxContratoProjeto, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jFormattedTextFieldContratoDataInicio))
                         .addGap(167, 167, 167)
                         .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel116)
-                            .addComponent(jComboBoxContratoOrcamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextFieldContratoValorTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel121)
-                            .addComponent(jTextFieldContratoDataTermino)))
+                            .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(jFormattedTextFieldContratoDataTermino, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jComboBoxContratoOrcamento, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                     .addGroup(jPanel11Layout.createSequentialGroup()
-                        .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel11Layout.createSequentialGroup()
                                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel113)
@@ -166,7 +166,7 @@ public class EditarContrato extends javax.swing.JFrame {
                                 .addGap(300, 300, 300))
                             .addGroup(jPanel11Layout.createSequentialGroup()
                                 .addComponent(jTextFieldContratoCodigo)
-                                .addGap(116, 116, 116)))
+                                .addGap(167, 167, 167)))
                         .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jTextFieldContratoCusto, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel111)
@@ -210,8 +210,8 @@ public class EditarContrato extends javax.swing.JFrame {
                     .addComponent(jLabel121))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextFieldContratoDataInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldContratoDataTermino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jFormattedTextFieldContratoDataInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jFormattedTextFieldContratoDataTermino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(24, Short.MAX_VALUE))
         );
 
@@ -340,22 +340,14 @@ public class EditarContrato extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jComboBoxContratoOrcamentoMouseClicked
 
-    private void jTextFieldContratoDataInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldContratoDataInicioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldContratoDataInicioActionPerformed
-
-    private void jTextFieldContratoDataTerminoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldContratoDataTerminoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldContratoDataTerminoActionPerformed
-
     private void jButtonContratoSalvarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonContratoSalvarMouseClicked
         if (jTextFieldContratoCodigo.getText().equals("")) {
             JOptionPane.showMessageDialog(this, "Todos os campos devem ser preenchidos");
         } else if (jTextFieldContratoCusto.getText().equals("")) {
             JOptionPane.showMessageDialog(this, "Todos os campos devem ser preenchidos");
-        } else if (jTextFieldContratoDataInicio.getText().equals("")) {
+        } else if (jFormattedTextFieldContratoDataInicio.getText().equals("")) {
             JOptionPane.showMessageDialog(this, "Todos os campos devem ser preenchidos");
-        } else if (jTextFieldContratoDataTermino.getText().equals("")) {
+        } else if (jFormattedTextFieldContratoDataTermino.getText().equals("")) {
             JOptionPane.showMessageDialog(this, "Todos os campos devem ser preenchidos");
         } else if (jTextFieldContratoValorTotal.getText().equals("")) {
             JOptionPane.showMessageDialog(this, "Todos os campos devem ser preenchidos");
@@ -364,8 +356,8 @@ public class EditarContrato extends javax.swing.JFrame {
             contrato.setCodigo(Integer.parseInt(jTextFieldContratoCodigo.getText()));
             contrato.setCustoMaterial(Double.parseDouble(jTextFieldContratoCusto.getText()));
             contrato.setValorTotal(Double.parseDouble(jTextFieldContratoValorTotal.getText()));
-            contrato.setDataInicio(jTextFieldContratoDataInicio.getText());
-            contrato.setDataTermino(jTextFieldContratoDataTermino.getText());
+            contrato.setDataInicio(jFormattedTextFieldContratoDataInicio.getText());
+            contrato.setDataTermino(jFormattedTextFieldContratoDataTermino.getText());
             Contrato.escrever(contrato, contrato.ler());
             contrato.setProjeto(jComboBoxContratoProjeto.getItemAt(jComboBoxContratoProjeto.getSelectedIndex()));
             contrato.setFuncionarios(jComboBoxContratoFuncionario.getItemAt(jComboBoxContratoFuncionario.getSelectedIndex()));
@@ -390,12 +382,17 @@ public class EditarContrato extends javax.swing.JFrame {
      * Método para preencher os campos do menu com os dados do contrato
      */
     private void mostrar() {
+        String pattern = "dd/MM/yyyy";
+        DateFormat df = new SimpleDateFormat(pattern);
+        String data = df.format(contrato.getDataInicio());
+        String data1 = df.format(contrato.getDataTermino());
+        
         jTextFieldContratoCodigo.setText(String.valueOf(contrato.getCodigo()));
         jTextFieldContratoCusto.setText(String.valueOf(contrato.getCustoMaterial()));
         jTextFieldContratoValorTotal.setText(String.valueOf(contrato.getValorTotal()));
         
-        jTextFieldContratoDataInicio.setText(contrato.getDataInicio().toString());
-        jTextFieldContratoDataTermino.setText(contrato.getDataTermino().toString());
+        jFormattedTextFieldContratoDataInicio.setText(data);
+        jFormattedTextFieldContratoDataTermino.setText(data1);
         jComboBoxContratoFuncionario.addItem(contrato.getFuncionarios());
         jComboBoxContratoOrcamento.addItem(contrato.getOrcamento());
         jComboBoxContratoProjeto.addItem(contrato.getProjeto());
@@ -408,6 +405,8 @@ public class EditarContrato extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jComboBoxContratoFuncionario;
     private javax.swing.JComboBox<String> jComboBoxContratoOrcamento;
     private javax.swing.JComboBox<String> jComboBoxContratoProjeto;
+    private javax.swing.JFormattedTextField jFormattedTextFieldContratoDataInicio;
+    private javax.swing.JFormattedTextField jFormattedTextFieldContratoDataTermino;
     private javax.swing.JLabel jLabel109;
     private javax.swing.JLabel jLabel111;
     private javax.swing.JLabel jLabel113;
@@ -423,8 +422,6 @@ public class EditarContrato extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPaneNovoContrato;
     private javax.swing.JTextField jTextFieldContratoCodigo;
     private javax.swing.JTextField jTextFieldContratoCusto;
-    private javax.swing.JTextField jTextFieldContratoDataInicio;
-    private javax.swing.JTextField jTextFieldContratoDataTermino;
     private javax.swing.JTextField jTextFieldContratoValorTotal;
     // End of variables declaration//GEN-END:variables
 }
