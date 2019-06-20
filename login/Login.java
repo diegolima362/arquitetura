@@ -71,7 +71,7 @@ public class Login implements Serializable {
 
         try {
             if (getUserStatusAtivo() == true) {
-
+                 JOptionPane.showMessageDialog(null, "Sistema já possui administrador!", "Falha", JOptionPane.ERROR_MESSAGE);
                 return false;
             }
             new File("./Data").mkdir();

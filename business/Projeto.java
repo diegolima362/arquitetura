@@ -84,9 +84,15 @@ public class Projeto implements Serializable {
     }
 
     public void setDataInicio(String dataInicio) {
+        String datafix;
+        if(dataInicio.length() < 6){
+            datafix = "000000";
+        }else{
+            datafix = dataInicio;
+        }
         DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
         try {
-            this.dataInicio = df.parse(dataInicio);
+            this.dataInicio = df.parse(datafix);
         } catch (ParseException e) {
         }
     }
