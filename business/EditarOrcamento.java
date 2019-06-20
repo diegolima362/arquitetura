@@ -325,6 +325,9 @@ public class EditarOrcamento extends javax.swing.JFrame {
     private void jButtonOrcamentoCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonOrcamentoCancelarActionPerformed
         dispose();
     }//GEN-LAST:event_jButtonOrcamentoCancelarActionPerformed
+     /**
+     * Método para limpar os campos dp menu orçamento
+     */
     private void limparMenuOrcamento() {
         jTextFieldOrcamentoProjeto.setText("");
         jTextFieldOrcamentoCliente.setText("");
@@ -332,7 +335,9 @@ public class EditarOrcamento extends javax.swing.JFrame {
         jTextFieldOrcamentoValor.setText("");
         jTextAreaOrcamentodescricao.setText("");
     }
-
+    /**
+     * Método para preencher os campos do menu com os dados do orçamento
+     */
     private void mostrar() {
         jTextFieldOrcamentoCliente.setText(orcamento.getCliente());
         jTextFieldOrcamentoCodigo.setText(String.valueOf(orcamento.getCodigo()));

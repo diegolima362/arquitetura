@@ -438,7 +438,9 @@ public class EditarCliente extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_jButtonClienteSalvarMouseClicked
-
+    /**
+     * Método usado para preencher os campos do menu com os dados do cliente
+     */
     private void mostrar() {
         jTextFieldClienteNome.setText(cliente.getNome());
         jTextFieldClienteCodigo.setText(String.valueOf(cliente.getCodigo()));

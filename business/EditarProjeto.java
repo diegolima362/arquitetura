@@ -358,7 +358,9 @@ public class EditarProjeto extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_jButtonProjetoSalvarMouseClicked
-
+     /**
+     * Método para preencher os campos do menu com os dados do projeto
+     */
     private void mostrar() {
         jTextFieldProjetoNome.setText(projeto.getNome());
         jTextFieldProjetoCodigo.setText(String.valueOf(projeto.getCodigo()));

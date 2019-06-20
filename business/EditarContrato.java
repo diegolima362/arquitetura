@@ -417,7 +417,9 @@ public class EditarContrato extends javax.swing.JFrame {
     private void jButtonContratoCancelarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonContratoCancelarMouseClicked
         dispose();
     }//GEN-LAST:event_jButtonContratoCancelarMouseClicked
-
+     /**
+     * Método para preencher os campos do menu com os dados do contrato
+     */
     private void mostrar() {
         jTextFieldContratoCodigo.setText(String.valueOf(contrato.getCodigo()));
         jTextFieldContratoCusto.setText(String.valueOf(contrato.getCustoMaterial()));

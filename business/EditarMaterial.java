@@ -321,14 +321,18 @@ public class EditarMaterial extends javax.swing.JFrame {
     private void jButtonMaterialCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMaterialCancelarActionPerformed
         dispose();
     }//GEN-LAST:event_jButtonMaterialCancelarActionPerformed
-
+    /**
+     * Método para limpar os campos dp menu Material
+     */
     private void limparMenuMaterial() {
         jTextFieldMaterialNome.setText("");
         jTextFieldMaterialCodigo.setText("");
         jTextFieldMaterialFabricante.setText("");
         jTextAreaMaterialDescricao.setText("");
     }
-
+     /**
+     * Método para preencher os campos do menu com os dados do material
+     */
     private void mostrar() {
         jTextFieldMaterialNome.setText(material.getNome());
         jTextFieldMaterialCodigo.setText(String.valueOf(material.getCodigo()));

@@ -526,6 +526,9 @@ public class EditarFuncionario extends javax.swing.JFrame {
 
         }
     }//GEN-LAST:event_jButtonFuncionarioSalvarMouseClicked
+    /**
+     * Método para limpar os campos dp menu funcionário
+     */
     private void limparMenuFuncionario() {
         jTextFieldFuncionarioNome.setText("");
         jTextFieldFuncionarioCodigo.setText("");
@@ -541,7 +544,9 @@ public class EditarFuncionario extends javax.swing.JFrame {
         jComboBoxFuncionarioProjetos.removeAllItems();
         jComboBoxFuncionarioProjetos.addItem("Selecione um projeto");
     }
-
+     /**
+     * Método para preencher os campos do menu com os dados do funcionário
+     */
     private void mostrar() {
         jTextFieldFuncionarioNome.setText(funcionario.getNome());
         jTextFieldFuncionarioCodigo.setText(String.valueOf(funcionario.getCodigo()));

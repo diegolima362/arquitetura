@@ -294,14 +294,18 @@ public class EditarServico extends javax.swing.JFrame {
     private void jButtonServicoCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonServicoCancelarActionPerformed
         dispose();
     }//GEN-LAST:event_jButtonServicoCancelarActionPerformed
-
+    /**
+    * Método para limpar os campos dp menu serviços
+    */
     private void limparMenuServico() {
         jTextFieldServicoNome.setText("");
         jTextFieldServicoCodigo.setText("");
         jTextFieldServicoDesconto.setText("");
         jTextAreaServicoDescricao.setText("");
     }
-
+    /**
+    * Método para preencher os campos do menu com os dados do serviço
+    */
     private void mostrar() {
         jTextFieldServicoNome.setText(servico.getNome());
         jTextFieldServicoCodigo.setText(String.valueOf(servico.getCodigo()));
