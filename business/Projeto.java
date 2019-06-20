@@ -120,7 +120,10 @@ public class Projeto implements Serializable {
     public static boolean getProjectFileStatusAtivo() {
         return Files.exists(getOSPath());
     }
-
+    /**
+     * Método usado para salvar um projeto no arquivo de persistência
+     * @param projetos ArrayListe de Projeto que será salvo no arquivo de persistência
+     */
     public static void escrever(ArrayList<Projeto> projetos) {
         FileOutputStream fos;
         ObjectOutputStream oos;
@@ -134,7 +137,11 @@ public class Projeto implements Serializable {
         } catch (IOException e) {
         }
     }
-
+    /**
+     * Método usado para salvar um projeto no arquivo de persistência
+     * @param projeto Projeto que será adicionado no arquivo
+     * @param projetos ArrayListe de Projeto que será usado para adicionar um projeto no arquivo
+     */
     public static void escrever(Projeto projeto, ArrayList<Projeto> projetos) {
         FileOutputStream fos;
         ObjectOutputStream oos;
@@ -149,7 +156,11 @@ public class Projeto implements Serializable {
         } catch (IOException e) {
         }
     }
-
+    
+    /**
+     * Método usado para pegar todos os projetos
+     * @return Retorna um ArrayList com todos os projetos
+     */
     @SuppressWarnings("unchecked")
     public static ArrayList<Projeto> ler() {
         ArrayList<Projeto> projetos = new ArrayList<>();
@@ -173,7 +184,12 @@ public class Projeto implements Serializable {
         }
         return projetos;
     }
-
+    
+    /**
+     * Método para remover um projeto de uma posição especifica
+     * @param index Índice do projeto a ser removido
+     * @param projetos ArrayListe com os projetos que será utilizado para remover um projeto
+     */
     public static void remover(int index, ArrayList<Projeto> projetos) {
         projetos.remove(index);
         Projeto.escrever(projetos);

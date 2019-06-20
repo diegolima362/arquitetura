@@ -105,7 +105,11 @@ public class LevantamentoVisita implements Serializable {
     public static boolean getLevantamentoFileStatus() {
         return Files.exists(getOSPath());
     }
-
+   /**
+    * Método usado para salvar um visita no arquivo de persistência
+    * @param levantamentoVisita Visita que será adicionado no arquivo
+    * @param levantamentoVisitas ArrayListe de LevantamentoVisita que será usado para adicionar uma visita no arquivo
+    */
     public static void escrever(LevantamentoVisita levantamentoVisita, ArrayList<LevantamentoVisita> levantamentoVisitas) {
         FileOutputStream fos;
         ObjectOutputStream oos;
@@ -120,7 +124,10 @@ public class LevantamentoVisita implements Serializable {
         } catch (IOException e) {
         }
     }
-
+     /**
+     * Método usado para pegar todas as visitas
+     * @return Retorna um ArrayList com todos as visitas
+     */
     public static ArrayList<LevantamentoVisita> ler() {
         ArrayList<LevantamentoVisita> levantamentoVisitas = new ArrayList<>();
         FileInputStream fis;

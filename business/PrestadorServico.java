@@ -83,7 +83,10 @@ public class PrestadorServico implements Serializable {
     public static boolean getPrestadorFileStatus() {
         return Files.exists(getOSPath());
     }
-
+    /**
+    * Método usado para salvar um serviço no arquivo de persistência
+    * @param prestadorServicos ArrayListe de PrestadorServico que será salvo no arquivo de persistência
+    */
     public static void escrever(ArrayList<PrestadorServico> prestadorServicos) {
         FileOutputStream fos;
         ObjectOutputStream oos;
@@ -98,7 +101,11 @@ public class PrestadorServico implements Serializable {
         } catch (IOException e) {
         }
     }
-
+   /**
+    * Método usado para salvar um serviço no arquivo de persistência
+    * @param prestadorServico Serviço que será adicionado no arquivo
+    * @param prestadorServicos ArrayListe de PrestadorServico que será usado para adicionar um serviço no arquivo
+    */
     public static void escrever(PrestadorServico prestadorServico, ArrayList<PrestadorServico> prestadorServicos) {
         FileOutputStream fos;
         ObjectOutputStream oos;
@@ -114,7 +121,10 @@ public class PrestadorServico implements Serializable {
         } catch (IOException e) {
         }
     }
-
+     /**
+     * Método usado para pegar todos os serviços
+     * @return Retorna um ArrayList com todos os serviços
+     */
     public static ArrayList<PrestadorServico> ler() {
         ArrayList<PrestadorServico> prestadorServicos = new ArrayList<>();
         FileInputStream fis;
@@ -137,7 +147,11 @@ public class PrestadorServico implements Serializable {
         }
         return prestadorServicos;
     }
-
+     /**
+     * Método para remover um serviço de uma posição especifica
+     * @param index Índice do serviço a ser removido
+     * @param prestadorServicos ArrayListe com os serviços que será utilizado para remover um serviço
+     */
     public static void remover(int index, ArrayList<PrestadorServico> prestadorServicos) {
         prestadorServicos.remove(index);
         PrestadorServico.escrever(prestadorServicos);

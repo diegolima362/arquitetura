@@ -116,7 +116,10 @@ public class Funcionario implements Serializable {
     public static boolean getFuncFileStatusAtivo() {
         return Files.exists(getOSPath());
     }
-
+    /**
+    * Método usado para salvar um funcionário no arquivo de persistência
+    * @param funcionarios ArrayListe de Funcionario que será salvo no arquivo de persistência
+    */
     public static void escrever(ArrayList<Funcionario> funcionarios) {
         FileOutputStream fos;
         ObjectOutputStream oos;
@@ -130,7 +133,11 @@ public class Funcionario implements Serializable {
         } catch (IOException e) {
         }
     }
-
+    /**
+    * Método usado para salvar um funcionário no arquivo de persistência
+    * @param funcionario Funcionário que será adicionado no arquivo
+    * @param funcionarios ArrayListe de Funcionario que será usado para adicionar um funcionário no arquivo
+    */
     public static void escrever(Funcionario funcionario, ArrayList<Funcionario> funcionarios) {
         FileOutputStream fos;
         ObjectOutputStream oos;
@@ -148,6 +155,10 @@ public class Funcionario implements Serializable {
         }
     }
     
+     /**
+     * Método usado para pegar todos os funcionários
+     * @return Retorna um ArrayList com todos os funcionários
+     */
     @SuppressWarnings("unchecked")
     public static ArrayList<Funcionario> ler() {
         ArrayList<Funcionario> funcionarios = new ArrayList<>();
@@ -171,7 +182,11 @@ public class Funcionario implements Serializable {
         }
         return funcionarios;
     }
-
+     /**
+     * Método para remover um funcionário de uma posição especifica
+     * @param index Índice do funcionário a ser removido
+     * @param funcionarios ArrayListe com os funcionários que será utilizado para remover um funcionário
+     */
     public static void removerFuncionario(int index, ArrayList<Funcionario> funcionarios) {
         funcionarios.remove(index);
         Funcionario.escrever(funcionarios);

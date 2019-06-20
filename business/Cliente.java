@@ -87,6 +87,11 @@ public class Cliente implements Serializable {
         return Files.exists(getOSPath());
     }
 
+    
+    /**
+    * Método usado para salvar um cliente no arquivo de persistência
+    * @param clientes ArrayListe de clientes que será salvo no arquivo de persistência
+    */
     public static void escrever(ArrayList<Cliente> clientes) {
         FileOutputStream fos;
         ObjectOutputStream oos;
@@ -100,7 +105,12 @@ public class Cliente implements Serializable {
         } catch (IOException e) {
         }
     }
-
+    
+    /**
+     * Método usado para salvar um cliente no arquivo de persistência
+     * @param cliente Cliente que será adicionado no arquivo
+     * @param clientes ArrayListe de Cliente que será usado para adicionar um cliente no arquivo
+     */
     public static void escrever(Cliente cliente, ArrayList<Cliente> clientes) {
         FileOutputStream fos;
         ObjectOutputStream oos;
@@ -115,7 +125,10 @@ public class Cliente implements Serializable {
         } catch (IOException e) {
         }
     }
-
+     /**
+     * Método usado para pegar todos os clientes
+     * @return Retorna um ArrayList com todos os clientes
+     */
     public static ArrayList<Cliente> ler() {
         ArrayList<Cliente> clientes = new ArrayList<>();
         FileInputStream fis;
@@ -137,7 +150,11 @@ public class Cliente implements Serializable {
         }
         return clientes;
     }
-
+     /**
+     * Método para remover um cliente de uma posição especifica
+     * @param index Índice do cliente a ser removido
+     * @param clientes ArrayListe com os clientes que será utilizado para remover um cliente
+     */
     public static void remover(int index, ArrayList<Cliente> clientes) {
         clientes.remove(index);
         Cliente.escrever(clientes);

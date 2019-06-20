@@ -149,6 +149,10 @@ public class Contrato implements Serializable {
         return Files.exists(getOSPath());
     }
 
+    /**
+    * Método usado para salvar um contrato no arquivo de persistência
+    * @param contratos ArrayListe de contratos que será salvo no arquivo de persistência
+    */
     public static void escrever(ArrayList<Contrato> contratos) {
         FileOutputStream fos;
         ObjectOutputStream oos;
@@ -162,6 +166,11 @@ public class Contrato implements Serializable {
         } catch (IOException e) {
         }
     }
+    /**
+    * Método usado para salvar um contrato no arquivo de persistência
+    * @param contrato Contrato que será adicionado no arquivo
+    * @param contratos ArrayListe de Contrato que será usado para adicionar um contrato no arquivo
+    */
     public static void escrever(Contrato contrato, ArrayList<Contrato> contratos) {
         FileOutputStream fos;
         ObjectOutputStream oos;
@@ -177,7 +186,10 @@ public class Contrato implements Serializable {
         } catch (IOException e) {
         }
     }
-
+     /**
+     * Método usado para pegar todos os contratos
+     * @return Retorna um ArrayList com todos os contratos
+     */
     public static ArrayList<Contrato> ler() {
         ArrayList<Contrato> contratos = new ArrayList<>();
         FileInputStream fis;
@@ -201,6 +213,11 @@ public class Contrato implements Serializable {
         }
         return contratos;
     }
+     /**
+     * Método para remover um contrato de uma posição especifica
+     * @param index Índice do contrato a ser removido
+     * @param contratos ArrayListe com os contratos que será utilizado para remover um contrato
+     */
     public static void remover(int index, ArrayList<Contrato> contratos) {
         contratos.remove(index);
         Contrato.escrever(contratos);

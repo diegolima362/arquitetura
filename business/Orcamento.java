@@ -95,7 +95,11 @@ public class Orcamento implements Serializable {
     public static boolean getOrcamentoFileStatus() {
         return Files.exists(getOSPath());
     }
-
+    /**
+    * Método usado para salvar um orçamento no arquivo de persistência
+    * @param orcamento Orçamento que será adicionado no arquivo
+    * @param orcamentos ArrayListe de Orcamento que será usado para adicionar um orçamento no arquivo
+    */
     public static void escrever(Orcamento orcamento, ArrayList<Orcamento> orcamentos) {
         FileOutputStream fos;
         ObjectOutputStream oos;
@@ -111,7 +115,10 @@ public class Orcamento implements Serializable {
         } catch (IOException e) {
         }
     }
-
+    /**
+    * Método usado para salvar um orçamento no arquivo de persistência
+    * @param orcamentos ArrayListe de Orcamento que será salvo no arquivo de persistência
+    */
     public static void escrever(ArrayList<Orcamento> orcamentos) {
         FileOutputStream fos;
         ObjectOutputStream oos;
@@ -126,7 +133,10 @@ public class Orcamento implements Serializable {
         } catch (IOException e) {
         }
     }
-
+     /**
+     * Método usado para pegar todos os orçamentos
+     * @return Retorna um ArrayList com todos os orçamentos
+     */
     public static ArrayList<Orcamento> ler() {
         ArrayList<Orcamento> orcamentos = new ArrayList<>();
         FileInputStream fis;
@@ -149,7 +159,11 @@ public class Orcamento implements Serializable {
         }
         return orcamentos;
     }
-
+     /**
+     * Método para remover um orçamento de uma posição especifica
+     * @param index Índice do orçamento a ser removido
+     * @param orcamentos ArrayListe com os orçãmentos que será utilizado para remover um orçamento
+     */
     public static void remover(int index, ArrayList<Orcamento> orcamentos) {
         orcamentos.remove(index);
         Orcamento.escrever(orcamentos);

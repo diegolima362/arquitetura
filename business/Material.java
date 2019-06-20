@@ -105,7 +105,10 @@ public class Material implements Serializable {
     public static boolean getMaterialFileStatus() {
         return Files.exists(getOSPath());
     }
-
+    /**
+    * Método usado para salvar um material no arquivo de persistência
+    * @param materiais ArrayListe de Material que será salvo no arquivo de persistência
+    */
     public static void escrever(ArrayList<Material> materiais) {
         FileOutputStream fos;
         ObjectOutputStream oos;
@@ -121,7 +124,11 @@ public class Material implements Serializable {
         } catch (IOException e) {
         }
     }
-
+    /**
+    * Método usado para salvar um material no arquivo de persistência
+    * @param material Material que será adicionado no arquivo
+    * @param materiais ArrayListe de Material que será usado para adicionar um material no arquivo
+    */
     public static void escrever(Material material, ArrayList<Material> materiais) {
         FileOutputStream fos;
         ObjectOutputStream oos;
@@ -137,7 +144,10 @@ public class Material implements Serializable {
         } catch (IOException e) {
         }
     }
-
+     /**
+     * Método usado para pegar todos os materiais
+     * @return Retorna um ArrayList com todos os materiais
+     */
     public static ArrayList<Material> ler() {
         ArrayList<Material> materiais = new ArrayList<>();
         FileInputStream fis;
@@ -159,7 +169,12 @@ public class Material implements Serializable {
         }
         return materiais;
     }
-
+    
+     /**
+     * Método para remover um material de uma posição especifica
+     * @param index Índice do material a ser removido
+     * @param materiais ArrayListe com os materiais que será utilizado para remover um material
+     */
     public static void remover(int index, ArrayList<Material> materiais) {
         materiais.remove(index);
         Material.escrever(materiais);
