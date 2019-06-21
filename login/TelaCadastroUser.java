@@ -58,13 +58,14 @@ public class TelaCadastroUser extends javax.swing.JFrame {
         jPanelTelaCadastroUser.setPreferredSize(new java.awt.Dimension(300, 400));
 
         jTextFieldCadastroUser.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextFieldCadastroUser.setBorder(null);
+        jTextFieldCadastroUser.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jTextFieldCadastroUser.setPreferredSize(new java.awt.Dimension(200, 35));
 
         jPasswordFieldCadastroUser.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jPasswordFieldCadastroUser.setPreferredSize(new java.awt.Dimension(200, 35));
 
         jButtonCadastrarUser.setText("Cadastrar");
+        jButtonCadastrarUser.setBorder(null);
         jButtonCadastrarUser.setPreferredSize(new java.awt.Dimension(95, 35));
         jButtonCadastrarUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -89,6 +90,7 @@ public class TelaCadastroUser extends javax.swing.JFrame {
         jTextFieldCPF.setPreferredSize(new java.awt.Dimension(200, 35));
 
         jButtonCancelCad.setText("Voltar");
+        jButtonCancelCad.setBorder(null);
         jButtonCancelCad.setPreferredSize(new java.awt.Dimension(95, 35));
         jButtonCancelCad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -145,7 +147,7 @@ public class TelaCadastroUser extends javax.swing.JFrame {
                 .addGroup(jPanelTelaCadastroUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonCadastrarUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonCancelCad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

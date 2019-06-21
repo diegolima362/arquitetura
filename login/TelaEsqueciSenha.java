@@ -46,6 +46,7 @@ public class TelaEsqueciSenha extends javax.swing.JFrame {
         jPanelRecuperarDados.setPreferredSize(new java.awt.Dimension(300, 400));
 
         jButtonRecuperarDados.setText("Confirmar");
+        jButtonRecuperarDados.setBorder(null);
         jButtonRecuperarDados.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButtonRecuperarDados.setPreferredSize(new java.awt.Dimension(95, 35));
         jButtonRecuperarDados.addActionListener(new java.awt.event.ActionListener() {
@@ -55,9 +56,11 @@ public class TelaEsqueciSenha extends javax.swing.JFrame {
         });
 
         jTextFieldRecuperarDados.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextFieldRecuperarDados.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jTextFieldRecuperarDados.setPreferredSize(new java.awt.Dimension(200, 35));
 
         jButtonCancelarRecover.setText("Voltar");
+        jButtonCancelarRecover.setBorder(null);
         jButtonCancelarRecover.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButtonCancelarRecover.setPreferredSize(new java.awt.Dimension(95, 35));
         jButtonCancelarRecover.addActionListener(new java.awt.event.ActionListener() {

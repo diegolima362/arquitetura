@@ -39,16 +39,15 @@ public class TelaLogin extends javax.swing.JFrame {
         setTitle("Login");
         setResizable(false);
         setSize(new java.awt.Dimension(300, 400));
+        getContentPane().setLayout(new java.awt.BorderLayout());
 
         jPanelLogin.setBackground(new java.awt.Color(254, 254, 254));
         jPanelLogin.setPreferredSize(new java.awt.Dimension(300, 400));
 
         jTextFieldUsuario.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextFieldUsuario.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         jTextFieldUsuario.setPreferredSize(new java.awt.Dimension(250, 35));
 
         jPasswordSenha.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jPasswordSenha.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         jPasswordSenha.setPreferredSize(new java.awt.Dimension(250, 35));
 
         jLabelLogin.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
